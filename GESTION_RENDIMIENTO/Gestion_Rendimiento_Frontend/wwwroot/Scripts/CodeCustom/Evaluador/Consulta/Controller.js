@@ -575,6 +575,9 @@
                 var padre = $(parent).parent().parent();
                 var indice = base.Parameters.TableAutorizador.row(padre).index();
                 var dataModel = base.Parameters.TableAutorizador.row(indice).data();
+
+
+
                 var mensaje = "¿Estás seguro de anular el registro ?";
                 //if (dataModel.FLG_ESTADO == "0") {
                 //    mensaje = "¿Estás seguro de activar el registro ?";
