@@ -1,0 +1,118 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Gestion Rendimiento</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="SHORTCUT ICON" type="image/png" href="@Url.Content("~/")favicon.ico" />
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400italic,500,700">
+
+    <link rel="stylesheet" href="@Url.Content("~/css/vendor.min.css")">
+    <link rel="stylesheet" href="@Url.Content("~/css/elephant.min.css")">
+    <link rel="stylesheet" href="@Url.Content("~/css/application.min.css")">
+    <link rel="stylesheet" href="@Url.Content("~/css/login-2.css")">
+
+    <style type="text/css">
+
+
+        .navbar-brand-logo {
+            height: 50px !important;
+        }
+
+        .navbar-brand {
+            padding: 6px 15px !important;
+        }
+        /* clases para mostrar cargando en la pagina*/
+        .modal-backdrop {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 1040;
+            background-color: #000;
+        }
+
+            .modal-backdrop.fade {
+                filter: alpha(opacity=0);
+                opacity: 0;
+            }
+
+            .modal-backdrop.in {
+                filter: alpha(opacity=50);
+                opacity: .5;
+            }
+
+            .modal-backdrop.show {
+                opacity: 1;
+                background-color: rgba(87,87,86,0.5);
+            }
+    </style>
+
+</head>
+
+
+<body>
+    <div class="layout-header" style="min-height:70px;">
+        <div class="navbar navbar-default bg-primary" style="margin-bottom: 0px !important;min-height:70px;background-color:#bf0908;">
+            <div class="navbar-header">
+                <img class="navbar-brand-logo" src="@Url.Content("~/")img/logo.jpg">
+            </div>
+        </div>
+    </div>
+    <div class="login">
+        <div class="login-body">
+            <h1 class="signup-heading text-center">Iniciar Sessión</h1>
+            <h5 class="signup-heading text-center">
+                Ingrese su usuario y contraseña de la red
+            </h5>
+            <div class="signup-divider">
+                <div class="divider">
+                    <div class="divider-content"></div>
+                </div>
+            </div>
+            <div class="login-form">
+                <form data-toggle="validator" id="frmModel" name="frmModel">
+                    <div class="form-group">
+                        <label for="Usuario">Usuario</label>
+                        <input id="Usuario" class="form-control" type="text" name="Usuario" required maxlength="50">
+                    </div>
+                    <div class="form-group">
+                        <label for="Clave">Contraseña</label>
+                        <input id="Clave" class="form-control" type="password" name="Clave" required maxlength="50">
+                    </div>
+                    <br />
+                    <button class="btn btn-default btn-block" id="btnIngresar" name="btnIngresar" type="button">
+                        Ingresar
+                        <i class="icon icon-long-arrow-right icon-lg m-l-sm"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+    <script type="text/javascript">
+        var baseUrl = "@Url.Content("~/")";
+    </script>
+    <script src="@Url.Content("~/js/vendor.min.js")"></script>
+    <script src="@Url.Content("~/js/elephant.min.js")"></script>
+    <script src="@Url.Content("~/js/application.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/jquery-migrate-1.0.0.js")"></script>
+    <script src="@Url.Content("~/Scripts/jquery.form.js")"></script>
+    <script src="@Url.Content("~/Scripts/Validar.js")"></script>
+
+ 
+
+
+</body>
+
+
+</html>
+<div class="contenedoralerta"> </div>
+<div class="contenedorconfirmacion"></div>
+
+

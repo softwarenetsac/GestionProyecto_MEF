@@ -1,0 +1,12 @@
+D:\proyectos\MEF\GESTION_PROYECTO\FUENTE\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Common\bin\Debug\net5.0\Gestion_Rendimiento_Common.deps.json
+D:\proyectos\MEF\GESTION_PROYECTO\FUENTE\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Common\bin\Debug\net5.0\Gestion_Rendimiento_Common.dll
+D:\proyectos\MEF\GESTION_PROYECTO\FUENTE\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Common\bin\Debug\net5.0\ref\Gestion_Rendimiento_Common.dll
+D:\proyectos\MEF\GESTION_PROYECTO\FUENTE\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Common\bin\Debug\net5.0\Gestion_Rendimiento_Common.pdb
+D:\proyectos\MEF\GESTION_PROYECTO\FUENTE\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Common\obj\Debug\net5.0\Gestion_Rendimiento_Common.GeneratedMSBuildEditorConfig.editorconfig
+D:\proyectos\MEF\GESTION_PROYECTO\FUENTE\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Common\obj\Debug\net5.0\Gestion_Rendimiento_Common.AssemblyInfoInputs.cache
+D:\proyectos\MEF\GESTION_PROYECTO\FUENTE\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Common\obj\Debug\net5.0\Gestion_Rendimiento_Common.AssemblyInfo.cs
+D:\proyectos\MEF\GESTION_PROYECTO\FUENTE\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Common\obj\Debug\net5.0\Gestion_Rendimiento_Common.csproj.CoreCompileInputs.cache
+D:\proyectos\MEF\GESTION_PROYECTO\FUENTE\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Common\obj\Debug\net5.0\Gestion_Rendimiento_Common.dll
+D:\proyectos\MEF\GESTION_PROYECTO\FUENTE\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Common\obj\Debug\net5.0\ref\Gestion_Rendimiento_Common.dll
+D:\proyectos\MEF\GESTION_PROYECTO\FUENTE\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Common\obj\Debug\net5.0\Gestion_Rendimiento_Common.pdb
+D:\proyectos\MEF\GESTION_PROYECTO\FUENTE\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Common\obj\Debug\net5.0\Gestion_Rendimiento_Common.csproj.AssemblyReference.cache

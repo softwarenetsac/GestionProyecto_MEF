@@ -1,0 +1,191 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\proyectos\\MEF\\GESTION_PROYECTO\\FUENTE\\GestionProyecto_MEF\\GESTION_RENDIMIENTO\\Gestion_Rendimiento_Data\\Gestion_Rendimiento_Data.csproj": {}
+  },
+  "projects": {
+    "D:\\proyectos\\MEF\\GESTION_PROYECTO\\FUENTE\\GestionProyecto_MEF\\GESTION_RENDIMIENTO\\Gestion_Rendimiento_Common\\Gestion_Rendimiento_Common.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\proyectos\\MEF\\GESTION_PROYECTO\\FUENTE\\GestionProyecto_MEF\\GESTION_RENDIMIENTO\\Gestion_Rendimiento_Common\\Gestion_Rendimiento_Common.csproj",
+        "projectName": "Gestion_Rendimiento_Common",
+        "projectPath": "D:\\proyectos\\MEF\\GESTION_PROYECTO\\FUENTE\\GestionProyecto_MEF\\GESTION_RENDIMIENTO\\Gestion_Rendimiento_Common\\Gestion_Rendimiento_Common.csproj",
+        "packagesPath": "C:\\Users\\USUARIO\\.nuget\\packages\\",
+        "outputPath": "D:\\proyectos\\MEF\\GESTION_PROYECTO\\FUENTE\\GestionProyecto_MEF\\GESTION_RENDIMIENTO\\Gestion_Rendimiento_Common\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\USUARIO\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.410\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\proyectos\\MEF\\GESTION_PROYECTO\\FUENTE\\GestionProyecto_MEF\\GESTION_RENDIMIENTO\\Gestion_Rendimiento_Data\\Gestion_Rendimiento_Data.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\proyectos\\MEF\\GESTION_PROYECTO\\FUENTE\\GestionProyecto_MEF\\GESTION_RENDIMIENTO\\Gestion_Rendimiento_Data\\Gestion_Rendimiento_Data.csproj",
+        "projectName": "Gestion_Rendimiento_Data",
+        "projectPath": "D:\\proyectos\\MEF\\GESTION_PROYECTO\\FUENTE\\GestionProyecto_MEF\\GESTION_RENDIMIENTO\\Gestion_Rendimiento_Data\\Gestion_Rendimiento_Data.csproj",
+        "packagesPath": "C:\\Users\\USUARIO\\.nuget\\packages\\",
+        "outputPath": "D:\\proyectos\\MEF\\GESTION_PROYECTO\\FUENTE\\GestionProyecto_MEF\\GESTION_RENDIMIENTO\\Gestion_Rendimiento_Data\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\USUARIO\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "D:\\proyectos\\MEF\\GESTION_PROYECTO\\FUENTE\\GestionProyecto_MEF\\GESTION_RENDIMIENTO\\Gestion_Rendimiento_Common\\Gestion_Rendimiento_Common.csproj": {
+                "projectPath": "D:\\proyectos\\MEF\\GESTION_PROYECTO\\FUENTE\\GestionProyecto_MEF\\GESTION_RENDIMIENTO\\Gestion_Rendimiento_Common\\Gestion_Rendimiento_Common.csproj"
+              },
+              "D:\\proyectos\\MEF\\GESTION_PROYECTO\\FUENTE\\GestionProyecto_MEF\\GESTION_RENDIMIENTO\\Gestion_Rendimiento_Entity\\Gestion_Rendimiento_Entity.csproj": {
+                "projectPath": "D:\\proyectos\\MEF\\GESTION_PROYECTO\\FUENTE\\GestionProyecto_MEF\\GESTION_RENDIMIENTO\\Gestion_Rendimiento_Entity\\Gestion_Rendimiento_Entity.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.3, )"
+            },
+            "Oracle.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.21.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.410\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\proyectos\\MEF\\GESTION_PROYECTO\\FUENTE\\GestionProyecto_MEF\\GESTION_RENDIMIENTO\\Gestion_Rendimiento_Entity\\Gestion_Rendimiento_Entity.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\proyectos\\MEF\\GESTION_PROYECTO\\FUENTE\\GestionProyecto_MEF\\GESTION_RENDIMIENTO\\Gestion_Rendimiento_Entity\\Gestion_Rendimiento_Entity.csproj",
+        "projectName": "Gestion_Rendimiento_Entity",
+        "projectPath": "D:\\proyectos\\MEF\\GESTION_PROYECTO\\FUENTE\\GestionProyecto_MEF\\GESTION_RENDIMIENTO\\Gestion_Rendimiento_Entity\\Gestion_Rendimiento_Entity.csproj",
+        "packagesPath": "C:\\Users\\USUARIO\\.nuget\\packages\\",
+        "outputPath": "D:\\proyectos\\MEF\\GESTION_PROYECTO\\FUENTE\\GestionProyecto_MEF\\GESTION_RENDIMIENTO\\Gestion_Rendimiento_Entity\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\USUARIO\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "D:\\proyectos\\MEF\\GESTION_PROYECTO\\FUENTE\\GestionProyecto_MEF\\GESTION_RENDIMIENTO\\Gestion_Rendimiento_Common\\Gestion_Rendimiento_Common.csproj": {
+                "projectPath": "D:\\proyectos\\MEF\\GESTION_PROYECTO\\FUENTE\\GestionProyecto_MEF\\GESTION_RENDIMIENTO\\Gestion_Rendimiento_Common\\Gestion_Rendimiento_Common.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.410\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

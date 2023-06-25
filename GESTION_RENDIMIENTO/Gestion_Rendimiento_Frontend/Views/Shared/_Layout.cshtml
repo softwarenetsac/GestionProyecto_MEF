@@ -1,0 +1,360 @@
+﻿@using Gestion_Rendimiento_Frontend.Recursos.Shared;
+@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>SISTEMA ORH</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <meta name="description" content="Gestion Rendimiento">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="SHORTCUT ICON" type="image/png" href="@Url.Content("~/")favicon.ico" />
+
+    <link rel="mask-icon" href="safari-pinned-tab.svg" color="#d9230f">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400italic,500,700">
+
+    <link rel="stylesheet" href="@Url.Content("~/css/vendor.min.css")">
+    <link rel="stylesheet" href="@Url.Content("~/css/elephant.min.css")">
+    <link rel="stylesheet" href="@Url.Content("~/css/application.min.css")">
+    <link rel="stylesheet" href="@Url.Content("~/css/wizard.css")">
+    <link rel="stylesheet" href="@Url.Content("~/css/select.dataTables.min.css")">
+    <link rel="stylesheet" href="@Url.Content("~/Scripts/Componentes/Progressbar/ProgressBar.css")">
+    <link rel="stylesheet" href="@Url.Content("~/Scripts/Componentes/Dialog/Dialog.css")">
+    <link rel="stylesheet" href="@Url.Content("~/Scripts/Componentes/Mensaje/Message.css")">
+
+    <script src="@Url.Content("~/Scripts/ns.js")"></script>
+
+
+    <style type="text/css">
+        body {
+            color: #575756 !important;
+        }
+
+        .form-control {
+            color: #575756 !important;
+        }
+
+        .modal-backdrop {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 1040;
+            background-color: #000;
+        }
+
+            .modal-backdrop.fade {
+                filter: alpha(opacity=0);
+                opacity: 0;
+            }
+
+            .modal-backdrop.in {
+                filter: alpha(opacity=50);
+                opacity: .5;
+            }
+
+            .modal-backdrop.show {
+                opacity: 1;
+                background-color: rgba(87,87,86,0.5);
+            }
+
+        .ui-timepicker-wrapper {
+            z-index: 99999999 !important;
+        }
+
+        .navbar-brand-logo {
+            height: 38px !important;
+        }
+
+        .navbar-brand {
+            padding: 6px 15px !important;
+        }
+    </style>
+
+</head>
+
+
+@{
+
+    var usuario_nombre = "";
+    var autenticacion = "";
+    var menu = "";
+    var Id_Personal = HttpContextAccessor.HttpContext.User.Claims.FirstOrDefault(c => c.Type == "Id_Personal")?.Value;
+    usuario_nombre = HttpContextAccessor.HttpContext.User.Claims.FirstOrDefault(c => c.Type == "Nombre")?.Value;
+    menu = HttpContextAccessor.HttpContext.User.Claims.FirstOrDefault(c => c.Type == "Menu")?.Value;
+    autenticacion = HttpContextAccessor.HttpContext.User.Claims.FirstOrDefault(c => c.Type == "Autenticacion")?.Value;
+}
+
+<body class="layout layout-header-fixed">
+
+    <div class="layout-header">
+        <div class="navbar navbar-default">
+
+
+            <div class="navbar-header">
+                <a class="navbar-brand navbar-brand-center" asp-area="" asp-controller="Pänel" asp-action="Index">
+                    <img class="navbar-brand-logo" src="@Url.Content("~/")img/logo.jpg">
+                </a>
+                <button class="navbar-toggler visible-xs-block collapsed" type="button" data-toggle="collapse" data-target="#sidenav">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="bars">
+                        <span class="bar-line bar-line-1 out"></span>
+                        <span class="bar-line bar-line-2 out"></span>
+                        <span class="bar-line bar-line-3 out"></span>
+                    </span>
+                    <span class="bars bars-x">
+                        <span class="bar-line bar-line-4"></span>
+                        <span class="bar-line bar-line-5"></span>
+                    </span>
+                </button>
+                <button class="navbar-toggler visible-xs-block collapsed" type="button" data-toggle="collapse" data-target="#navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="arrow-up"></span>
+                    <span class="ellipsis ellipsis-vertical">
+                        <img class="ellipsis-object" width="32" height="32" src="@Url.Content("~/")img/0180441436.jpg" alt="">
+                    </span>
+                </button>
+            </div>
+
+            <div class="navbar-toggleable">
+                <nav id="navbar" class="navbar-collapse collapse">
+                    <button class="sidenav-toggler hidden-xs" title="" aria-expanded="true" type="button">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="bars">
+                            <span class="bar-line bar-line-1 out"></span>
+                            <span class="bar-line bar-line-2 out"></span>
+                            <span class="bar-line bar-line-3 out"></span>
+                            <span class="bar-line bar-line-4 in"></span>
+                            <span class="bar-line bar-line-5 in"></span>
+                            <span class="bar-line bar-line-6 in"></span>
+                        </span>
+                    </button>
+                    <h3 class="navbar-text m-b-0 m-t-md m-l-sm">
+                        <span class="" style="color:#b4841d"><b>ORH</b>  </span> |
+                        <span class="h4"><small><b>SISTEMA DE GESTION DE RENDIMIENTO</b></small></span>
+                    </h3>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="">
+                            <a asp-area="" asp-controller="Dashboard" asp-action="Index" role="button">
+                                @*<a href="@Url.Content("~")Contrato/Dashboard/Index" role="button">*@
+
+                                <span class="hidden-xs">
+                                    <span class="icon icon-home icon-lg"></span>
+                                </span>
+                            </a>
+                        </li>
+                        <li class="visible-xs-block">
+                            <h4 class="navbar-text text-center">Hola, @usuario_nombre</h4>
+                        </li>
+                        <li class="dropdown hidden-xs m-t-sm">
+                            <button class="navbar-account-btn" data-toggle="dropdown" aria-haspopup="true">
+                                <i class="icon icon-user icon-lg m-r-sm"></i>
+                                @usuario_nombre
+
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-right">
+
+                                <li><a asp-area="" asp-controller="Login" asp-action="Salir">  Cerrar Session</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="visible-xs-block">
+                            <a asp-area="" asp-controller="Login" asp-action="Salir">
+                                <span class="icon icon-power-off icon-lg icon-fw"></span>
+                                Cerrar Session
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="layout-main">
+
+        <div class="layout-sidebar hidden-print">
+            <div class="layout-sidebar-backdrop"></div>
+            <div class="layout-sidebar-body">
+                <div class="custom-scrollbar">
+                    <nav id="sidenav" class="sidenav-collapse collapse">
+                        <ul class="sidenav">
+
+                            @{
+                                if (autenticacion == "1")
+                                {
+                                    @Html.Raw(menu)
+                                }
+                                else
+                                {
+                                    <li class="sidenav-heading">Opciones</li>
+
+                                    <li class="sidenav-item has-subnav">
+                                        <a asp-area="" asp-controller="Panel" asp-action="Index" role="button">
+                                            <span class="sidenav-icon icon icon-home"></span>
+                                            <span class="sidenav-label">Inicio</span>
+                                        </a>
+                                    </li>
+
+
+                                    <li class="sidenav-item has-subnav">
+                                        <a href="#" aria-haspopup="true">
+
+                                            <span class="sidenav-icon icon icon-user-plus"></span>
+                                            <span class="sidenav-label">Administracion ORH</span>
+                                        </a>
+                                        <ul class="sidenav-subnav collapse">
+                                            <li class="sidenav-subheading">Administracion ORH</li>
+                                            <li><a asp-area="" asp-controller="Evaluador" asp-action="Evaluado">Evaluado</a></li>
+                                            <li><a asp-area="" asp-controller="Evaluador" asp-action="index">Evaluador</a></li>
+                                        </ul>
+                                    </li>
+
+
+
+                                    <li class="sidenav-item has-subnav">
+                                        <a href="#" aria-haspopup="true">
+                                            <span class="sidenav-icon icon icon-user"></span>
+                                            <span class="sidenav-label">Colaborador</span>
+                                        </a>
+                                        <ul class="sidenav-subnav collapse">
+                                            <li class="sidenav-subheading">Colaborador</li>
+                                            <li><a asp-area="" asp-controller="Proyecto" asp-action="Index">Gestion Rendimiento</a></li>
+                                        </ul>
+                                    </li>
+
+                                    <li class="sidenav-item has-subnav">
+                                        <a href="#" aria-haspopup="true">
+
+                                            <span class="sidenav-icon icon icon-user-plus"></span>
+                                            <span class="sidenav-label">Responsable</span>
+                                        </a>
+                                        <ul class="sidenav-subnav collapse">
+                                            <li class="sidenav-subheading">Responsable</li>
+                                            <li><a asp-area="" asp-controller="Proyecto" asp-action="Seguimiento">Seguimiento</a></li>
+                                        </ul>
+                                    </li>
+
+                                }
+
+
+
+                            }
+
+
+                        </ul>
+                    </nav>
+
+                </div>
+
+
+            </div>
+            <div class="text-center m-t-lg hidden-xs">
+                <!-- Sidebar Toggler (Sidebar) -->
+                <button class='sidenav-toggler' style="display:unset!important;float:unset !important" title="Ocultar / Mostrar">
+                    <i class="icon icon-chevron-circle-left icon-3x"></i>
+                </button>
+            </div>
+        </div>
+        <div id="contentModalInformation"></div>
+        <div id="contentModalWarning"></div>
+        <div id="contentModalConfirm"></div>
+        <div class="layout-content">
+            <div class="layout-content-body">
+                @RenderBody()
+            </div>
+        </div>
+
+        <div class="layout-footer">
+            <div class="layout-footer-body">
+                <small class="version">Version 1.0</small>
+                <small class="copyright">@DateTime.Now.Year.ToString() &copy; ORH-MEF</small>
+            </div>
+        </div>
+    </div>
+
+    @RenderSection("Modales", required: false)
+    <script src="@Url.Content("~/js/vendor.min.js?id=6.6")"></script>
+    <script src="@Url.Content("~/js/elephant.min.js")"></script>
+    <script src="@Url.Content("~/js/application.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/general.js?id=9")"></script>
+    <script src="@Url.Content("~/js/bootstrap-datepicker.es.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/jquery-migrate-1.0.0.js")"></script>
+    <script src="@Url.Content("~/Scripts/JQuery/jquery-ui.1.12.0.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/js/dataTables.select.min.js?id=9")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/JQuery/jquery.redirect.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/knockout.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/Componentes/Progressbar/Progressbar.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/Componentes/AjaxUtilidad/AjaxComponente.js?id=1.1")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/Componentes/Dialog/Dialog.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/Componentes/Mensaje/Message.js")" type="text/javascript"></script>
+
+
+
+
+    @RenderSection("Scripts", required: false)
+
+    <script type="text/javascript">
+        var baseUrl = "@Url.Content("~/")";
+    </script>
+
+</body>
+
+
+
+
+</html>
+<style type="text/css">
+    .navbar-brand-logo {
+        height: 38px !important;
+    }
+
+    .navbar-brand {
+        padding: 6px 15px !important;
+    }
+</style>
+
+<script type="text/javascript">
+
+    
+    ns('SoftwareNet.DJ.Web.Shared.General.Resources');
+    SoftwareNet.DJ.Web.Shared.General.Resources.EtiquetaCargando = '@Html.Raw(GeneralRecurso.EtiquetaCargando)';
+    SoftwareNet.DJ.Web.Shared.General.Resources.EtiquetaInformacion = '@Html.Raw(GeneralRecurso.EtiquetaInformacion)';
+    SoftwareNet.DJ.Web.Shared.General.Resources.EtiquetaAceptarConfirmacion = '@Html.Raw(GeneralRecurso.EtiquetaAceptar)';
+    SoftwareNet.DJ.Web.Shared.General.Resources.EtiquetaCancelarConfirmacion = '@Html.Raw(GeneralRecurso.EtiquetaCancelar)';
+    SoftwareNet.DJ.Web.Shared.General.Resources.EtiquetaConfirmacion = '@Html.Raw(GeneralRecurso.EtiquetaConfirmacion)';
+    SoftwareNet.DJ.Web.Shared.General.Resources.EtiquetaAdvertencia = '@Html.Raw(GeneralRecurso.EtiquetaAdvertencia)';
+    SoftwareNet.DJ.Web.Shared.General.Resources.EtiquetaSeleccionar = '@Html.Raw(GeneralRecurso.EtiquetaSeleccionar)';
+
+    SoftwareNet.DJ.Web.Shared.General.Resources.EtiquetaTodos = '@Html.Raw(GeneralRecurso.EtiquetaTodos)';
+
+
+    ns('SoftwareNet.DJ.Web.Shared.Mensaje.Resources');
+    SoftwareNet.DJ.Web.Shared.Mensaje.Resources.EtiquetaConfirmacion = '@Html.Raw(MensajeRecurso.ConfirmacionGuardar)';
+    SoftwareNet.DJ.Web.Shared.Mensaje.Resources.EtiquetaConfirmacionAnular = '@Html.Raw(MensajeRecurso.ConfirmacionAnular)';
+    SoftwareNet.DJ.Web.Shared.Mensaje.Resources.EtiquetaGuardoExito = '@Html.Raw(MensajeRecurso.SeGuardoInformacionExito)';
+    SoftwareNet.DJ.Web.Shared.Mensaje.Resources.EtiquetaEliminoExito = '@Html.Raw(MensajeRecurso.SeEliminoInformacionExito)';
+    SoftwareNet.DJ.Web.Shared.Mensaje.Resources.EtiquetaEjecutoNingunProceso = '@Html.Raw(MensajeRecurso.EjecutoNingunProceso)';
+    SoftwareNet.DJ.Web.Shared.Mensaje.Resources.EtiquetaAnuloExito = '@Html.Raw(MensajeRecurso.SeAnuloRegistro)';
+    SoftwareNet.DJ.Web.Shared.Mensaje.Resources.DebeGuardarDatosGenerales = '@Html.Raw(MensajeRecurso.DebeGuardarDatosGenerales)';
+    SoftwareNet.DJ.Web.Shared.Mensaje.Resources.EtiquetaConfirmacionEliminar = '@Html.Raw(MensajeRecurso.ConfirmacionEliminar)';
+   
+</script>
+
+
+<script>
+    function disableBack() { window.history.forward() }
+    window.onload = disableBack();
+    window.onpageshow = function (evt) { if (evt.persisted) disableBack() }
+</script>
+<script type="text/javascript">
+
+    General.BlockPageInspecSolugen(false);
+
+</script>

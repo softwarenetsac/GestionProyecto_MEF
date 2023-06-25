@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Gestion_Rendimiento_Common\Gestion_Rendimiento_Common.csproj" />
+  </ItemGroup>
+
+</Project>

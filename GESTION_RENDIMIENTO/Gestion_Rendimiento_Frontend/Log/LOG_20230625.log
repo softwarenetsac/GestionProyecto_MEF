@@ -1,0 +1,52 @@
+25/06/2023 04:03:24: [mensaje: CONEXION LOCAL CON EL USUARIO ADMIN
+25/06/2023 04:03:24: [mensaje: USUARIO= ADMIN
+25/06/2023 04:06:53: [mensaje: An error occurred while updating the entries. See the inner exception for details.
+25/06/2023 04:12:05: [mensaje: An error occurred while updating the entries. See the inner exception for details.
+25/06/2023 04:12:19: [mensaje: An error occurred while updating the entries. See the inner exception for details.
+25/06/2023 04:12:26: [mensaje: An error occurred while updating the entries. See the inner exception for details.
+25/06/2023 04:13:10: [mensaje: An error occurred while updating the entries. See the inner exception for details.
+25/06/2023 04:14:18: [mensaje: ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'SEGURIDAD.PCK_SEEGURIDAD_LDAP' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/06/2023 04:14:40: [mensaje: EnviarCorreoElectronico= Failure sending mail.
+25/06/2023 04:17:17: [mensaje: CONEXION LOCAL CON EL USUARIO ADMIN
+25/06/2023 04:17:17: [mensaje: USUARIO= ADMIN
+25/06/2023 12:09:34: [mensaje: CONEXION LOCAL CON EL USUARIO ADMIN
+25/06/2023 12:09:34: [mensaje: USUARIO= ADMIN
+25/06/2023 12:44:53: [mensaje: CONEXION LOCAL CON EL USUARIO ADMIN
+25/06/2023 12:44:53: [mensaje: USUARIO= ADMIN
+25/06/2023 12:53:50: [mensaje: ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'SEGURIDAD.PCK_SEEGURIDAD_LDAP' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/06/2023 12:54:11: [mensaje: EnviarCorreoElectronico= Failure sending mail.
+25/06/2023 12:58:09: [mensaje: ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'SEGURIDAD.PCK_SEEGURIDAD_LDAP' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/06/2023 12:58:30: [mensaje: EnviarCorreoElectronico= Failure sending mail.
+25/06/2023 13:02:08: [mensaje: ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'SEGURIDAD.PCK_SEEGURIDAD_LDAP' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/06/2023 13:02:29: [mensaje: EnviarCorreoElectronico= Failure sending mail.
+25/06/2023 13:03:17: [mensaje: CONEXION LOCAL CON EL USUARIO ADMIN
+25/06/2023 13:03:17: [mensaje: USUARIO= ADMIN
+25/06/2023 13:04:49: [mensaje: CONEXION LOCAL CON EL USUARIO ADMIN
+25/06/2023 13:04:49: [mensaje: USUARIO= ADMIN
+25/06/2023 13:08:09: [mensaje: CONEXION LOCAL CON EL USUARIO ADMIN
+25/06/2023 13:08:09: [mensaje: USUARIO= ADMIN
+25/06/2023 13:08:59: [mensaje: CONEXION LOCAL CON EL USUARIO ADMIN
+25/06/2023 13:08:59: [mensaje: USUARIO= ADMIN
+25/06/2023 13:09:19: [mensaje: ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'SEGURIDAD.PCK_SEEGURIDAD_LDAP' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/06/2023 13:09:40: [mensaje: EnviarCorreoElectronico= Failure sending mail.
+25/06/2023 14:14:55: [mensaje: CONEXION LOCAL CON EL USUARIO ADMIN
+25/06/2023 14:14:55: [mensaje: USUARIO= ADMIN
+25/06/2023 15:12:04: [mensaje: ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'SEGURIDAD.PCK_SEEGURIDAD_LDAP' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored

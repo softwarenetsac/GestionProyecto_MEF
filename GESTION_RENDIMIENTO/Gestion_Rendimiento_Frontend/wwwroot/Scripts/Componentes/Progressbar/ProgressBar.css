@@ -1,0 +1,16 @@
+﻿.no-close-dialog .ui-dialog-titlebar-close {
+    display: none;
+}
+
+.progressBar-SoftwareNet {
+    margin-top: 15px;
+}
+.spinner {
+/*.progressBar-SoftwareNet-label {*/
+    position: absolute;
+    left: 50%;
+    top: 4px;
+    margin-left: -48px;
+    font-weight: bold;
+    text-shadow: 1px 1px 0 #fff;
+}
