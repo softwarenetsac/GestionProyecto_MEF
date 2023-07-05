@@ -55,22 +55,6 @@
             FrmRegistroAutorizador: {
                 hdnIdAutorizador: function () { return $("#hdnIdAutorizador"); },
                 ddlTitular: function () { return $("#ddlTitular"); },
-
-                /*ddlAlterno: function () { return $("#ddlAlterno"); },
-                txtFechaInicioTitular: function () { return $("#txtFechaInicioTitular"); },
-                txtFechaFinalTitular: function () { return $("#txtFechaFinalTitular"); },
-                txtFechaInicioAlterno: function () { return $("#txtFechaInicioAlterno"); },
-                txtFechaFinalAlterno: function () { return $("#txtFechaFinalAlterno"); },
-                chkIndefinidoTitular: function () { return $("#chkIndefinidoTitular"); },
-                chkIndefinidoAlterno: function () { return $("#chkIndefinidoAlterno"); },
-                txtNumeroMemoTitular: function () { return $("#txtNumeroMemoTitular"); },
-                txtFechaMemoTitular: function () { return $("#txtFechaMemoTitular"); },
-                txtObservacionTitular: function () { return $("#txtObservacionTitular"); },
-                txtNumeroMemoAlterno: function () { return $("#txtNumeroMemoAlterno"); },
-                txtFechaMemoAlterno: function () { return $("#txtFechaMemoAlterno"); },
-                txtObservacionAlterno: function () { return $("#txtObservacionAlterno"); },
-                ddlTipo: function () { return $("#ddlTipo"); },
-                */
                 BotonGuardar: function () { return $("#btnConfirmarGuardar"); },
                 DdlGrupoAsistencia: function () { return $("#ddlGrupoAsistencia"); },
                 DllOrgano: function () { return $("#ID_AREA_REGISTRO"); },
@@ -187,7 +171,6 @@
 
             AjaxAutorizadorGuardarSuccess: function (data) {
                 if (data.Success) {
-                    debugger;
                     base.Control.Mensaje.Information({ message: SoftwareNet.DJ.Web.Shared.Mensaje.Resources.EtiquetaGuardoExito })
                         .InformationClose({
                             callback: function (opt) {

@@ -156,3 +156,5 @@ D:\proyectos\MEF\GESTION_PROYECTO\FUENTE\GestionProyecto_MEF\GESTION_RENDIMIENTO
 D:\proyectos\MEF\GESTION_PROYECTO\FUENTE\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\obj\Debug\net5.0\Razor\Views\Evaluador\Index.cshtml.g.cs
 D:\proyectos\MEF\GESTION_PROYECTO\FUENTE\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\DocumentFormat.OpenXml.dll
 D:\proyectos\MEF\GESTION_PROYECTO\FUENTE\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\System.IO.Packaging.dll
+D:\proyectos\MEF\GESTION_PROYECTO\FUENTE\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\obj\Debug\net5.0\Razor\Views\Evaluado\Index.cshtml.g.cs
+D:\proyectos\MEF\GESTION_PROYECTO\FUENTE\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\obj\Debug\net5.0\Razor\Views\Rendimiento\Index.cshtml.g.cs
