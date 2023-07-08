@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Gestion_Rendimiento_Entity
 {
-    [Table("V_PERSONAL_GENERAL_GP")]
+    [Table("V_PERSONAL_GENERAL_GR")]
     public   class Persona
     {
         [Key]

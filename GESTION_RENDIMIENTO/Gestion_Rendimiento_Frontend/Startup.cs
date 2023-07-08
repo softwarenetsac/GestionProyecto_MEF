@@ -65,6 +65,8 @@ namespace Gestion_Rendimiento_Frontend
             services.AddScoped<IUsuarioService, UsuarioService>();
             services.AddScoped<IVariableService, VariableService>();
             services.AddScoped<IEvaluadorService, EvaluadorService>();
+            services.AddScoped<IConfiguracionRendimientoService, ConfiguracionRendimientoService>();
+            
 
             services.Configure<CookiePolicyOptions>(options =>
             {

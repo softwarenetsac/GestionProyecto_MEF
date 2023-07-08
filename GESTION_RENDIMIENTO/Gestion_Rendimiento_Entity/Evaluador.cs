@@ -12,8 +12,6 @@ namespace Gestion_Rendimiento_Entity
     {
         [Key]
         public int ID_EVALUADOR { get; set; }
-
-
         public string ID_PERSONA_JEFE { get; set; }
         public string ID_PERSONA_ALTERNO { get; set; }
         public string FLG_AUTORIZADOR { get; set; }

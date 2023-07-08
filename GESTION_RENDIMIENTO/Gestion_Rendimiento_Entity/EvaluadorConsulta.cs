@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Gestion_Rendimiento_Entity
 {
-    [Table("V_EVALUADOR_CONSULTA_GP")]
+    [Table("V_EVALUADOR_CONSULTA_GR")]
     public   class EvaluadorConsulta
     {
         [Key]

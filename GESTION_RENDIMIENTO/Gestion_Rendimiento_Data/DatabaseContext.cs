@@ -26,8 +26,12 @@ namespace Gestion_Rendimiento_Data
         public virtual DbSet<Variable> Variable { get; set; }
         public virtual DbSet<EvaluadorConsulta> EvaluadorConsulta { get; set; }
 
+        public virtual DbSet<TipoGestionRendimiento> TipoGestionRendimiento { get; set; }
+        public virtual DbSet<ConfiguracionRendimiento> ConfiguracionRendimiento { get; set; }
+        public virtual DbSet<ConfiguracionDetalle> ConfiguracionDetalle { get; set; }
 
-        
+
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

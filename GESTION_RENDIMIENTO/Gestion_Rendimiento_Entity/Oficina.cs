@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Gestion_Rendimiento_Entity
 {
-    [Table("V_OFICINA_GP")]
+    [Table("V_OFICINA_GR")]
     public class Oficina
     {
         [Key]

@@ -15,8 +15,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
-using System.Threading.Tasks;
-using static Microsoft.AspNetCore.Razor.Language.TagHelperMetadata;
 
 namespace Gestion_Rendimiento_Frontend.Controllers
 {
