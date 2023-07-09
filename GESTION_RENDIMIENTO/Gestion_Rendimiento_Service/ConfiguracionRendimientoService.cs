@@ -59,6 +59,33 @@ namespace Gestion_Rendimiento_Service
             return listaDetalle;
         }
 
-      
+        public IEnumerable<ConfiguracionDetalleModel> GetAllDetalle(ConfiguracionDetalleModel modelo)
+        {
+            IEnumerable<ConfiguracionDetalleModel> listaDetalle;
+            try
+            {
+                listaDetalle = (from e in _context.ConfiguracionRendimiento
+                                join d in _context.ConfiguracionDetalle on e.ID_CONFIGURACION equals d.ID_CONFIGURACION
+                                where (((d.ID_CONFIGURACION == (modelo.ID_CONFIGURACION == 0 ? d.ID_CONFIGURACION : modelo.ID_CONFIGURACION)) &&
+                                d.FLG_ESTADO == (string.IsNullOrEmpty(modelo.FLG_ESTADO) ? d.FLG_ESTADO : modelo.FLG_ESTADO)
+                                ))
+                                select new ConfiguracionDetalleModel
+                                {
+                                    ID_CONFIGURAR_DETALLE= d.ID_CONFIGURAR_DETALLE,
+                                    ID_CONFIGURACION = d.ID_CONFIGURACION,
+                                    CONFIGURACION_DESCRIPCION= e.DESCRIPCION,
+                                    DESCRIPCION= d.DESCRIPCION,
+                                    FLG_ESTADO = d.FLG_ESTADO
+                                });
+              
+            }
+            catch (Exception ex)
+            {
+                Log.CreateLogger(ex.Message);
+                listaDetalle = new List<ConfiguracionDetalleModel>();
+            }
+
+            return listaDetalle;
+        }
     }
 }

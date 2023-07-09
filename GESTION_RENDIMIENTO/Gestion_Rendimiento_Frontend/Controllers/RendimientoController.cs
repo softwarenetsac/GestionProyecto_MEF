@@ -35,6 +35,18 @@ namespace Gestion_Rendimiento_Frontend.Controllers
         public IActionResult Programacion()
         {
 
+            //var modelo = new ConfiguracionDetalleModel
+            //{
+            // FLG_ESTADO= "1",
+            //  ID_CONFIGURACION=1
+            //};
+
+            //var data = _configuracionRendimientoService.GetAllDetalle(modelo).FirstOrDefault();
+
+            //ViewBag.PRIORIDAD_ANUAL = data.DESCRIPCION;
+
+
+
             return View();
         }
         #endregion
