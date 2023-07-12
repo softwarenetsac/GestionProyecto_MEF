@@ -1,0 +1,40 @@
+12/07/2023 01:01:59: [mensaje: CONEXION LOCAL CON EL USUARIO ADMIN
+12/07/2023 01:01:59: [mensaje: USUARIO= ADMIN
+12/07/2023 01:05:01: [mensaje: CONEXION LOCAL CON EL USUARIO ADMIN
+12/07/2023 01:05:01: [mensaje: USUARIO= ADMIN
+12/07/2023 01:07:09: [mensaje: CONEXION LOCAL CON EL USUARIO ADMIN
+12/07/2023 01:07:09: [mensaje: USUARIO= ADMIN
+12/07/2023 07:57:10: [mensaje: CONEXION LOCAL CON EL USUARIO ADMIN
+12/07/2023 07:57:10: [mensaje: USUARIO= ADMIN
+12/07/2023 07:58:11: [mensaje: ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'SEGURIDAD.PCK_SEEGURIDAD_LDAP' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+12/07/2023 07:58:11: [mensaje: EnviarCorreoElectronico= Transaction failed. The server response was: 5.7.1 Error: need authentication from 190.239.123.187
+12/07/2023 07:59:31: [mensaje: ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'SEGURIDAD.PCK_SEEGURIDAD_LDAP' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+12/07/2023 07:59:32: [mensaje: EnviarCorreoElectronico= Transaction failed. The server response was: 5.7.1 Error: need authentication from 190.239.123.187
+12/07/2023 08:01:36: [mensaje: ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'SEGURIDAD.PCK_SEEGURIDAD_LDAP' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+12/07/2023 08:01:36: [mensaje: EnviarCorreoElectronico= Transaction failed. The server response was: 5.7.1 Error: need authentication from 190.239.123.187
+12/07/2023 08:02:04: [mensaje: ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'SEGURIDAD.PCK_SEEGURIDAD_LDAP' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+12/07/2023 08:02:04: [mensaje: EnviarCorreoElectronico= Transaction failed. The server response was: 5.7.1 Error: need authentication from 190.239.123.187
+12/07/2023 08:37:25: [mensaje: CONEXION LOCAL CON EL USUARIO ADMIN
+12/07/2023 08:37:25: [mensaje: USUARIO= ADMIN
+12/07/2023 08:45:04: [mensaje: CONEXION LOCAL CON EL USUARIO ADMIN
+12/07/2023 08:45:04: [mensaje: USUARIO= ADMIN
+12/07/2023 09:02:56: [mensaje: CONEXION LOCAL CON EL USUARIO ADMIN
+12/07/2023 09:02:56: [mensaje: USUARIO= ADMIN
+12/07/2023 09:04:03: [mensaje: CONEXION LOCAL CON EL USUARIO ADMIN
+12/07/2023 09:04:03: [mensaje: USUARIO= ADMIN
+12/07/2023 09:04:29: [mensaje: CONEXION LOCAL CON EL USUARIO ADMIN
+12/07/2023 09:04:29: [mensaje: USUARIO= ADMIN
+12/07/2023 09:06:07: [mensaje: CONEXION LOCAL CON EL USUARIO ADMIN
+12/07/2023 09:06:07: [mensaje: USUARIO= ADMIN

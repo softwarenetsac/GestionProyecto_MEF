@@ -16,5 +16,6 @@ namespace Gestion_Rendimiento_Entity
         public string DESCRIPCION { get; set; }
         public string ABREVIATURA { get; set; }
         public int  ID_TIPO_GESTION { get; set; }
+        public string ANIO { get; set; }
     }
 }

@@ -205,19 +205,17 @@
 
                                     <li class="sidenav-item has-subnav">
                                         <a href="#" aria-haspopup="true">
-
                                             <span class="sidenav-icon icon icon-user-plus"></span>
                                             <span class="sidenav-label">Administracion ORH</span>
                                         </a>
                                         <ul class="sidenav-subnav collapse">
                                             <li class="sidenav-subheading">Administracion ORH</li>
-                                            <li><a asp-area="" asp-controller="Evaluador" asp-action="index">Evaluador</a></li>
-                                            <li><a asp-area="" asp-controller="Evaluado" asp-action="index">Evaluado</a></li>
-
+                                            <li><a asp-area="" asp-controller="ConfiguracionRendimiento" asp-action="index">Auto Ayuda</a></li>
+                                            <li><a asp-area="" asp-controller="Evaluador" asp-action="index">Evaluadores</a></li>
+                                            <li><a asp-area="" asp-controller="Evaluado" asp-action="index">Evaluados</a></li>
+                                            <li><a asp-area="" asp-controller="Rendimiento" asp-action="RendimientoORH">Gestion Rendimiento</a></li>
                                         </ul>
                                     </li>
-
-
 
                                     <li class="sidenav-item has-subnav">
                                         <a href="#" aria-haspopup="true">
@@ -238,7 +236,7 @@
                                         </a>
                                         <ul class="sidenav-subnav collapse">
                                             <li class="sidenav-subheading">Evualuador</li>
-                                            <li><a asp-area="" asp-controller="Proyecto" asp-action="Seguimiento">Seguimiento</a></li>
+                                            <li><a asp-area="" asp-controller="Rendimiento" asp-action="Seguimiento">Seguimiento</a></li>
                                         </ul>
                                     </li>
 

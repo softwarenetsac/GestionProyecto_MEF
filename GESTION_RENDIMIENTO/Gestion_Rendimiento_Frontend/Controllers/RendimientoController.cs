@@ -52,5 +52,81 @@ namespace Gestion_Rendimiento_Frontend.Controllers
         #endregion
 
 
+
+
+        #region SEGUIMIENTO
+
+        public IActionResult Seguimiento()
+        {
+
+            //var modelo = new ConfiguracionDetalleModel
+            //{
+            // FLG_ESTADO= "1",
+            //  ID_CONFIGURACION=1
+            //};
+
+            //var data = _configuracionRendimientoService.GetAllDetalle(modelo).FirstOrDefault();
+
+            //ViewBag.PRIORIDAD_ANUAL = data.DESCRIPCION;
+
+
+
+            return View();
+        }
+        #endregion
+
+
+
+        #region     EVALUACION
+
+        public IActionResult Evaluacion()
+        {
+
+            //var modelo = new ConfiguracionDetalleModel
+            //{
+            // FLG_ESTADO= "1",
+            //  ID_CONFIGURACION=1
+            //};
+
+            //var data = _configuracionRendimientoService.GetAllDetalle(modelo).FirstOrDefault();
+
+            //ViewBag.PRIORIDAD_ANUAL = data.DESCRIPCION;
+
+
+
+            return View();
+        }
+        #endregion
+
+
+
+
+
+
+
+
+        #region RENDIMIENTO ORH
+
+        public IActionResult RendimientoORH()
+        {
+
+            //var modelo = new ConfiguracionDetalleModel
+            //{
+            // FLG_ESTADO= "1",
+            //  ID_CONFIGURACION=1
+            //};
+
+            //var data = _configuracionRendimientoService.GetAllDetalle(modelo).FirstOrDefault();
+
+            //ViewBag.PRIORIDAD_ANUAL = data.DESCRIPCION;
+
+
+
+            return View();
+        }
+        #endregion
+
+
+
     }
 }

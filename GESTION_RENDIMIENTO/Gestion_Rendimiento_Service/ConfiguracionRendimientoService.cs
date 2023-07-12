@@ -47,7 +47,8 @@ namespace Gestion_Rendimiento_Service
                                     ABREVIATURA_CON = e.ABREVIATURA,
                                     DESCRIPCION = e.DESCRIPCION,
                                     TIPO_DESCRIPCION = d.DESCRIPCION,
-                                    FLG_ESTADO = e.FLG_ESTADO
+                                    FLG_ESTADO = e.FLG_ESTADO,
+                                     ANIO= e.ANIO
                                 });
             }
             catch (Exception ex)

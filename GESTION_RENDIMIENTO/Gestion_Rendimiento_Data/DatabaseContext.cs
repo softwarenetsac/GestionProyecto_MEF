@@ -25,7 +25,10 @@ namespace Gestion_Rendimiento_Data
         public virtual DbSet<Persona> Persona { get; set; }
         public virtual DbSet<Variable> Variable { get; set; }
         public virtual DbSet<EvaluadorConsulta> EvaluadorConsulta { get; set; }
+        public virtual DbSet<RendimientoConsulta> RendimientoConsulta { get; set; }
 
+
+        
         public virtual DbSet<TipoGestionRendimiento> TipoGestionRendimiento { get; set; }
         public virtual DbSet<ConfiguracionRendimiento> ConfiguracionRendimiento { get; set; }
         public virtual DbSet<ConfiguracionDetalle> ConfiguracionDetalle { get; set; }

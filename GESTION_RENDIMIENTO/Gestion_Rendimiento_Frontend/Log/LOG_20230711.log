@@ -1,0 +1,9 @@
+11/07/2023 17:58:00: [mensaje: CONEXION LOCAL CON EL USUARIO ADMIN
+11/07/2023 17:58:00: [mensaje: USUARIO= ADMIN
+11/07/2023 23:12:21: [mensaje: CONEXION LOCAL CON EL USUARIO ADMIN
+11/07/2023 23:12:21: [mensaje: USUARIO= ADMIN
+11/07/2023 23:13:16: [mensaje: ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'SEGURIDAD.PCK_SEEGURIDAD_LDAP' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+11/07/2023 23:13:18: [mensaje: EnviarCorreoElectronico= Transaction failed. The server response was: 5.7.1 Error: need authentication from 190.239.123.187

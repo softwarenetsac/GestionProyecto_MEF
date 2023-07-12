@@ -13,11 +13,6 @@ namespace Gestion_Rendimiento_IService
         ConfiguracionRendimiento Insertar(ConfiguracionRendimientoModel item);
         ConfiguracionRendimiento Actualizar(ConfiguracionRendimientoModel item);
         IEnumerable<ConfiguracionRendimientoModel> GetAll(ConfiguracionRendimientoModel modelo);
-
-
         IEnumerable<ConfiguracionDetalleModel> GetAllDetalle(ConfiguracionDetalleModel modelo);
-
-        
-
     }
 }

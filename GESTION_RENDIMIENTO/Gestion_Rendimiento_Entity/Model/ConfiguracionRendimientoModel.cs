@@ -22,6 +22,7 @@ namespace Gestion_Rendimiento_Entity.Model
         public string IP_CREACION { get; set; }
         public string IP_MODIFICACION { get; set; }
         public string FLG_ESTADO { get; set; }
+        public string ANIO { get; set; }
 
     }
 }
