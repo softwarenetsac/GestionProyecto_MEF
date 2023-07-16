@@ -45,7 +45,6 @@ namespace Gestion_Rendimiento_Service
                 return new List<Persona>();
             }
         }
-
         public Persona DetallePorUsuario(string usuario, string flg_estado="1")
         {
             try
@@ -64,6 +63,18 @@ namespace Gestion_Rendimiento_Service
                 return null;
             }
 
+        }
+        public List<Persona> GetTodosXUnidad(int id_area)
+        {
+            try
+            {
+                var lista = FindList(p => p.ID_SITUACION_LABORAL == 0 && p.ID_AREA == id_area);
+                return lista;
+            }
+            catch (Exception)
+            {
+                return new List<Persona>();
+            }
         }
 
     }

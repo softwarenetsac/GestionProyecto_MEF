@@ -206,7 +206,7 @@
                     base.Control.Mensaje.Confirmation({
                         message: "Esta seguro de registrar el Responsable ?",
                     }).ConfirmationAcept({
-                        callback: function (opt) {
+                        callback: function (opt) {1
                             if (opt) {
                                 base.Ajax.AjaxMantenimientoGuardarForm.submitForm();
                             }

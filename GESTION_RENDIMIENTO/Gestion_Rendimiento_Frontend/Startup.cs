@@ -1,5 +1,6 @@
 
 using Gestion_Rendimiento_Data;
+using Gestion_Rendimiento_Entity;
 using Gestion_Rendimiento_Entity.Model;
 using Gestion_Rendimiento_IService;
 using Gestion_Rendimiento_Service;
@@ -65,9 +66,12 @@ namespace Gestion_Rendimiento_Frontend
             services.AddScoped<IUsuarioService, UsuarioService>();
             services.AddScoped<IVariableService, VariableService>();
             services.AddScoped<IEvaluadorService, EvaluadorService>();
+            services.AddScoped<IEvaluadoService, EvaluadoService>();
+            services.AddScoped<IRendimientoService, RendimientoService>();
             services.AddScoped<IConfiguracionRendimientoService, ConfiguracionRendimientoService>();
+            services.AddScoped<IProyectoService, ProyectoService>();
+            services.AddScoped<IProyectoDetalleService, ProyectoDetalleService>();
             
-
             services.Configure<CookiePolicyOptions>(options =>
             {
                 // This lambda determines whether user consent for non-essential cookies is needed for a given request.  

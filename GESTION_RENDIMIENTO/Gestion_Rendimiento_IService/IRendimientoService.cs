@@ -10,8 +10,9 @@ namespace Gestion_Rendimiento_IService
 {
  public    interface IRendimientoService
     {
-
+        RendimientoConsultaModel GetOne(int ID_PROYECTO);
         IEnumerable<RendimientoConsultaModel> GetRenmientoEvaluado(RendimientoModel modelo);
+        IEnumerable<RendimientoConsultaModel> GetAll(RendimientoConsultaModel request);
 
     }
 }

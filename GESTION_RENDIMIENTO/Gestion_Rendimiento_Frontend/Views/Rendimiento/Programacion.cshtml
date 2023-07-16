@@ -1,4 +1,101 @@
 ﻿@{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@model Gestion_Rendimiento_Frontend.Models.EvaluadorViewModel
+<div id="div_consulta">
+    <div class="wizard-container">
+        <div class="card wizard-card ct-wizard-red" id="wizard">
+            <div class="wizard-header">
+                <div class="row m-x-sm">
+                    <div class="col-md-4">
+                        <h4 class="m-t-sm">Seguimiento</h4>
+                    </div>
+                    <div class="col-md-8 text-right">
+                    </div>
+                </div>
+            </div>
+            <div class="bg-divider"></div>
+            <br />
+            @*  <div class="card m-l-md m-r-md">
+                <div class="card-header p-y-sm">
+                    Buscar por:
+                    <div class="card-actions">
+                        <button type="button" class="card-action card-toggler" title="Collapse" aria-expanded="true"></button>
+                    </div>
+                </div>
+                <div class="card-body p-b-sm m-b-sm">
+                    <div class="row">
+                   <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="ddl_Organo_consulta">Órgano</label>
+                                <select class="form-control" id="ID_AREA_CONSULTA" name="ID_AREA_CONSULTA">
+                                    <option value="0">---Todos-----</option>
+                                </select>
 
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="txtRuc_Consulta">Unidad Orgánica</label>
+                                <select class="form-control" id="ID_OFICINA_CONSULTA" name="ID_OFICINA_CONSULTA">
+                                    <option value="" selected="selected">---Todos-----</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                        </div>*@
+            @*    <div class="row text-left m-l-md m-r-md">
+               <div class="col-md-6">
+                    <div class="row text-lef">
+                        <button class="btn btn-default" type="button" id="btnExportar" name="btnExportar">
+                            <i class="icon icon-file-excel-o icon-lg m-r-sm"></i>
+                            Exportar
+                        </button>
+                        <button class="btn btn-danger" type="button" id="btnBotonFirmar" name="btnBotonFirmar">
+                            <i class="icon icon-spinner icon-lg m-r-sm"></i>
+                            Firmar
+                        </button>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="row text-right">
+                        <button class="btn btn-primary" type="button" id="btnBotonBuscar" name="btnBotonBuscar">
+                            <i class="icon icon-search icon-lg m-r-sm"></i>
+                            Buscar
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+                *@
+            <br />
+            <div class="card card-body m-l-md m-r-md">
+                <div class="table-responsive">
+                    <table id="gridProgramacion" class="table table-striped table-bordered">
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<style>
+
+    .form-group {
+        margin-bottom: 5px !important;
+    }
+</style>
+@section Scripts
+    {
+    <script type="text/javascript">
+        ns('SoftwareNet.Web.Operacion.Programacion.Actions')
+        SoftwareNet.Web.Operacion.Programacion.Actions.Buscar = '@Url.Action("GetAll_Programacion", "Rendimiento")';
+    </script>
+    <script src="@Url.Content("~/Scripts/jquery.form.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/CodeCustom/Rendimiento/Programacion/Controller.js?id=1")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/CodeCustom/Rendimiento/Programacion/Index.js?id=45.3")"></script>
+
+
+
+}

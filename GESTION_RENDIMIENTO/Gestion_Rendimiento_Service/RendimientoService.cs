@@ -17,7 +17,28 @@ namespace Gestion_Rendimiento_Service
         public RendimientoService(DatabaseContext context) : base(context)
         {
         }
+        public RendimientoConsultaModel GetOne(int ID_PROYECTO)
+        {
 
+         var lista = _context.RendimientoConsulta
+        .Select(t => new RendimientoConsultaModel
+        {
+            ID_EVALUADOR = t.ID_EVALUADOR,
+            ID_ESTADO = t.ID_ESTADO,
+            ID_OFICINA = t.ID_OFICINA,
+            ID_PERSONAL = t.ID_PERSONAL,
+            ID_PROYECTO = t.ID_PROYECTO,
+            ANIO = t.ANIO,
+            FLG_ESTADO = t.FLG_ESTADO,
+            NOMBRE_CARGO = t.NOMBRE_CARGO,
+            NOMBRE_EVALUADO = t.NOMBRE_EVALUADO,
+            NOMBRE_ESTADO = t.NOMBRE_ESTADO,
+            NOMBRE_EVALUADOR = t.NOMBRE_EVALUADOR,
+            DESCRIPCION = t.DESCRIPCION,
+            PLAZO = t.PLAZO,
+        }).ToList().Where(x => x.ID_PROYECTO == ID_PROYECTO).First();
+            return lista;
+        }
         public IEnumerable<RendimientoConsultaModel> GetRenmientoEvaluado(RendimientoModel modelo)
         {
 
@@ -36,12 +57,59 @@ namespace Gestion_Rendimiento_Service
             NOMBRE_ESTADO = t.NOMBRE_ESTADO,
             NOMBRE_EVALUADOR = t.NOMBRE_EVALUADOR,
             DESCRIPCION = t.DESCRIPCION,
-            PLAZO = t.PLAZO
+            PLAZO = t.PLAZO,
         }).ToList().Where(x => x.ID_OFICINA == (modelo.ID_OFICINA == 0 ? x.ID_OFICINA : modelo.ID_OFICINA) &&
                x.ID_PERSONAL == (string.IsNullOrEmpty(modelo.ID_PERSONAL) ? modelo.ID_PERSONAL : modelo.ID_PERSONAL)).ToList();
             return lista;
         }
+        public IEnumerable<RendimientoConsultaModel> GetAll(RendimientoConsultaModel request)
+        {
+            if (request.TIPO=="U")
+            {
+                var lista = _context.RendimientoConsulta
+.Select(t => new RendimientoConsultaModel
+{
+ID_PROYECTO = t.ID_PROYECTO,
+DESCRIPCION = t.DESCRIPCION,
+ID_OFICINA = t.ID_OFICINA,
+ID_PERSONAL = t.ID_PERSONAL,
+ID_ESTADO = t.ID_ESTADO,
+ID_EVALUADOR = t.ID_EVALUADOR,
+FLG_ESTADO = t.FLG_ESTADO,
+ANIO = t.ANIO,
+PLAZO = t.PLAZO,
+NOMBRE_EVALUADO = t.NOMBRE_EVALUADO,
+NOMBRE_CARGO = t.NOMBRE_CARGO,
+NOMBRE_EVALUADOR = t.NOMBRE_EVALUADOR,
+NOMBRE_ESTADO = t.NOMBRE_ESTADO
+}).ToList().Where(x => x.ID_PERSONAL == request.ID_PERSONAL).ToList();
+                return lista;
+            }
+            else
+            {
+                var lista   = _context.RendimientoConsulta
+.Select(t => new RendimientoConsultaModel
+{
+ID_PROYECTO = t.ID_PROYECTO,
+DESCRIPCION = t.DESCRIPCION,
+ID_OFICINA = t.ID_OFICINA,
+ID_PERSONAL = t.ID_PERSONAL,
+ID_ESTADO = t.ID_ESTADO,
+ID_EVALUADOR = t.ID_EVALUADOR,
+FLG_ESTADO = t.FLG_ESTADO,
+ANIO = t.ANIO,
+PLAZO = t.PLAZO,
+NOMBRE_EVALUADO = t.NOMBRE_EVALUADO,
+NOMBRE_CARGO = t.NOMBRE_CARGO,
+NOMBRE_EVALUADOR = t.NOMBRE_EVALUADOR,
+NOMBRE_ESTADO = t.NOMBRE_ESTADO
+}).ToList();
+                return lista;
+            }
+  
 
+
+        }
 
     }
 }
