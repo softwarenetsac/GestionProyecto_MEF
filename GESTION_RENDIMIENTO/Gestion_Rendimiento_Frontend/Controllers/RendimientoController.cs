@@ -385,7 +385,7 @@ namespace Gestion_Rendimiento_Frontend.Controllers
             BaseResponse respuesta = new BaseResponse();
             var usuario_conectado = _personaService.Detalle(UsuarioActual.ID_PERSONAL);
             string usuario_login = UsuarioActual == null ? "" : UsuarioActual.UsuarioLogin;
-            string correos = "";
+           // string correos = "";
             int id = 0;
             foreach (var item in items.ItemsProyecto)
             {

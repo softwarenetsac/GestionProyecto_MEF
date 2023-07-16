@@ -163,7 +163,6 @@
         };
         base.Function = {
             AbrirModalRendimiento: function (id, parent) {
-                debugger;
                 base.Control.DllEvaluador().val('');
                 base.Control.DllEvaluador().trigger("change");
                 base.Control.hdnIdProyecto().val(0);
@@ -187,12 +186,10 @@
             GetData: function () {
                 var dataRequest = new Array();
                 var fila = 1;
-                debugger;
                 $("#frmModel").find("#gridMantenimiento" + " tbody > tr").each(function (index, item) {
                     var entorno = $(this);
                     var DESCRIPCION = entorno.find(".tdDESCRIPCION", "id").val();
                     var GRUPO = entorno.find(".tdP_G", "id").html();
-                    debugger;
                     if (GRUPO == "1") {
                         dataRequest.push({
                             DESCRIPCION: DESCRIPCION,
@@ -208,10 +205,7 @@
             GetDataDet: function (id) {
                 var dataRequest = new Array();
                 var fila = 1;
-                debugger;
                 $("#frmModel").find("#gridMantenimiento" + " tbody > tr").each(function (index, item) {
-                    debugger;
-                    
                     var entorno = $(this);
                     var GRUPO = entorno.find(".tdID_SUB_DETALLE", "id").html();
                     var ID_DETALLE = entorno.find(".tdDetPrioridad", "id").html();
@@ -251,7 +245,6 @@
 
             },
             AgregarRegistroPrioridad: function (id) {
-                debugger;
                 var url = SoftwareNet.Web.Operacion.RendimientoORH.Actions.NuevaFila;
                 var itemPrioridad = base.Function.GetData();
                 var itemPrioridadDet = base.Function.GetDataDet(0);

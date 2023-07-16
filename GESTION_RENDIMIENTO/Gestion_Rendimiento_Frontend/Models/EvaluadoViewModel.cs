@@ -1,5 +1,4 @@
-﻿
-using Gestion_Rendimiento_Entity;
+﻿using Gestion_Rendimiento_Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
