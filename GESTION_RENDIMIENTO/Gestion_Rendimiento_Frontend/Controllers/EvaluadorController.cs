@@ -29,7 +29,7 @@ namespace Gestion_Rendimiento_Frontend.Controllers
         private readonly IPersonaService _personaService;
         private readonly IWebHostEnvironment _webHostEnvironment;
         private readonly IUsuarioService _usuarioService;
-        private readonly IVariableService _variableService;
+        private readonly IVariableService _variableService; 
         private readonly IEvaluadorService _evaluadorService;
         public EvaluadorController(
                    IOficinaService oficinaService,
