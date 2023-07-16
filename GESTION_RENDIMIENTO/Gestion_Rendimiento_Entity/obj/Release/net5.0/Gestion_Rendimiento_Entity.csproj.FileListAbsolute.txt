@@ -1,0 +1,5 @@
+D:\proyectos\MEF\GESTION_PROYECTO\FUENTE\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Entity\obj\Release\net5.0\Gestion_Rendimiento_Entity.csproj.AssemblyReference.cache
+D:\proyectos\MEF\GESTION_PROYECTO\FUENTE\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Entity\obj\Release\net5.0\Gestion_Rendimiento_Entity.GeneratedMSBuildEditorConfig.editorconfig
+D:\proyectos\MEF\GESTION_PROYECTO\FUENTE\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Entity\obj\Release\net5.0\Gestion_Rendimiento_Entity.AssemblyInfoInputs.cache
+D:\proyectos\MEF\GESTION_PROYECTO\FUENTE\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Entity\obj\Release\net5.0\Gestion_Rendimiento_Entity.AssemblyInfo.cs
+D:\proyectos\MEF\GESTION_PROYECTO\FUENTE\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Entity\obj\Release\net5.0\Gestion_Rendimiento_Entity.csproj.CoreCompileInputs.cache
