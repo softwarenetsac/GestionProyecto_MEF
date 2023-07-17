@@ -19,6 +19,11 @@ namespace Gestion_Rendimiento_Service
         public Proyecto Insertar(Proyecto item)
      => Add(item);
         public Proyecto Actualizar(Proyecto item)
-=> Update(item, item.ID_PROYECTO);
+    => Update(item, item.ID_PROYECTO);
+        public string Proyecto_Min_Ano()
+        {
+            var detalle = _context.Set<Proyecto>().Min(x=> x.ANIO);
+            return detalle;
+        }
     }
 }

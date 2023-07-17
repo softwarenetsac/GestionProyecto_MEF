@@ -85,6 +85,27 @@ NOMBRE_ESTADO = t.NOMBRE_ESTADO
 }).ToList().Where(x => x.ID_PERSONAL == request.ID_PERSONAL).ToList();
                 return lista;
             }
+            else if (request.TIPO == "ORH")
+            {
+                var lista = _context.RendimientoConsulta
+.Select(t => new RendimientoConsultaModel
+{
+ID_PROYECTO = t.ID_PROYECTO,
+DESCRIPCION = t.DESCRIPCION,
+ID_OFICINA = t.ID_OFICINA,
+    ID_PERSONAL = t.ID_PERSONAL,
+ID_ESTADO = t.ID_ESTADO,
+ID_EVALUADOR = t.ID_EVALUADOR,
+FLG_ESTADO = t.FLG_ESTADO,
+ANIO = t.ANIO,
+PLAZO = t.PLAZO,
+NOMBRE_EVALUADO = t.NOMBRE_EVALUADO,
+NOMBRE_CARGO = t.NOMBRE_CARGO,
+NOMBRE_EVALUADOR = t.NOMBRE_EVALUADOR,
+NOMBRE_ESTADO = t.NOMBRE_ESTADO
+}).ToList().Where(x => x.ID_OFICINA== (request.ID_OFICINA == 0 ? x.ID_OFICINA : request.ID_OFICINA) && x.ANIO== request.ANIO).ToList();
+                return lista;
+            }
             else
             {
                 var lista   = _context.RendimientoConsulta

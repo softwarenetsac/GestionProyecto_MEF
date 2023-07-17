@@ -4,156 +4,100 @@
         var base = this;
         base.Ini = function (opts) {
             'use strict';
-            base.Control.BotonAgregar().click(base.Event.BotonAgregarClick);
+            base.Control.DllOrgano().select2({});
+            base.Control.DllUnidadOrganica().select2({});
+            base.Control.BotonBuscar().click(base.Event.BotonBuscarClick);
+            base.Control.BotonExportar().click(base.Event.BotonExportarClick);
+            base.Function.CrearGrillaEvaluado();
+            base.Function.BuscarGrilla();
             //base.Control.DllOrgano().change(base.Event.DllOrganoChange);
-            //base.Control.DllUnidadOrganica().change(base.Event.DllPersonalChange);
-            base.Control.BotonAgregarPrioridad().click(base.Event.BotonAgregarPrioridadClick);
-            base.Control.GridBody().on('click', '.AddRegDet', function (e) {
-                var elemento = this;
-                debugger;
-                var id = elemento.getAttribute("idpk_e");
-                if (typeof id !== 'undefined')
-                    base.Function.AgregarRegistroPrioridadDet(id);
-            });
-            base.Control.GridBody().on('click', '.delete_mantenimiento', function (e) {
-                $(this).closest('tr').remove();
-            });
-            base.Control.GridRendimiento().on('click', '.findone_mantenimiento', function (e) {
+            base.Control.GridEvaluado().on('click', '.findone_mantenimiento', function (e) {
                 var id = $(e.target).attr("idpk_M");
                 if (typeof id !== 'undefined' && id > 0)
                     base.Function.AbrirModalRendimiento(id, this);
             });
-            base.Control.BotonGuardar().click(base.Event.BotonGuardarClick);
-            base.Control.BotonBuscar().click(base.Event.BotonBuscarClick);
-            base.Function.CrearGrillaRendimiento();
-            base.Function.BuscarGrilla();
         };
 
         base.Parameters = {
-            TableRendimiento: null
+            TableEvaluado: null
         };
 
         base.Control = {
             Mensaje: new SoftwareNet.DJ.Web.Components.Message(),
-            BotonAgregar: function () { return $('#btnAgregar'); },
-            ModalAgregarRendimiento: function () { return $("#modalRendimiento"); },
-            FormMantenimiento: function () { return $("#frmModel"); },
-            BotonAgregarPrioridad: function () { return $('#BtnAgregarPrioridad'); },
-            GridBody: function () { return $("#gridBody"); },
-            BotonGuardar: function () { return $("#btnGuardar"); },
-            DllEvaluador: function () { return $("#ID_EVALUADOR"); },
             BotonBuscar: function () { return $("#btnBotonBuscar"); },
-            GridRendimiento: function () { return $("#gridRendimiento"); },
+            BotonExportar: function () { return $("#btnExportar"); },
+            ModalAgregarRendimiento: function () { return $("#modalRendimiento"); },
+            GridEvaluado: function () { return $("#gridEvaluado"); },
+            DllOrgano: function () { return $("#ID_AREA_CONSULTA"); },
+            DllUnidadOrganica: function () { return $("#ID_OFICINA_CONSULTA"); },
+            DllProgramacionr: function () { return $("#ID_EVALUADOR"); },
             hdnIdProyecto: function () { return $("#hdnIdProyecto"); },
-        
+            DllAnioConsulta: function () { return $("#ddlAnio_Consulta"); },
         };
 
         base.Event = {
-            BotonAgregarClick: function () {
-                base.Function.AbrirModalRendimiento();
-            },
-            BotonAgregarDetalleRendimientoClick: function () {
-                base.Function.AbrirModalDetalleRendimiento();
-            },
-            BotonAgregarPrioridadClick: function () {
-                base.Function.AgregarRegistroPrioridad(0);
-            },
-            BotonGuardarClick: function () {
-                var form = base.Control.FormMantenimiento();
-                form.validate();
-                if (!form.valid()) { return false; }
-                else {
+            DllOrganoChange: function () {
 
-                    base.Control.Mensaje.Confirmation({
-                        message: "¿Estás seguro de realizar el registro?",
-                    }).ConfirmationAcept({
-                        callback: function (opt) {
-                            if (opt) {
-                                var dataRequest = new Array();
-                                var dataRequestD = new Array();
-                                $("#frmModel").find("#gridMantenimiento" + " tbody > tr").each(function (index, item) {
-                                    var entorno = $(this);
-                                    var ID_EVALUADOR = base.Control.DllEvaluador().val();
-                                    var DESCRIPCION = entorno.find(".tdDESCRIPCION", "id").val();
-                                    var GRUPO = entorno.find(".tdP_G", "id").html();
-                                    debugger;
-                                    if (GRUPO == "1") {
-                                        dataRequest.push({
-                                            DESCRIPCION: DESCRIPCION,
-                                            ID_EVALUADOR: ID_EVALUADOR,
-                                            ID_PROYECTO: base.Control.hdnIdProyecto().val(),
-                                        });
-                                    }
+                base.Control.DllUnidadOrganica().find('option').remove();
+                base.Control.DllUnidadOrganica().append("<option value='' selected>" + "---Todos--" + "</option>");
+                var id_oficina = base.Control.DllOrgano().val();
 
-                                });
-                                $("#frmModel").find("#gridMantenimiento" + " tbody > tr").each(function (index, item) {
-                                    debugger
-                                    var entorno = $(this);
-                                    var GRUPO = entorno.find(".tdID_SUB_DETALLE", "id").html();
-                                    var ID_DETALLE = entorno.find(".tdDetPrioridad", "id").html();
-                                    var ID_PROYECTO = entorno.find(".tdID_PROYECTO_S", "id").html();  
-                                    var EVIDENCIA = entorno.find(".tdEVIDENCIA", "id").val();
-                                    var PLAZOS = entorno.find("input.tdPLAZOS", "id").val();
-                                    var INDICADOR = entorno.find(".tdINDICADOR", "id").val();
-                                    var VALOR = entorno.find("input.tdVALOR", "id").val();
-                                    if (GRUPO == "1") {
-                                        dataRequestD.push({
-                                            EVIDENCIA: EVIDENCIA,
-                                            INDICADOR: INDICADOR,
-                                            VALOR: parseInt(VALOR),
-                                            PLAZOS: PLAZOS,
-                                            ID_DETALLE: parseInt(ID_DETALLE),
-                                            ID_PROYECTO: parseInt(ID_PROYECTO),
-                                        });
-                                    }
-
-                                });
-
-                                base.Ajax.AjaxGuardar.data = {
-                                    ItemsProyecto: dataRequest,
-                                    ItemsPrioridad: dataRequestD,
-                                }
-                                base.Ajax.AjaxGuardar.submit();
-                            }
-                        }
-                    });
-
-
+                if ((id_oficina == null || id_oficina == "0")) {
+                    id_oficina = "0";
                 }
-            },
-            AjaxGuardarSuccess: function (data) {
-                if (data.Success) {
-                    base.Control.Mensaje.Information({ message: SoftwareNet.DJ.Web.Shared.Mensaje.Resources.EtiquetaGuardoExito })
-                        .InformationClose({
-                            callback: function (opt) {
-
-                                if (opt) {
-                                    base.Function.BuscarGrilla();
-                                    base.Control.ModalAgregarRendimiento().modal("hide");
-                                }
-                            }
-                        });
-                }
-                else {
-                    base.Control.Mensaje.Warning({ message: data.Message }).WarningClose();
+                if (id_oficina != "0") {
+                    base.Ajax.AjaxConsultarUnidadOrganica.data = {
+                        ID: id_oficina
+                    }
+                    base.Ajax.AjaxConsultarUnidadOrganica.submit();
                 }
             },
             BotonBuscarClick: function () {
                 base.Function.BuscarGrilla();
             },
+            BotonExportarClick: function () {
+
+            var id_area = base.Control.DllOrgano().val();
+             var id_oficina = base.Control.DllUnidadOrganica().val();
+                var anio = base.Control.DllAnioConsulta().val();
+                if ((id_area == undefined || id_area == "" || id_area == null)) {
+                    id_area = 0;
+                }
+                if ((id_oficina == undefined || id_oficina == "" || id_oficina == null)) {
+                    id_oficina = 0;
+                }
+
+                $.paramcustom = {
+                    url: SoftwareNet.Web.Operacion.RendimientoORH.Actions.ExportarExcel,
+                    values: {
+                        ID_AREA: parseInt(id_area),
+                        ID_OFICINA: parseInt(id_oficina),
+                        ANIO: anio,
+                    }
+                }
+                $.redirect();
+
+            },
             AjaxBuscarSuccess: function (data) {
 
                 if (data.Result) {
-                    base.Parameters.TableRendimiento.clear().draw();
-                    base.Parameters.TableRendimiento.rows.add(data.Result).draw();
+                    base.Parameters.TableEvaluado.clear().draw();
+                    base.Parameters.TableEvaluado.rows.add(data.Result).draw();
+                }
+            },
+            AjaxConsultarUnidadOrganicaSuccess: function (data) {
+                if (data) {
+                    $.each(data.Result, function (index, item) {
+                        base.Control.DllUnidadOrganica().append($("<option>", { value: item.ID_OFICINA, text: item.NOMBRE_OFICINA }));
+                    })
                 }
             },
         };
         base.Ajax = {
-            AjaxGuardar: new SoftwareNet.DJ.Web.Components.Ajax({
-                action: SoftwareNet.Web.Operacion.RendimientoORH.Actions.Registrar,
+            AjaxConsultarUnidadOrganica: new SoftwareNet.DJ.Web.Components.Ajax({
+                action: SoftwareNet.Web.Operacion.RendimientoORH.Actions.BuscarUnidadOrganica,
                 autoSubmit: false,
-                onSuccess: base.Event.AjaxGuardarSuccess
+                onSuccess: base.Event.AjaxConsultarUnidadOrganicaSuccess
             }),
             AjaxBuscar: new SoftwareNet.DJ.Web.Components.Ajax({
                 action: SoftwareNet.Web.Operacion.RendimientoORH.Actions.Buscar,
@@ -162,130 +106,18 @@
             }),
         };
         base.Function = {
-            AbrirModalRendimiento: function (id, parent) {
-                base.Control.DllEvaluador().val('');
-                base.Control.DllEvaluador().trigger("change");
-                base.Control.hdnIdProyecto().val(0);
-                if (id > 0) {
-                    var padre = $(parent).parent().parent();
-                    var indice = base.Parameters.TableRendimiento.row(padre).index();
-                    var data = base.Parameters.TableRendimiento.row(indice).data();
-                    if (data != null) { 
-                        base.Control.DllEvaluador().val(data.ID_EVALUADOR);
-                    }
-                    base.Control.hdnIdProyecto().val(id);
-                    base.Function.AgregarRegistroPrioridad(id);
-                    $('.btn_agr').hide();
-                    
-                } else {
-                    $('.btn_agr').show();
-                    base.Function.AgregarRegistroPrioridadM(0);
-                }
-                base.Control.ModalAgregarRendimiento().modal('show');
-            },
-            GetData: function () {
-                var dataRequest = new Array();
-                var fila = 1;
-                $("#frmModel").find("#gridMantenimiento" + " tbody > tr").each(function (index, item) {
-                    var entorno = $(this);
-                    var DESCRIPCION = entorno.find(".tdDESCRIPCION", "id").val();
-                    var GRUPO = entorno.find(".tdP_G", "id").html();
-                    if (GRUPO == "1") {
-                        dataRequest.push({
-                            DESCRIPCION: DESCRIPCION,
-                            ID_PROYECTO: parseInt(base.Control.hdnIdProyecto().val()) 
-                        });
-                        fila++;
-                    }
-                   
-                });
-           
-                return dataRequest;
-            },
-            GetDataDet: function (id) {
-                var dataRequest = new Array();
-                var fila = 1;
-                $("#frmModel").find("#gridMantenimiento" + " tbody > tr").each(function (index, item) {
-                    var entorno = $(this);
-                    var GRUPO = entorno.find(".tdID_SUB_DETALLE", "id").html();
-                    var ID_DETALLE = entorno.find(".tdDetPrioridad", "id").html();
-                    var EVIDENCIA = entorno.find(".tdEVIDENCIA", "id").val();
-                    var PLAZOS = entorno.find("input.tdPLAZOS", "id").val();
-                    var INDICADOR = entorno.find(".tdINDICADOR", "id").val();
-                    var VALOR = entorno.find("input.tdVALOR", "id").val();
-                    if (GRUPO == "1") {
-                        dataRequest.push({
-                            EVIDENCIA: EVIDENCIA,
-                            INDICADOR: INDICADOR,
-                            VALOR: parseInt(VALOR),
-                            PLAZOS: PLAZOS,
-                            //ID_DETALLE_SUB: parseInt(fila),
-                            ID_DETALLE: parseInt(ID_DETALLE),
-                            ID_PROYECTO: parseInt(id),
-                        });
-                        fila++;
-                    }
-               
-                });
-
-                return dataRequest;
-            },
-            AgregarRegistroPrioridadM: function (id) {
-                var url = SoftwareNet.Web.Operacion.RendimientoORH.Actions.NuevaFila;
-                var item = {
-                    ItemsProyecto: null,
-                    ItemsPrioridad: null,
-                    ID_PROYECTO: parseInt(id),
-                    TIPO: "E",
-                    ID_DETALLE_TEMP: parseInt(0),
-                }
-                var respuesta = General.POST(url, item, false);
-                var row = respuesta.Extra;
-                $("#gridBody").html(row);
-
-            },
-            AgregarRegistroPrioridad: function (id) {
-                var url = SoftwareNet.Web.Operacion.RendimientoORH.Actions.NuevaFila;
-                var itemPrioridad = base.Function.GetData();
-                var itemPrioridadDet = base.Function.GetDataDet(0);
-                    var item = {
-                        ItemsProyecto: itemPrioridad,
-                        ItemsPrioridad: itemPrioridadDet,
-                        ID_PROYECTO: base.Control.hdnIdProyecto().val(),
-                        TIPO: "E",
-                        ID_DETALLE_TEMP: parseInt(0),
-                    }
-                    var respuesta = General.POST(url, item, false);
-                var row = respuesta.Extra;
-                $("#gridBody").html(row);
-     
-            },
-            AgregarRegistroPrioridadDet: function (id) {
-                var url = SoftwareNet.Web.Operacion.RendimientoORH.Actions.NuevaFila;
-                var itemPrioridad = base.Function.GetData();
-                var itemPrioridadDet = base.Function.GetDataDet(id);
-                var item = {
-                    ItemsProyecto: itemPrioridad,
-                    ItemsPrioridad: itemPrioridadDet,
-                    ID_PROYECTO: parseInt(base.Control.hdnIdProyecto().val()),
-                    TIPO: "D",
-                    ID_DETALLE_TEMP: parseInt(id),
-                }
-                var respuesta = General.POST(url, item, false);
-                var row = respuesta.Extra;
-                $("#gridBody").html(row);
-            },
-            CrearGrillaRendimiento: function () {
-                General.configurarGrilla();
-                base.Parameters.TableRendimiento = base.Control.GridRendimiento().DataTable({
+            CrearGrillaEvaluado: function () {
+                General.configurarGrilla(true);
+                base.Parameters.TableEvaluado = base.Control.GridEvaluado().DataTable({
                     ordering: false,
                     select: true,
+                    search:true,
                     columns: [
-                        { "data": "", "title": "Editar", "class": "text-center" },
-                        { "data": "", "title": "Anular", "class": "text-center" },
+                        { "data": "", "title": "Detalle", "class": "text-center" },
                         { "data": "ID_PROYECTO", "visible": false },
-                        { "data": "DESCRIPCION", "title": "Proyecto", "width": "20%" },
                         { "data": "ANIO", "title": "Año", "class": "text-center" },
+                        { "data": "DESCRIPCION", "title": "Prioridades Anuales", "width": "20%" },
+
                         { "data": "NOMBRE_EVALUADO", "title": "Evaluado" },
                         { "data": "NOMBRE_EVALUADOR", "title": "Evaluador" },
                         { "data": "PLAZO", "title": "Plazo", "class": "text-center", "visible": false },
@@ -305,18 +137,7 @@
                             'className': 'dt-body-center',
                             "render": function (data, type, row, meta) {
                                 var html = "";
-                                html = '<a href="javascript:void(0);" ><i class="icon icon-edit icon-lg m-c-sm findone_mantenimiento" secuencial="' + row.INDICE + '" idpk_M="' + row.ID_PROYECTO + '"></i></a>';
-                                return html;
-                            }
-                        },
-                        {
-                            'targets': 1,
-                            'searchable': false,
-                            'orderable': false,
-                            'className': 'dt-body-center',
-                            'render': function (data, type, row, meta) {
-                                var html = "";
-                                html = '<a href="javascript:void(0);" ><i class="icon icon-remove icon-lg m-c-sm delete_mantenimiento" idpk="' + row.ID_PROYECTO + '" idpki="' + meta.ID_PROYECTO + '"></i></a>';
+                                html = '<a href="javascript:void(0);" ><i class="icon icon-search icon-lg m-c-sm findone_mantenimiento" secuencial="' + row.INDICE + '" idpk_M="' + row.ID_PROYECTO + '"></i></a>';
                                 return html;
                             }
                         },
@@ -324,9 +145,55 @@
                 });
             },
             BuscarGrilla: function () {
+                var id_area = base.Control.DllOrgano().val();
+                var id_oficina = base.Control.DllUnidadOrganica().val();
+                var anio = base.Control.DllAnioConsulta().val();
+                if ((id_area == undefined || id_area == "" || id_area == null)) {
+                    id_area = 0;
+                }
+                if ((id_oficina == undefined || id_oficina == "" || id_oficina == null)) {
+                    id_oficina = 0;
+                }
                 base.Ajax.AjaxBuscar.data = {
+                    ID_AREA: parseInt(id_area),
+                    ID_OFICINA: parseInt(id_oficina),
+                    ANIO:anio,
                 }
                 base.Ajax.AjaxBuscar.submit();
+            },
+            AbrirModalRendimiento: function (id, parent) {
+                base.Control.DllProgramacionr().val('');
+                base.Control.DllProgramacionr().trigger("change");
+                base.Control.hdnIdProyecto().val(0);
+                if (id > 0) {
+                    var padre = $(parent).parent().parent();
+                    var indice = base.Parameters.TableEvaluado.row(padre).index();
+                    var data = base.Parameters.TableEvaluado.row(indice).data();
+                    if (data != null) {
+                        base.Control.DllProgramacionr().val(data.ID_EVALUADOR);
+                    }
+                    base.Control.hdnIdProyecto().val(id);
+                    base.Function.AgregarRegistroPrioridad(id);
+                    $('.btn_agr').hide(); 
+                    $('.AddRegDet').hide();
+                    $('.delete_mantenimiento').hide();
+                    
+                } 
+                base.Control.ModalAgregarRendimiento().modal('show');
+            },
+            AgregarRegistroPrioridad: function (id) {
+                var url = SoftwareNet.Web.Operacion.RendimientoORH.Actions.NuevaFila;
+                var item = {
+                    ItemsProyecto: null,
+                    ItemsPrioridad: null,
+                    ID_PROYECTO: base.Control.hdnIdProyecto().val(),
+                    TIPO: "E",
+                    ID_DETALLE_TEMP: parseInt(0),
+                }
+                var respuesta = General.POST(url, item, false);
+                var row = respuesta.Extra;
+                $("#gridBody").html(row);
+
             },
             loading: null,
             ShowLoading: function () {

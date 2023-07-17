@@ -101,10 +101,9 @@ namespace Gestion_Rendimiento_Frontend.Controllers
 
                     row += 1;
                     int fila = 1;
-                    ExcelUtil.CeldaFormatoEtiqueta_Cabecera_V2(ws1, "Año", row, fila, 0, 0, "L", true);
-                    ws1.Column(fila).Width = 10; fila++;
                     ExcelUtil.CeldaFormatoEtiqueta_Cabecera_V2(ws1, "Apellidos y Nombres", row, fila, 0, 0, "L", true);
                     ws1.Column(fila).Width = 50; fila++;
+
                     ExcelUtil.CeldaFormatoEtiqueta_Cabecera_V2(ws1, "N° Documento", row, fila, 0, 0, "L", true);
                     ws1.Column(fila).Width = 10; fila++;
 
@@ -126,7 +125,8 @@ namespace Gestion_Rendimiento_Frontend.Controllers
                     ExcelUtil.CeldaFormatoEtiqueta_Cabecera_V2(ws1, "Órgano", row, fila, 0, 0, "L", true);
                     ws1.Column(fila).Width = 50; fila++;
 
-                 
+                    ExcelUtil.CeldaFormatoEtiqueta_Cabecera_V2(ws1, "Año", row, fila, 0, 0, "L", true);
+                    ws1.Column(fila).Width = 10; fila++;
 
                     //ExcelUtil.CeldaFormatoEtiqueta_Cabecera_V2(ws1, "Proyecto", row, fila, 0, 0, "L", true);
                     //ws1.Column(fila).Width = 50; fila++;
@@ -146,7 +146,6 @@ namespace Gestion_Rendimiento_Frontend.Controllers
                             {
                                 row++;
                                 int columna = 1;
-                                ExcelUtil.CeldaFormatoEtiqueta_V2(ws1, item.ANIO, row, columna, 0, 0, "L"); columna++;
                                 ExcelUtil.CeldaFormatoEtiqueta_V2(ws1, item.NOMBRE_COMPLETO, row, columna, 0, 0, "L"); columna++;
                                 ExcelUtil.CeldaFormatoEtiqueta_V2(ws1, item.NUMERO_DNI, row, columna, 0, 0, "L"); columna++;
                                 ExcelUtil.CeldaFormatoEtiqueta_V2(ws1, item.FECHA_INGRESO, row, columna, 0, 0, "L"); columna++;
@@ -155,7 +154,7 @@ namespace Gestion_Rendimiento_Frontend.Controllers
                                 ExcelUtil.CeldaFormatoEtiqueta_V2(ws1, item.CORREO_INSTITUCIONAL, row, columna, 0, 0, "L"); columna++;
                                 ExcelUtil.CeldaFormatoEtiqueta_V2(ws1, item.NOMBRE_OFICINA, row, columna, 0, 0, "L"); columna++;
                                 ExcelUtil.CeldaFormatoEtiqueta_V2(ws1, item.NOMBRE_AREA, row, columna, 0, 0, "L"); columna++;
-                              
+                                ExcelUtil.CeldaFormatoEtiqueta_V2(ws1, item.ANIO, row, columna, 0, 0, "L"); columna++;
                                 //ExcelUtil.CeldaFormatoEtiqueta_V2(ws1, item.PROYECTO, row, columna, 0, 0, "L"); columna++;
                                 ExcelUtil.CeldaFormatoEtiqueta_V2(ws1, item.NOMBRE_EVALUADOR, row, columna, 0, 0, "L"); columna++;
                             }
