@@ -21,6 +21,7 @@ using DocumentFormat.OpenXml.Office2016.Excel;
 using System.Security.Policy;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using DocumentFormat.OpenXml.Office.CustomUI;
+using OfficeOpenXml.ConditionalFormatting;
 
 namespace Gestion_Rendimiento_Frontend.Controllers
 {
@@ -66,7 +67,7 @@ namespace Gestion_Rendimiento_Frontend.Controllers
             string Anio = _proyectoService.Proyecto_Min_Ano();
             int Anio_a=DateTime.Now.Year;
             modelo.List_Anio = new List<SelectListItem>();
-            if (Anio!=null || Anio != "")
+            if (Anio!=null)
             {
                 if (Anio_a == int.Parse(Anio))
                 {
@@ -80,6 +81,10 @@ namespace Gestion_Rendimiento_Frontend.Controllers
                     }
                 }
             }
+            else
+            {
+                modelo.List_Anio.Add(new SelectListItem { Value = Anio_a.ToString(), Text = Anio_a.ToString() });
+            }  
             return View(modelo);
         }
         public IActionResult GenerarHTML([FromBody] RendimientoModel model)
@@ -135,7 +140,12 @@ namespace Gestion_Rendimiento_Frontend.Controllers
                         PLAZOS = t.PLAZO,
                     }).ToList();
                 }
-                var listaPrioridadD = modelo.ItemsPrioridad.Count == 0 ? (det == null ? new List<RendimientoDetalleModel>(): det_datos) : modelo.ItemsPrioridad;
+                var listaPrioridadD = new List<RendimientoDetalleModel>();
+                if (modelo.ItemsPrioridad!=null)
+                {
+                    listaPrioridadD = modelo.ItemsPrioridad.Count == 0 ? (det == null ? new List<RendimientoDetalleModel>() : det_datos) : modelo.ItemsPrioridad;
+                }
+
                 if (modelo.TIPO == "D")
                 {
                     var entity_ = new RendimientoDetalleModel
@@ -331,7 +341,7 @@ namespace Gestion_Rendimiento_Frontend.Controllers
                     else
                     {
                         var valor = _proyectodetalleService.Actualizar(entidad);
-                        id = valor.ID_DETALLE_PROYECTO;
+                        id = entidad.ID_DETALLE_PROYECTO;
                     }
 
                     if (id > 0)
@@ -516,7 +526,7 @@ namespace Gestion_Rendimiento_Frontend.Controllers
             string Anio = _proyectoService.Proyecto_Min_Ano();
             int Anio_a = DateTime.Now.Year;
             modelo.List_Anio = new List<SelectListItem>();
-            if (Anio != null || Anio != "")
+            if (Anio != null)
             {
                 if (Anio_a == int.Parse(Anio))
                 {
@@ -529,6 +539,10 @@ namespace Gestion_Rendimiento_Frontend.Controllers
                         modelo.List_Anio.Add(new SelectListItem { Value = I.ToString(), Text = I.ToString() });
                     }
                 }
+            }
+            else
+            {
+                modelo.List_Anio.Add(new SelectListItem { Value = Anio_a.ToString(), Text = Anio_a.ToString() });
             }
             return View(modelo);
         }
