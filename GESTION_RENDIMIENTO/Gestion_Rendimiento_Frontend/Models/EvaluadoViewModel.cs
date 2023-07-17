@@ -1,4 +1,5 @@
 ﻿using Gestion_Rendimiento_Entity;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,5 +10,6 @@ namespace Gestion_Rendimiento_Frontend.Models
     {
         public IEnumerable<Oficina> Oficinas { get; set; }
         public IEnumerable<Persona> Personas { get; set; }
+        public List<SelectListItem> List_Anio { get; set; }
     }
 }

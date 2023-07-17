@@ -10,7 +10,7 @@
             base.Control.BotonExportar().click(base.Event.BotonExportarClick);
             base.Function.CrearGrillaEvaluado();
             base.Function.BuscarGrilla();
-            base.Control.DllOrgano().change(base.Event.DllOrganoChange);
+            //base.Control.DllOrgano().change(base.Event.DllOrganoChange);
             base.Control.GridEvaluado().on('click', '.findone_mantenimiento', function (e) {
                 var id = $(e.target).attr("idpk_M");
                 if (typeof id !== 'undefined' && id > 0)
@@ -32,6 +32,7 @@
             DllUnidadOrganica: function () { return $("#ID_OFICINA_CONSULTA"); },
             DllProgramacionr: function () { return $("#ID_EVALUADOR"); },
             hdnIdProyecto: function () { return $("#hdnIdProyecto"); },
+            DllAnioConsulta: function () { return $("#ddlAnio_Consulta"); },
         };
 
         base.Event = {
@@ -58,18 +59,20 @@
 
             var id_area = base.Control.DllOrgano().val();
              var id_oficina = base.Control.DllUnidadOrganica().val();
-
+                var anio = base.Control.DllAnioConsulta().val();
                 if ((id_area == undefined || id_area == "" || id_area == null)) {
                     id_area = 0;
                 }
                 if ((id_oficina == undefined || id_oficina == "" || id_oficina == null)) {
                     id_oficina = 0;
                 }
+
                 $.paramcustom = {
                     url: SoftwareNet.Web.Operacion.RendimientoORH.Actions.ExportarExcel,
                     values: {
                         ID_AREA: parseInt(id_area),
                         ID_OFICINA: parseInt(id_oficina),
+                        ANIO: anio,
                     }
                 }
                 $.redirect();
@@ -115,8 +118,8 @@
                         { "data": "ANIO", "title": "Año", "class": "text-center" },
                         { "data": "DESCRIPCION", "title": "Prioridades Anuales", "width": "20%" },
 
-                        { "data": "NOMBRE_EVALUADO", "title": "Programacion" },
-                        { "data": "NOMBRE_EVALUADOR", "title": "Programacionr" },
+                        { "data": "NOMBRE_EVALUADO", "title": "Evaluado" },
+                        { "data": "NOMBRE_EVALUADOR", "title": "Evaluador" },
                         { "data": "PLAZO", "title": "Plazo", "class": "text-center", "visible": false },
                         { "data": "NOMBRE_ESTADO", "title": "Estado", "class": "text-center" },
 
@@ -144,7 +147,7 @@
             BuscarGrilla: function () {
                 var id_area = base.Control.DllOrgano().val();
                 var id_oficina = base.Control.DllUnidadOrganica().val();
-
+                var anio = base.Control.DllAnioConsulta().val();
                 if ((id_area == undefined || id_area == "" || id_area == null)) {
                     id_area = 0;
                 }
@@ -154,6 +157,7 @@
                 base.Ajax.AjaxBuscar.data = {
                     ID_AREA: parseInt(id_area),
                     ID_OFICINA: parseInt(id_oficina),
+                    ANIO:anio,
                 }
                 base.Ajax.AjaxBuscar.submit();
             },

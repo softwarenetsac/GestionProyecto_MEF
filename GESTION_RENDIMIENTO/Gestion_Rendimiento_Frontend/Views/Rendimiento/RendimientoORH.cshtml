@@ -25,10 +25,24 @@
                 </div>
                 <div class="card-body p-b-sm m-b-sm">
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                             <div class="form-group">
-                                <label for="ddl_Organo_consulta">Órgano</label>
-                                <select class="form-control" id="ID_AREA_CONSULTA" name="ID_AREA_CONSULTA">
+                                <label for="ddl_Organo_consulta">Año</label>
+                                <select class="form-control" id="ddlAnio_Consulta" name="ddlAnio_Consulta">
+                                    @{
+                                        foreach (var item in Model.List_Anio)
+                                        {
+                                            <option value=@item.Value>@item.Text</option>
+                                        }
+                                    }
+                                </select>
+
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="form-group">
+                                <label for="ddl_Organo_consulta">Oficina</label>
+                                <select class="form-control" id="ID_OFICINA_CONSULTA" name="ID_OFICINA_CONSULTA">
                                     <option value="0">---Todos-----</option>
                                 @{
 
@@ -44,14 +58,14 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="col-md-6">
+    @*                    <div class="col-md-5">
                             <div class="form-group">
                                 <label for="txtRuc_Consulta">Unidad Orgánica</label>
                                 <select class="form-control" id="ID_OFICINA_CONSULTA" name="ID_OFICINA_CONSULTA">
                                     <option value="" selected="selected">---Todos-----</option>
                                 </select>
                             </div>
-                        </div>
+                        </div>*@
                     </div>
                 </div>
             </div>

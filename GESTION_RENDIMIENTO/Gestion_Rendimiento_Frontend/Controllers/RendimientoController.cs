@@ -509,11 +509,27 @@ namespace Gestion_Rendimiento_Frontend.Controllers
         #region RENDIMIENTO ORH
         public IActionResult RendimientoORH()
         {
-            var tipo = Constantes.TipoOrgano;
             var modelo = new EvaluadoViewModel();
-            modelo.Oficinas = _oficinaService.GetOrganos(tipo).ToList();
+            modelo.Oficinas = _oficinaService.GetOrganosTodos().ToList();
             var usuario_conectado = _personaService.Detalle(UsuarioActual.ID_PERSONAL);
             modelo.Personas = _personaService.GetTodosXUnidad(usuario_conectado.ID_AREA);
+            string Anio = _proyectoService.Proyecto_Min_Ano();
+            int Anio_a = DateTime.Now.Year;
+            modelo.List_Anio = new List<SelectListItem>();
+            if (Anio != null || Anio != "")
+            {
+                if (Anio_a == int.Parse(Anio))
+                {
+                    modelo.List_Anio.Add(new SelectListItem { Value = Anio_a.ToString(), Text = Anio_a.ToString() });
+                }
+                else
+                {
+                    for (int I = int.Parse(Anio); I <= Anio_a; I += 1)
+                    {
+                        modelo.List_Anio.Add(new SelectListItem { Value = I.ToString(), Text = I.ToString() });
+                    }
+                }
+            }
             return View(modelo);
         }
         public IActionResult GenerarHTML_Cons([FromBody] RendimientoModel model)
@@ -600,6 +616,7 @@ namespace Gestion_Rendimiento_Frontend.Controllers
             var result = new MethodResponseModel<IEnumerable<RendimientoConsultaModel>> { Result = null };
             try
             {
+                request.TIPO = "ORH";
                 var lista = GetLista_Rendimiento(request);
                 result.Result = lista;
                 result.Success = lista.Count > 0;

@@ -288,8 +288,8 @@
                         { "data": "ANIO", "title": "Año", "class": "text-center" },
                         { "data": "DESCRIPCION", "title": "Prioridades Anuales", "width": "20%" },
                  
-                        { "data": "NOMBRE_EVALUADO", "title": "Programacion" },
-                        { "data": "NOMBRE_EVALUADOR", "title": "Programacionr" },
+                        { "data": "NOMBRE_EVALUADO", "title": "Evaluado" },
+                        { "data": "NOMBRE_EVALUADOR", "title": "Evaluador" },
                         { "data": "PLAZO", "title": "Plazo", "class": "text-center", "visible": false },
                         { "data": "NOMBRE_ESTADO", "title": "Estado", "class": "text-center" },
 
