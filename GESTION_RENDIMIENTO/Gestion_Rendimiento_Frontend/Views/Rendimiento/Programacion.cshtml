@@ -1,101 +1,198 @@
 ﻿@{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-@model Gestion_Rendimiento_Frontend.Models.EvaluadorViewModel
-<div id="div_consulta">
-    <div class="wizard-container">
-        <div class="card wizard-card ct-wizard-red" id="wizard">
-            <div class="wizard-header">
-                <div class="row m-x-sm">
-                    <div class="col-md-4">
-                        <h4 class="m-t-sm">Seguimiento</h4>
-                    </div>
-                    <div class="col-md-8 text-right">
-                    </div>
-                </div>
-            </div>
-            <div class="bg-divider"></div>
-            <br />
-            @*  <div class="card m-l-md m-r-md">
-                <div class="card-header p-y-sm">
-                    Buscar por:
-                    <div class="card-actions">
-                        <button type="button" class="card-action card-toggler" title="Collapse" aria-expanded="true"></button>
-                    </div>
-                </div>
-                <div class="card-body p-b-sm m-b-sm">
-                    <div class="row">
-                   <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="ddl_Organo_consulta">Órgano</label>
-                                <select class="form-control" id="ID_AREA_CONSULTA" name="ID_AREA_CONSULTA">
-                                    <option value="0">---Todos-----</option>
-                                </select>
+@model Gestion_Rendimiento_Frontend.Models.RendimientoViewModel
+<div class="wizard-container">
+    <div class="card wizard-card ct-wizard-red" id="wizard">
 
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="txtRuc_Consulta">Unidad Orgánica</label>
-                                <select class="form-control" id="ID_OFICINA_CONSULTA" name="ID_OFICINA_CONSULTA">
-                                    <option value="" selected="selected">---Todos-----</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                        </div>*@
-            @*    <div class="row text-left m-l-md m-r-md">
-               <div class="col-md-6">
-                    <div class="row text-lef">
-                        <button class="btn btn-default" type="button" id="btnExportar" name="btnExportar">
-                            <i class="icon icon-file-excel-o icon-lg m-r-sm"></i>
-                            Exportar
-                        </button>
-                        <button class="btn btn-danger" type="button" id="btnBotonFirmar" name="btnBotonFirmar">
-                            <i class="icon icon-spinner icon-lg m-r-sm"></i>
-                            Firmar
-                        </button>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="row text-right">
-                        <button class="btn btn-primary" type="button" id="btnBotonBuscar" name="btnBotonBuscar">
-                            <i class="icon icon-search icon-lg m-r-sm"></i>
-                            Buscar
-                        </button>
-
-                    </div>
-                </div>
-            </div>
-                *@
-            <br />
-            <div class="card card-body m-l-md m-r-md">
-                <div class="table-responsive">
-                    <table id="gridProgramacion" class="table table-striped table-bordered">
-                    </table>
+        <div class="wizard-header">
+            <div class="row m-x-sm">
+                <div class="col-md-4">
+                    <h4 class="m-t-sm">Gestion Rendimiento</h4>
                 </div>
             </div>
         </div>
 
+        <div class="bg-divider"></div>
+        <div class="card m-l-md m-r-md">
+            <div class="card-header p-y-sm">
+                Buscar por:
+                <div class="card-actions">
+                    <button type="button" class="card-action card-toggler" title="Collapse" aria-expanded="true"></button>
+
+                </div>
+            </div>
+            <div class="card-body p-b-sm m-b-sm">
+                <div class="row">
+                   <div class="col-md-4">
+                    <div class="form-group">
+                    <label for="ddl_Organo_consulta">Año</label>
+                    <select class="form-control" id="ddlAnio_Consulta" name="ddlAnio_Consulta">
+                    <option value="0" selected="selected">---Todos-----</option>
+                    @{
+                    foreach (var item in Model.List_Anio)
+                    {
+                    <option value=@item.Value>@item.Text</option>
+                    }
+                    }
+                    </select>
+
+                    </div>
+                    </div>
+                    @*   <div class="col-md-6">
+                    <div class="form-group">
+                    <label for="txtRuc_Consulta">Estado</label>
+                    <select class="form-control" id="ddlEstado_Consulta" name="ddEstado_Consulta">
+                    <option value="_%">---Todos-----</option>
+                    <option value="1" selected="selected">ACTIVO</option>
+                    <option value="0">INACTIVO</option>
+                    </select>
+                    </div>
+                    </div>*@
+                </div>
+            </div>
+        </div>
+        <div class="row text-left m-l-md m-r-md">
+            <div class="col-md-6">
+                <div class="row text-left">
+                    <button type="button" class="btn btn-primary" id="btnAgregar">
+                        <i class="icon icon-plus-circle icon-lg m-r-sm"></i>
+                        Nueva Planificación
+                    </button>
+                    <button class="btn btn-default m-l-sm" id="btnExportarEXCEl" name="btnExportarEXCEl">
+                        <i class="icon icon-file-excel-o icon-lg m-r-sm"></i>
+                        Exportar en EXCEL
+                    </button>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="row text-right">
+                    <button class="btn btn-primary" type="button" id="btnBotonBuscar">
+                        <i class="icon icon-search icon-lg m-r-sm"></i>
+                        Buscar
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-body">
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="table-responsive">
+                        <table id="gridRendimiento" class="table table-bordered table-striped dataTable">
+                        </table>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
     </div>
 </div>
-<style>
+@section Modales{
+    <div id="modalRendimiento" role="dialog" class="modal fade" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header bg-primary" style="cursor:pointer;">
+                    <h4 class="modal-title">Planificación</h4>
+                </div>
+                <div class="modal-body">
+                    <form id="frmModel" name="frmModel" data-toggle="validator" method="post" enctype="multipart/form-data">
+                        <input type="hidden" id="hdnIdProyecto" name="hdnIdProyecto" value="0" />
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>Evaluador/a (Jefe Directo)<span class="text-primary m-l-sm">(*)</span></label>
+                                    <select class="form-control" required id="ID_EVALUADOR" name="ID_EVALUADOR">
+                                        <option value="" selected="selected">---Seleccionar-----</option>
+                                        @{
+                                            foreach (var item in Model.Personas)
+                                            {
+                                                <option value=@item.ID_PERSONAL>@item.NOMBRE_COMPLETO</option>
+                                            }
+                                        }
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12">
+                                <div class="card">
+                                    <div class="section-header">
+                                        <b>Detalle de prioridad</b>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="col-md-12 btn_agr">
+                                            <div class="row text-left">
+                                                <a style="font-weight: bold;font-size: 12px;" href='javascript:void(0);' class="text-info" id="BtnAgregarPrioridad"><i class='icon icon-plus m-r-sm'></i>Clic aquí para agregar una nueva prioridad</a>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="table-responsive">
+                                                    <table id="gridMantenimiento" class="table table-striped table-bordered nowrap" cellspacing="0" width="100%">
+                                                        <thead>
+                                                            <tr style='background-color:#FCE4D6;'>
+                                                                <th colspan='5'>PRIORIDADES ANUALES DE GESTIÓN DEL ÓRGANO O UNIDAD ORGÁNICA</th>
+                                                                <th style="text-align:center;display:none"></th>
+                                                                <th style="text-align:center;display:none"></th>
+                                                                <th style="text-align:center;display:none"></th>
+                                                                <th style="text-align:center;display:none"></th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody id="gridBody"></tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-    .form-group {
-        margin-bottom: 5px !important;
-    }
-</style>
+
+                        <br />
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label> <span class="text-primary m-l-sm">(*) Campo obligatoro</span></label>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <div class="row">
+                        <div class="m-t-lg text-center">
+
+                            <button id="btnGuardar" name="btnGuardar" class="btn btn-primary" type="button">Guardar</button>
+                            <button class="btn btn-default m-l-lg" data-dismiss="modal" type="button">Cancelar</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="contenedoralerta"> </div>
+    <div class="contenedorconfirmacion"></div>
+
+}
+<script type="text/javascript">
+    var baseUrl = "@Url.Content("~")";
+</script>
+
+
 @section Scripts
     {
     <script type="text/javascript">
         ns('SoftwareNet.Web.Operacion.Programacion.Actions')
-        SoftwareNet.Web.Operacion.Programacion.Actions.Buscar = '@Url.Action("GetAll_Programacion", "Rendimiento")';
+        SoftwareNet.Web.Operacion.Programacion.Actions.BuscarUnidadOrganica = '@Url.Action("ListarUnidadOrganica", "Oficina")';
+        SoftwareNet.Web.Operacion.Programacion.Actions.NuevaFila = '@Url.Action("GenerarHTML", "Rendimiento")';
+        SoftwareNet.Web.Operacion.Programacion.Actions.NuevaFilaDetalle = '@Url.Action("GenerarHTMLDET", "Rendimiento")';
+        SoftwareNet.Web.Operacion.Programacion.Actions.Registrar = '@Url.Action("GuardarProyecto", "Rendimiento")';
+        SoftwareNet.Web.Operacion.Programacion.Actions.Buscar = '@Url.Action("GetAll_Proyecto", "Rendimiento")';
     </script>
     <script src="@Url.Content("~/Scripts/jquery.form.js")"></script>
-    <script type="text/javascript" src="@Url.Content("~/Scripts/CodeCustom/Rendimiento/Programacion/Controller.js?id=1")"></script>
-    <script type="text/javascript" src="@Url.Content("~/Scripts/CodeCustom/Rendimiento/Programacion/Index.js?id=45.3")"></script>
-
-
-
+    <script type="text/javascript" src="@Url.Content("~/Scripts/CodeCustom/Rendimiento/Programacion/Controller.js?id=3.3")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/CodeCustom/Rendimiento/Programacion/Index.js?id=88")"></script>
 }

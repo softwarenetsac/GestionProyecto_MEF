@@ -2,10 +2,6 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @model Gestion_Rendimiento_Frontend.Models.EvaluadoViewModel
-@*@using Gestion_Rendimiento_Frontend.Recursos.Shared;
-@using Gestion_Rendimiento_Frontend.Recursos.Forms;*@
-
-
 <div id="div_consulta">
     <div class="wizard-container">
         <div class="card wizard-card ct-wizard-red" id="wizard">
@@ -34,17 +30,17 @@
                                 <label for="ddl_Organo_consulta">Órgano</label>
                                 <select class="form-control" id="ID_AREA_CONSULTA" name="ID_AREA_CONSULTA">
                                     <option value="0">---Todos-----</option>
-                                @{
+                                    @{
 
-                                    if (Model.Oficinas != null)
-                                    {
-                                        foreach (var item in Model.Oficinas)
+                                        if (Model.Oficinas != null)
                                         {
-                                            <option value=@item.ID_AREA>@item.NOMBRE_AREA</option>
+                                            foreach (var item in Model.Oficinas)
+                                            {
+                                                <option value=@item.ID_AREA>@item.NOMBRE_AREA</option>
+                                            }
                                         }
-                                    }
 
-                                }
+                                    }
                                 </select>
                             </div>
                         </div>
@@ -101,12 +97,8 @@
         SoftwareNet.Web.Operacion.Evaluado.Actions.Buscar = '@Url.Action("GetAll", "Evaluado")';
         SoftwareNet.Web.Operacion.Evaluado.Actions.ExportarExcel = '@Url.Action("ExportarExcel", "Evaluado")';
         SoftwareNet.Web.Operacion.Evaluado.Actions.BuscarUnidadOrganica = '@Url.Action("ListarUnidadOrganica", "Oficina")';
-
     </script>
     <script src="@Url.Content("~/Scripts/jquery.form.js")"></script>
     <script type="text/javascript" src="@Url.Content("~/Scripts/CodeCustom/Evaluado/Consulta/Controller.js?id=1")"></script>
     <script type="text/javascript" src="@Url.Content("~/Scripts/CodeCustom/Evaluado/Consulta/Index.js?id=45.3")"></script>
-
-
-
 }
