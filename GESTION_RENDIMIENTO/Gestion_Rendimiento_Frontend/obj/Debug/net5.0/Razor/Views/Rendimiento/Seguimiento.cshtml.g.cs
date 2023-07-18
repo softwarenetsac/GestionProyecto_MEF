@@ -28,9 +28,7 @@ using Gestion_Rendimiento_Frontend.Models;
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"8bfeac02beb739d600bcdacca0ef418c565109e8", @"/Views/Rendimiento/Seguimiento.cshtml")]
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"ae21c9f595a50f67cba81ac593b6da05d7871619", @"/Views/_ViewImports.cshtml")]
-    #nullable restore
     public class Views_Rendimiento_Seguimiento : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<Gestion_Rendimiento_Frontend.Models.EvaluadorViewModel>
-    #nullable disable
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("value", "0", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_1 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("value", "", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -96,7 +94,7 @@ using Gestion_Rendimiento_Frontend.Models;
                                 <label for=""ddl_Organo_consulta"">Órgano</label>
                                 <select class=""form-control"" id=""ID_AREA_CONSULTA"" name=""ID_AREA_CONSULTA"">
                                     ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8bfeac02beb739d600bcdacca0ef418c565109e86025", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8bfeac02beb739d600bcdacca0ef418c565109e85979", async() => {
                 WriteLiteral("---Todos-----");
             }
             );
@@ -121,7 +119,7 @@ using Gestion_Rendimiento_Frontend.Models;
                                 <label for=""txtRuc_Consulta"">Unidad Orgánica</label>
                                 <select class=""form-control"" id=""ID_OFICINA_CONSULTA"" name=""ID_OFICINA_CONSULTA"">
                                     ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8bfeac02beb739d600bcdacca0ef418c565109e87654", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8bfeac02beb739d600bcdacca0ef418c565109e87608", async() => {
                 WriteLiteral("---Todos-----");
             }
             );
@@ -286,26 +284,16 @@ WriteAttributeValue("", 5098, Url.Content("~/Scripts/CodeCustom/Rendimiento/Segu
             );
         }
         #pragma warning restore 1998
-        #nullable restore
         [global::Microsoft.AspNetCore.Mvc.Razor.Internal.RazorInjectAttribute]
-        public global::Microsoft.AspNetCore.Mvc.ViewFeatures.IModelExpressionProvider ModelExpressionProvider { get; private set; } = default!;
-        #nullable disable
-        #nullable restore
+        public global::Microsoft.AspNetCore.Mvc.ViewFeatures.IModelExpressionProvider ModelExpressionProvider { get; private set; }
         [global::Microsoft.AspNetCore.Mvc.Razor.Internal.RazorInjectAttribute]
-        public global::Microsoft.AspNetCore.Mvc.IUrlHelper Url { get; private set; } = default!;
-        #nullable disable
-        #nullable restore
+        public global::Microsoft.AspNetCore.Mvc.IUrlHelper Url { get; private set; }
         [global::Microsoft.AspNetCore.Mvc.Razor.Internal.RazorInjectAttribute]
-        public global::Microsoft.AspNetCore.Mvc.IViewComponentHelper Component { get; private set; } = default!;
-        #nullable disable
-        #nullable restore
+        public global::Microsoft.AspNetCore.Mvc.IViewComponentHelper Component { get; private set; }
         [global::Microsoft.AspNetCore.Mvc.Razor.Internal.RazorInjectAttribute]
-        public global::Microsoft.AspNetCore.Mvc.Rendering.IJsonHelper Json { get; private set; } = default!;
-        #nullable disable
-        #nullable restore
+        public global::Microsoft.AspNetCore.Mvc.Rendering.IJsonHelper Json { get; private set; }
         [global::Microsoft.AspNetCore.Mvc.Razor.Internal.RazorInjectAttribute]
-        public global::Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper<Gestion_Rendimiento_Frontend.Models.EvaluadorViewModel> Html { get; private set; } = default!;
-        #nullable disable
+        public global::Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper<Gestion_Rendimiento_Frontend.Models.EvaluadorViewModel> Html { get; private set; }
     }
 }
 #pragma warning restore 1591

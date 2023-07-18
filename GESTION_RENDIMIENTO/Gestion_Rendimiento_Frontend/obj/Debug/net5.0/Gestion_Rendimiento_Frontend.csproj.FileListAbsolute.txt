@@ -329,5 +329,5 @@ D:\1.APLICACIONES\16.Gestion_Proyecto\1.Aplicación\GestionProyecto_MEF\GESTION_
 D:\1.APLICACIONES\16.Gestion_Proyecto\1.Aplicación\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\obj\Debug\net5.0\Gestion_Rendimiento_Frontend.pdb
 D:\1.APLICACIONES\16.Gestion_Proyecto\1.Aplicación\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\obj\Debug\net5.0\Gestion_Rendimiento_Frontend.genruntimeconfig.cache
 D:\1.APLICACIONES\16.Gestion_Proyecto\1.Aplicación\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\obj\Debug\net5.0\ref\Gestion_Rendimiento_Frontend.dll
-D:\proyectos\MEF\GESTION_PROYECTO\FUENTE\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\Gestion_Rendimiento_Frontend.StaticWebAssets.xml
-D:\proyectos\MEF\GESTION_PROYECTO\FUENTE\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\obj\Debug\net5.0\refint\Gestion_Rendimiento_Frontend.dll
+D:\proyectos\MEF\GESTION_PROYECTO\FUENTE\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\ref\Gestion_Rendimiento_Frontend.dll
+D:\proyectos\MEF\GESTION_PROYECTO\FUENTE\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\obj\Debug\net5.0\staticwebassets\Gestion_Rendimiento_Frontend.StaticWebAssets.xml

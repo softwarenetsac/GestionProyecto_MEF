@@ -28,9 +28,7 @@ using Gestion_Rendimiento_Frontend.Models;
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"3e4f57f3eb4fa26099e97048cdb97b2a7bda3b93", @"/Views/Evaluador/Index.cshtml")]
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"ae21c9f595a50f67cba81ac593b6da05d7871619", @"/Views/_ViewImports.cshtml")]
-    #nullable restore
     public class Views_Evaluador_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<Gestion_Rendimiento_Frontend.Models.EvaluadorViewModel>
-    #nullable disable
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("value", "0", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_1 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("value", "", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -109,7 +107,7 @@ using Gestion_Rendimiento_Frontend.Models;
                                 <label for=""ddl_Organo_consulta"">Órgano</label>
                                 <select class=""form-control"" id=""ID_AREA_CONSULTA"" name=""ID_AREA_CONSULTA"">
                                     ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3e4f57f3eb4fa26099e97048cdb97b2a7bda3b939397", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3e4f57f3eb4fa26099e97048cdb97b2a7bda3b939351", async() => {
                 WriteLiteral("---Todos-----");
             }
             );
@@ -138,7 +136,7 @@ using Gestion_Rendimiento_Frontend.Models;
 #line hidden
 #nullable disable
             WriteLiteral("                                                ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3e4f57f3eb4fa26099e97048cdb97b2a7bda3b9311145", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3e4f57f3eb4fa26099e97048cdb97b2a7bda3b9311099", async() => {
 #nullable restore
 #line 43 "D:\proyectos\MEF\GESTION_PROYECTO\FUENTE\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\Views\Evaluador\Index.cshtml"
                                                                        Write(item.NOMBRE_AREA);
@@ -188,7 +186,7 @@ using Gestion_Rendimiento_Frontend.Models;
                                 <label for=""txtRuc_Consulta"">Unidad Orgánica</label>
                                 <select class=""form-control"" id=""ID_OFICINA_CONSULTA"" name=""ID_OFICINA_CONSULTA"">
                                     ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3e4f57f3eb4fa26099e97048cdb97b2a7bda3b9313967", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3e4f57f3eb4fa26099e97048cdb97b2a7bda3b9313921", async() => {
                 WriteLiteral("---Todos-----");
             }
             );
@@ -262,7 +260,7 @@ using Gestion_Rendimiento_Frontend.Models;
                 <div class=""modal-header bg-primary"" style=""cursor:pointer;"">Cargar Responsables </div>
                 <div class=""modal-body"">
                     ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3e4f57f3eb4fa26099e97048cdb97b2a7bda3b9317808", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3e4f57f3eb4fa26099e97048cdb97b2a7bda3b9317762", async() => {
                     WriteLiteral("\r\n                        <input type=\"hidden\" id=\"hdnIdMasivo\" name=\"hdnIdMasivo\" value=\"0\" />\r\n                        <input type=\"hidden\" id=\"hdnID_PERSONALM\" name=\"hdnID_PERSONALM\"");
                     BeginWriteAttribute("value", " value=\"", 5323, "\"", 5331, 0);
                     EndWriteAttribute();
@@ -354,7 +352,7 @@ WriteAttributeValue("", 6024, Url.Action("DescargarAutorizador", "Archivo"), 602
                 <div class=""modal-body"">
                     ");
                 WriteLiteral("<div class=\"tab-content\" id=\"frmControles\">\r\n                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3e4f57f3eb4fa26099e97048cdb97b2a7bda3b9323635", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3e4f57f3eb4fa26099e97048cdb97b2a7bda3b9323589", async() => {
                     WriteLiteral(@"
                             <input type=""hidden"" value=""0"" id=""hdnIdAutorizador"" name=""hdnIdAutorizador"" />
                             <input type=""hidden"" value=""0"" id=""hdnIdOficina"" name=""hdnIdOficina"" />
@@ -369,7 +367,7 @@ WriteAttributeValue("", 6024, Url.Action("DescargarAutorizador", "Archivo"), 602
                                         <label>&Oacute;rgano</label><label class=""text-primary m-l-sm"">(*)</label>
                                         <select class=""form-control"" id=""ID_AREA_REGISTRO"" name=""ID_AREA_REGISTRO"" required>
                                             ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3e4f57f3eb4fa26099e97048cdb97b2a7bda3b9324906", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3e4f57f3eb4fa26099e97048cdb97b2a7bda3b9324860", async() => {
                         WriteLiteral("---Seleccionar-----");
                     }
                     );
@@ -397,7 +395,7 @@ WriteAttributeValue("", 6024, Url.Action("DescargarAutorizador", "Archivo"), 602
 #line hidden
 #nullable disable
                     WriteLiteral("                                                        ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3e4f57f3eb4fa26099e97048cdb97b2a7bda3b9326844", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3e4f57f3eb4fa26099e97048cdb97b2a7bda3b9326798", async() => {
 #nullable restore
 #line 186 "D:\proyectos\MEF\GESTION_PROYECTO\FUENTE\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\Views\Evaluador\Index.cshtml"
                                                                                  Write(item.NOMBRE_AREA);
@@ -447,7 +445,7 @@ WriteAttributeValue("", 6024, Url.Action("DescargarAutorizador", "Archivo"), 602
                                         <label>Unidad Org&aacute;nica</label><label class=""text-primary m-l-sm"">(*)</label>
                                         <select class=""form-control"" id=""ID_OFICINA_REGISTRO"" name=""ID_OFICINA_REGISTRO"" required>
                                             ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3e4f57f3eb4fa26099e97048cdb97b2a7bda3b9330042", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3e4f57f3eb4fa26099e97048cdb97b2a7bda3b9329996", async() => {
                         WriteLiteral("---Seleccionar-----");
                     }
                     );
@@ -473,7 +471,7 @@ WriteAttributeValue("", 6024, Url.Action("DescargarAutorizador", "Archivo"), 602
                                         <label for=""ddlTitular"">Evaluador</label><label class=""text-primary m-l-sm"">(*)</label>
                                         <select class=""form-control"" id=""ddlTitular"" name=""ddlTitular"" required>
                                             ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3e4f57f3eb4fa26099e97048cdb97b2a7bda3b9331982", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3e4f57f3eb4fa26099e97048cdb97b2a7bda3b9331936", async() => {
                         WriteLiteral("---Seleccionar-----");
                     }
                     );
@@ -501,7 +499,7 @@ WriteAttributeValue("", 6024, Url.Action("DescargarAutorizador", "Archivo"), 602
 #line hidden
 #nullable disable
                     WriteLiteral("                                                        ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3e4f57f3eb4fa26099e97048cdb97b2a7bda3b9333920", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3e4f57f3eb4fa26099e97048cdb97b2a7bda3b9333874", async() => {
 #nullable restore
 #line 215 "D:\proyectos\MEF\GESTION_PROYECTO\FUENTE\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\Views\Evaluador\Index.cshtml"
                                                                                      Write(item.NOMBRE_COMPLETO);
@@ -698,26 +696,16 @@ WriteAttributeValue("", 14667, Url.Content("~/Scripts/CodeCustom/Evaluador/Consu
             );
         }
         #pragma warning restore 1998
-        #nullable restore
         [global::Microsoft.AspNetCore.Mvc.Razor.Internal.RazorInjectAttribute]
-        public global::Microsoft.AspNetCore.Mvc.ViewFeatures.IModelExpressionProvider ModelExpressionProvider { get; private set; } = default!;
-        #nullable disable
-        #nullable restore
+        public global::Microsoft.AspNetCore.Mvc.ViewFeatures.IModelExpressionProvider ModelExpressionProvider { get; private set; }
         [global::Microsoft.AspNetCore.Mvc.Razor.Internal.RazorInjectAttribute]
-        public global::Microsoft.AspNetCore.Mvc.IUrlHelper Url { get; private set; } = default!;
-        #nullable disable
-        #nullable restore
+        public global::Microsoft.AspNetCore.Mvc.IUrlHelper Url { get; private set; }
         [global::Microsoft.AspNetCore.Mvc.Razor.Internal.RazorInjectAttribute]
-        public global::Microsoft.AspNetCore.Mvc.IViewComponentHelper Component { get; private set; } = default!;
-        #nullable disable
-        #nullable restore
+        public global::Microsoft.AspNetCore.Mvc.IViewComponentHelper Component { get; private set; }
         [global::Microsoft.AspNetCore.Mvc.Razor.Internal.RazorInjectAttribute]
-        public global::Microsoft.AspNetCore.Mvc.Rendering.IJsonHelper Json { get; private set; } = default!;
-        #nullable disable
-        #nullable restore
+        public global::Microsoft.AspNetCore.Mvc.Rendering.IJsonHelper Json { get; private set; }
         [global::Microsoft.AspNetCore.Mvc.Razor.Internal.RazorInjectAttribute]
-        public global::Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper<Gestion_Rendimiento_Frontend.Models.EvaluadorViewModel> Html { get; private set; } = default!;
-        #nullable disable
+        public global::Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper<Gestion_Rendimiento_Frontend.Models.EvaluadorViewModel> Html { get; private set; }
     }
 }
 #pragma warning restore 1591

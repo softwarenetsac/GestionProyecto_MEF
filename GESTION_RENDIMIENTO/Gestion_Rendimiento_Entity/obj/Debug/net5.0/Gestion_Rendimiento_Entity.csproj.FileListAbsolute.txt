@@ -27,4 +27,4 @@ D:\1.APLICACIONES\16.Gestion_Proyecto\1.Aplicación\GestionProyecto_MEF\GESTION_
 D:\1.APLICACIONES\16.Gestion_Proyecto\1.Aplicación\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Entity\obj\Debug\net5.0\refint\Gestion_Rendimiento_Entity.dll
 D:\1.APLICACIONES\16.Gestion_Proyecto\1.Aplicación\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Entity\obj\Debug\net5.0\Gestion_Rendimiento_Entity.pdb
 D:\1.APLICACIONES\16.Gestion_Proyecto\1.Aplicación\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Entity\obj\Debug\net5.0\ref\Gestion_Rendimiento_Entity.dll
-D:\proyectos\MEF\GESTION_PROYECTO\FUENTE\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Entity\obj\Debug\net5.0\refint\Gestion_Rendimiento_Entity.dll
+D:\proyectos\MEF\GESTION_PROYECTO\FUENTE\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Entity\bin\Debug\net5.0\ref\Gestion_Rendimiento_Entity.dll

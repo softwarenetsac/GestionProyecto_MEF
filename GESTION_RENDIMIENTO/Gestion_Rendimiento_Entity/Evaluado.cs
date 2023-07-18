@@ -30,7 +30,8 @@ namespace Gestion_Rendimiento_Entity
         public string ANIO { get; set; }
         public string ID_EVALUADOR { get; set; }
         public string NOMBRE_EVALUADOR { get; set; }
-        public string PROYECTO { get; set; }
-        public int ID_PROYECTO { get; set; }
+
+     //   public string PROYECTO { get; set; }
+      //  public int ID_PROYECTO { get; set; }
     }
 }
