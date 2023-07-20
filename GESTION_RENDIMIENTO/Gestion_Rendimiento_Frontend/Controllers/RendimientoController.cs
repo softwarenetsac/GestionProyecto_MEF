@@ -36,9 +36,6 @@ namespace Gestion_Rendimiento_Frontend.Controllers
         private readonly IProyectoService _proyectoService;
         private readonly IProyectoDetalleService _proyectodetalleService;
         private readonly IPersonaService _personaService;
-        private readonly IEvaluadorService _evaluadorService;
-
-        
         public RendimientoController(
           IPersonaService personaService,
           IOficinaService oficinaService,
@@ -48,8 +45,7 @@ namespace Gestion_Rendimiento_Frontend.Controllers
           IProyectoService proyectoService,
           IConfiguracionRendimientoService configuracionRendimientoService,
           IOptions<ConfiguracionSistemaModel> configuracionSistema,
-           IHttpContextAccessor contextAccessor,
-           IEvaluadorService evaluadorService
+           IHttpContextAccessor contextAccessor
             )
         {
             _proyectodetalleService = proyectodetalleService;
@@ -61,16 +57,13 @@ namespace Gestion_Rendimiento_Frontend.Controllers
             _contextAccessor = contextAccessor;
             _evaluadoService = evaluadoService;
             _personaService = personaService;
-            _evaluadorService = evaluadorService;
         }
         #region PROGRAMACION
         public IActionResult Programacion()
         {
             var modelo = new RendimientoViewModel();
             var usuario_conectado = _personaService.Detalle(UsuarioActual.ID_PERSONAL);
-
-            modelo.Personas = _evaluadorService.GetAll(usuario_conectado.ID_AREA,0,"").ToList() ;
-
+            modelo.Personas = _personaService.GetTodosXUnidad(usuario_conectado.ID_AREA);
             string Anio = _proyectoService.Proyecto_Min_Ano();
             int Anio_a=DateTime.Now.Year;
             modelo.List_Anio = new List<SelectListItem>();

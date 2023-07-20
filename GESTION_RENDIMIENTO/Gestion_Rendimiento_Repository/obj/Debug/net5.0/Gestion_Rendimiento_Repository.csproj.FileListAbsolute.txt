@@ -1,5 +1,6 @@
 D:\proyectos\MEF\GESTION_PROYECTO\FUENTE\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Repository\bin\Debug\net5.0\Gestion_Rendimiento_Repository.deps.json
 D:\proyectos\MEF\GESTION_PROYECTO\FUENTE\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Repository\bin\Debug\net5.0\Gestion_Rendimiento_Repository.dll
+D:\proyectos\MEF\GESTION_PROYECTO\FUENTE\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Repository\bin\Debug\net5.0\ref\Gestion_Rendimiento_Repository.dll
 D:\proyectos\MEF\GESTION_PROYECTO\FUENTE\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Repository\bin\Debug\net5.0\Gestion_Rendimiento_Repository.pdb
 D:\proyectos\MEF\GESTION_PROYECTO\FUENTE\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Repository\bin\Debug\net5.0\Gestion_Rendimiento_Common.dll
 D:\proyectos\MEF\GESTION_PROYECTO\FUENTE\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Repository\bin\Debug\net5.0\Gestion_Rendimiento_Data.dll
@@ -35,4 +36,3 @@ D:\1.APLICACIONES\16.Gestion_Proyecto\1.Aplicación\GestionProyecto_MEF\GESTION_
 D:\1.APLICACIONES\16.Gestion_Proyecto\1.Aplicación\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Repository\obj\Debug\net5.0\refint\Gestion_Rendimiento_Repository.dll
 D:\1.APLICACIONES\16.Gestion_Proyecto\1.Aplicación\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Repository\obj\Debug\net5.0\Gestion_Rendimiento_Repository.pdb
 D:\1.APLICACIONES\16.Gestion_Proyecto\1.Aplicación\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Repository\obj\Debug\net5.0\ref\Gestion_Rendimiento_Repository.dll
-D:\proyectos\MEF\GESTION_PROYECTO\FUENTE\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Repository\bin\Debug\net5.0\ref\Gestion_Rendimiento_Repository.dll

@@ -106,15 +106,10 @@
                                     <select class="form-control" required id="ID_EVALUADOR" name="ID_EVALUADOR">
                                         <option value="" selected="selected">---Seleccionar-----</option>
                                         @{
-                                            if (Model.Personas != null)
+                                            foreach (var item in Model.Personas)
                                             {
-                                                foreach (var item in Model.Personas)
-                                                {
-                                                    <option value=@item.ID_PERSONA>@item.NOMBRE_COMPLETO</option>
-                                                }
-
+                                                <option value=@item.ID_PERSONAL>@item.NOMBRE_COMPLETO</option>
                                             }
-
                                         }
                                     </select>
                                 </div>
@@ -124,7 +119,7 @@
                             <div class="col-md-12 col-sm-12">
                                 <div class="card">
                                     <div class="section-header">
-                                        <b>Prioridades Anuales</b>
+                                        <b>Detalle de prioridad</b>
                                     </div>
                                     <div class="card-body">
                                         <div class="col-md-12 btn_agr">
