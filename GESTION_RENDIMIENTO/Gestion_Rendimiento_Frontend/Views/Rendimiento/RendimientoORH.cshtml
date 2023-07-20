@@ -115,9 +115,9 @@
                                     <select class="form-control" required id="ID_EVALUADOR" name="ID_EVALUADOR">
                                         <option value="" selected="selected">---Seleccionar-----</option>
                                         @{
-                                            foreach (var item in Model.Personas)
+                                            foreach (var item in Model.Evaluadores)
                                             {
-                                                <option value=@item.ID_PERSONAL>@item.NOMBRE_COMPLETO</option>
+                                                <option value=@item.ID_PERSONA>@item.NOMBRE_COMPLETO</option>
                                             }
                                         }
                                     </select>

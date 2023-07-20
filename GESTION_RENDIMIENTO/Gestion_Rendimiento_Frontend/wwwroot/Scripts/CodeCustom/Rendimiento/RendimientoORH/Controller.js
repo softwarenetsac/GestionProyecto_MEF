@@ -6,6 +6,7 @@
             'use strict';
             base.Control.DllOrgano().select2({});
             base.Control.DllUnidadOrganica().select2({});
+            base.Control.DllProgramacionr().select2({});
             base.Control.BotonBuscar().click(base.Event.BotonBuscarClick);
             base.Control.BotonExportar().click(base.Event.BotonExportarClick);
             base.Function.CrearGrillaEvaluado();
@@ -171,6 +172,7 @@
                     var data = base.Parameters.TableEvaluado.row(indice).data();
                     if (data != null) {
                         base.Control.DllProgramacionr().val(data.ID_EVALUADOR);
+                        base.Control.DllProgramacionr().trigger("change");
                     }
                     base.Control.hdnIdProyecto().val(id);
                     base.Function.AgregarRegistroPrioridad(id);

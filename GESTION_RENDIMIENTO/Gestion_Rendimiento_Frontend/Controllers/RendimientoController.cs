@@ -36,6 +36,7 @@ namespace Gestion_Rendimiento_Frontend.Controllers
         private readonly IProyectoService _proyectoService;
         private readonly IProyectoDetalleService _proyectodetalleService;
         private readonly IPersonaService _personaService;
+        private readonly IEvaluadorService _evaluadorService;
         public RendimientoController(
           IPersonaService personaService,
           IOficinaService oficinaService,
@@ -43,6 +44,7 @@ namespace Gestion_Rendimiento_Frontend.Controllers
           IEvaluadoService evaluadoService,
           IProyectoDetalleService proyectodetalleService,
           IProyectoService proyectoService,
+                      IEvaluadorService evaluadorService,
           IConfiguracionRendimientoService configuracionRendimientoService,
           IOptions<ConfiguracionSistemaModel> configuracionSistema,
            IHttpContextAccessor contextAccessor
@@ -57,17 +59,18 @@ namespace Gestion_Rendimiento_Frontend.Controllers
             _contextAccessor = contextAccessor;
             _evaluadoService = evaluadoService;
             _personaService = personaService;
+            _evaluadorService = evaluadorService;
         }
         #region PROGRAMACION
         public IActionResult Programacion()
         {
             var modelo = new RendimientoViewModel();
             var usuario_conectado = _personaService.Detalle(UsuarioActual.ID_PERSONAL);
-            modelo.Personas = _personaService.GetTodosXUnidad(usuario_conectado.ID_AREA);
+            modelo.Personas = _evaluadorService.GetAll(usuario_conectado.ID_AREA, usuario_conectado.ID_OFICINA, "");
             string Anio = _proyectoService.Proyecto_Min_Ano();
-            int Anio_a=DateTime.Now.Year;
+            int Anio_a = DateTime.Now.Year;
             modelo.List_Anio = new List<SelectListItem>();
-            if (Anio!=null)
+            if (Anio != null)
             {
                 if (Anio_a == int.Parse(Anio))
                 {
@@ -77,14 +80,14 @@ namespace Gestion_Rendimiento_Frontend.Controllers
                 {
                     for (int I = int.Parse(Anio); I <= Anio_a; I += 1)
                     {
-                        modelo.List_Anio.Add(new SelectListItem { Value = I.ToString(), Text = I.ToString()});
+                        modelo.List_Anio.Add(new SelectListItem { Value = I.ToString(), Text = I.ToString() });
                     }
                 }
             }
             else
             {
                 modelo.List_Anio.Add(new SelectListItem { Value = Anio_a.ToString(), Text = Anio_a.ToString() });
-            }  
+            }
             return View(modelo);
         }
         public IActionResult GenerarHTML([FromBody] RendimientoModel model)
@@ -141,7 +144,7 @@ namespace Gestion_Rendimiento_Frontend.Controllers
                     }).ToList();
                 }
                 var listaPrioridadD = new List<RendimientoDetalleModel>();
-                if (modelo.ItemsPrioridad!=null)
+                if (modelo.ItemsPrioridad != null)
                 {
                     listaPrioridadD = modelo.ItemsPrioridad.Count == 0 ? (det == null ? new List<RendimientoDetalleModel>() : det_datos) : modelo.ItemsPrioridad;
                 }
@@ -397,8 +400,7 @@ namespace Gestion_Rendimiento_Frontend.Controllers
         {
             return View();
         }
-
-        public IActionResult  GetAll_Seguimiento([FromBody] RendimientoConsultaModel request)
+        public IActionResult GetAll_Seguimiento([FromBody] RendimientoConsultaModel request)
         {
             var result = new MethodResponseModel<IEnumerable<RendimientoConsultaModel>> { Result = null };
             var lista = GetLista_Seguimiento(request).ToList();
@@ -521,8 +523,10 @@ namespace Gestion_Rendimiento_Frontend.Controllers
         {
             var modelo = new EvaluadoViewModel();
             modelo.Oficinas = _oficinaService.GetOrganosTodos().ToList();
+            //var usuario_conectado = _personaService.Detalle(UsuarioActual.ID_PERSONAL);
+            //modelo.Personas = _personaService.GetTodosXUnidad(usuario_conectado.ID_AREA);
             var usuario_conectado = _personaService.Detalle(UsuarioActual.ID_PERSONAL);
-            modelo.Personas = _personaService.GetTodosXUnidad(usuario_conectado.ID_AREA);
+            modelo.Evaluadores = _evaluadorService.GetAll(usuario_conectado.ID_AREA, usuario_conectado.ID_OFICINA, "");
             string Anio = _proyectoService.Proyecto_Min_Ano();
             int Anio_a = DateTime.Now.Year;
             modelo.List_Anio = new List<SelectListItem>();
@@ -560,14 +564,14 @@ namespace Gestion_Rendimiento_Frontend.Controllers
             try
             {
                 var listaPrioridad = new List<ProyectoModel>();
-                    var lista = _RendimientoService.GetOne(modelo.ID_PROYECTO);
-                    var entity = new ProyectoModel
-                    {
-                        DESCRIPCION = lista.DESCRIPCION,
-                        ID_PROYECTO = lista.ID_PROYECTO,
-                    };
-                    listaPrioridad.Add(entity);
-                
+                var lista = _RendimientoService.GetOne(modelo.ID_PROYECTO);
+                var entity = new ProyectoModel
+                {
+                    DESCRIPCION = lista.DESCRIPCION,
+                    ID_PROYECTO = lista.ID_PROYECTO,
+                };
+                listaPrioridad.Add(entity);
+
 
 
                 var det = _proyectodetalleService.GetProyectoXId(modelo.ID_PROYECTO);
@@ -708,6 +712,85 @@ namespace Gestion_Rendimiento_Frontend.Controllers
             {
                 throw new Exception(ex.Message);
             }
+        }
+        #endregion
+        #region REASIGNACION
+        public IActionResult Reasignacion()
+        {
+            var modelo = new EvaluadoViewModel();
+            modelo.Oficinas = _oficinaService.GetOrganosTodos().ToList();
+            var usuario_conectado = _personaService.Detalle(UsuarioActual.ID_PERSONAL);
+            modelo.Evaluadores = _evaluadorService.GetAll(usuario_conectado.ID_AREA, usuario_conectado.ID_OFICINA, "");
+            string Anio = _proyectoService.Proyecto_Min_Ano();
+            int Anio_a = DateTime.Now.Year;
+            modelo.List_Anio = new List<SelectListItem>();
+            if (Anio != null)
+            {
+                if (Anio_a == int.Parse(Anio))
+                {
+                    modelo.List_Anio.Add(new SelectListItem { Value = Anio_a.ToString(), Text = Anio_a.ToString() });
+                }
+                else
+                {
+                    for (int I = int.Parse(Anio); I <= Anio_a; I += 1)
+                    {
+                        modelo.List_Anio.Add(new SelectListItem { Value = I.ToString(), Text = I.ToString() });
+                    }
+                }
+            }
+            else
+            {
+                modelo.List_Anio.Add(new SelectListItem { Value = Anio_a.ToString(), Text = Anio_a.ToString() });
+            }
+            var tipo = Constantes.TipoOrgano;
+            modelo.Oficinas = _oficinaService.GetOrganos(tipo).ToList();
+            //modelo.Personas = _personaService.GetTodos("1", "0").ToList();
+            return View(modelo);
+        }
+        public BaseResponse ReasignarEvaluado([FromBody] RendimientoModel items)
+        {
+            BaseResponse respuesta = new BaseResponse();
+            var usuario_evaluado = _personaService.Detalle(items.ID_PERSONAL);
+            string usuario_login = UsuarioActual == null ? "" : UsuarioActual.UsuarioLogin;
+            // string correos = "";
+            int id = 0;
+            foreach (var item in items.ItemsProyecto)
+            {
+
+                var entidad = new Proyecto
+                {
+                    ID_PERSONAL = usuario_evaluado.ID_PERSONAL,
+                    ID_OFICINA = usuario_evaluado.ID_OFICINA,
+                    ID_PROYECTO = item.ID_PROYECTO,
+                    USUARIO_MODIFICACION = usuario_login,
+                    FECHA_MODIFICACION = DateTime.Now
+                };
+                    var valor = _proyectoService.ActualizarProyecto(entidad);
+                    id = valor.ID;
+                if (id > 0)
+                {
+                    respuesta.Success = true;
+                    respuesta.Message = "La asignación se realizó correctamente.";
+                }
+            }
+            return respuesta;
+        }
+        public IActionResult ListarPersonalOficina([FromBody] Persona request)
+        {
+            var result = new MethodResponseModel<IEnumerable<Persona>> { Result = null };
+            try
+            {
+                var data = _personaService.GetTodosXOficina(request.ID_AREA, request.ID_OFICINA);
+                result.Result = data;
+            }
+            catch (Exception ex)
+            {
+                // _logger.LogError(ex.Message);
+                result.Message = ex.Message;
+                result.Code = (int)HttpStatusCode.InternalServerError;
+                result.Result = new List<Persona>();
+            }
+            return Ok(result);
         }
         #endregion
     }

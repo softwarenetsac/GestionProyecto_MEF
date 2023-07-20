@@ -5,7 +5,7 @@
         base.Ini = function (opts) {
             'use strict';
             base.Control.BotonAgregar().click(base.Event.BotonAgregarClick);
-            //base.Control.DllProgramacionr().select2({});
+            base.Control.DllProgramacionr().select2({});
             base.Control.BotonAgregarPrioridad().click(base.Event.BotonAgregarPrioridadClick);
             base.Control.GridBody().on('click', '.AddRegDet', function (e) {
                 var elemento = this;
@@ -173,6 +173,7 @@
                     var data = base.Parameters.TableRendimiento.row(indice).data();
                     if (data != null) { 
                         base.Control.DllProgramacionr().val(data.ID_EVALUADOR);
+                        base.Control.DllProgramacionr().trigger("change");
                     }
                     base.Control.hdnIdProyecto().val(id);
                     base.Function.AgregarRegistroPrioridad(id);

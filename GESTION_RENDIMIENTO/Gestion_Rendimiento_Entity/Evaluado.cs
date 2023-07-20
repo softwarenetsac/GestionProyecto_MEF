@@ -28,7 +28,9 @@ namespace Gestion_Rendimiento_Entity
         public string USUARIO_LOGIN { get; set; }
         public int LOCADOR { get; set; }
         public string ANIO { get; set; }
-        public string ID_EVALUADOR { get; set; }
+        public int ID_EVALUADOR { get; set; }
+        public string ID_EVALUADOR_EVALUADO { get; set; }
+        
         public string NOMBRE_EVALUADOR { get; set; }
         public string PROYECTO { get; set; }
         public int ID_PROYECTO { get; set; }

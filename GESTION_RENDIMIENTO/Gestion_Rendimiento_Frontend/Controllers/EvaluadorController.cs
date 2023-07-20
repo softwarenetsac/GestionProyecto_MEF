@@ -31,6 +31,7 @@ namespace Gestion_Rendimiento_Frontend.Controllers
         private readonly IUsuarioService _usuarioService;
         private readonly IVariableService _variableService; 
         private readonly IEvaluadorService _evaluadorService;
+        private readonly IEvaluadoService _evaluadoService;
         public EvaluadorController(
                    IOficinaService oficinaService,
         IPersonaService personaService,
@@ -39,7 +40,8 @@ namespace Gestion_Rendimiento_Frontend.Controllers
                  IWebHostEnvironment webHostEnvironment,
                  IUsuarioService usuarioService,
                  IVariableService variableService,
-                 IEvaluadorService evaluadorService
+                 IEvaluadorService evaluadorService,
+                 IEvaluadoService evaluadoService
             ) {
             _oficinaService = oficinaService;
             _personaService = personaService;
@@ -49,8 +51,8 @@ namespace Gestion_Rendimiento_Frontend.Controllers
             _usuarioService = usuarioService;
             _variableService = variableService;
             _evaluadorService = evaluadorService;
+            _evaluadoService = evaluadoService;
         }
-
         public IActionResult Index()
         {
             var tipo = Constantes.TipoOrgano;
@@ -59,12 +61,6 @@ namespace Gestion_Rendimiento_Frontend.Controllers
             modelo.Personas = _personaService.GetTodos("1", "0").ToList();
             return View(modelo);
         }
-
-
-
-   
-
-
         public IActionResult ProcearAutorizador([FromBody] EvaluadorModel modelo)
         {
             var result = new MethodResponseModel<string> { };
@@ -344,8 +340,6 @@ namespace Gestion_Rendimiento_Frontend.Controllers
             return Ok(result);
 
         }
-
-
         private List<EvaluadorConsultaModel> GetLista(EvaluadorConsultaModel request)
         {
             var lista = _evaluadorService.GetAll(request.ID_AREA, request.ID_OFICINA,"").ToList();
@@ -370,8 +364,6 @@ namespace Gestion_Rendimiento_Frontend.Controllers
             }
             return result;
         }
-     
-
         #region  "Reporte"
         public IActionResult ExportarExcel(EvaluadorConsultaModel request)
         {
@@ -700,8 +692,6 @@ namespace Gestion_Rendimiento_Frontend.Controllers
 
             return values.ToArray();
         }
-
-
         private string getRolResponsable()
         {
 
@@ -801,11 +791,6 @@ namespace Gestion_Rendimiento_Frontend.Controllers
 
 
         }
-
-
-
-
-
         [HttpPost]
         public IActionResult Anular([FromBody] EvaluadorModel modelo)
         {
@@ -875,11 +860,7 @@ namespace Gestion_Rendimiento_Frontend.Controllers
 
 
         }
-
-
-     
-
-        public IActionResult ListarDetalleAutorizador([FromBody] EvaluadorModel parametro)
+        public IActionResult ListarDetalleAutorizador([FromBody] EvaluadoModel parametro)
         {
             var modelo = new EvaluadorModel();
             try
@@ -901,7 +882,14 @@ namespace Gestion_Rendimiento_Frontend.Controllers
             }
             return Ok(modelo);
         }
+        public IActionResult ListarEvaluados([FromBody] EvaluadoModel request)
+        {
+            var result = new MethodResponseModel<IEnumerable<EvaluadoModel>> { Result = null };
+            var lista = _evaluadoService.GetAll_Evaluador(request).ToList();
+            result.Result = lista;
+            return Ok(result);
 
+        }
 
 
 

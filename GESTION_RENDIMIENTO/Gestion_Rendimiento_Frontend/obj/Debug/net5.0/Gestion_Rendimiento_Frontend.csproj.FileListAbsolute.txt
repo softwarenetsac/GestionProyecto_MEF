@@ -316,6 +316,7 @@ D:\1.APLICACIONES\16.Gestion_Proyecto\1.Aplicación\GestionProyecto_MEF\GESTION_
 D:\1.APLICACIONES\16.Gestion_Proyecto\1.Aplicación\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\obj\Debug\net5.0\Razor\Views\Panel\Roles.cshtml.g.cs
 D:\1.APLICACIONES\16.Gestion_Proyecto\1.Aplicación\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\obj\Debug\net5.0\Razor\Views\Rendimiento\Evaluacion.cshtml.g.cs
 D:\1.APLICACIONES\16.Gestion_Proyecto\1.Aplicación\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\obj\Debug\net5.0\Razor\Views\Rendimiento\Programacion.cshtml.g.cs
+D:\1.APLICACIONES\16.Gestion_Proyecto\1.Aplicación\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\obj\Debug\net5.0\Razor\Views\Rendimiento\Reasignacion.cshtml.g.cs
 D:\1.APLICACIONES\16.Gestion_Proyecto\1.Aplicación\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\obj\Debug\net5.0\Razor\Views\Rendimiento\RendimientoORH.cshtml.g.cs
 D:\1.APLICACIONES\16.Gestion_Proyecto\1.Aplicación\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\obj\Debug\net5.0\Razor\Views\Rendimiento\Seguimiento.cshtml.g.cs
 D:\1.APLICACIONES\16.Gestion_Proyecto\1.Aplicación\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\obj\Debug\net5.0\Razor\Views\Shared\Error.cshtml.g.cs

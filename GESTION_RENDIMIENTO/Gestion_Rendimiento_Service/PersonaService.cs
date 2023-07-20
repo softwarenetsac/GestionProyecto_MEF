@@ -76,6 +76,18 @@ namespace Gestion_Rendimiento_Service
                 return new List<Persona>();
             }
         }
+        public List<Persona> GetTodosXOficina(int id_area, int id_oficina)
+        {
+            try
+            {
+                var lista = FindList(p => p.ID_SITUACION_LABORAL == 0 && p.ID_AREA == id_area && p.ID_OFICINA==id_oficina);
+                return lista;
+            }
+            catch (Exception)
+            {
+                return new List<Persona>();
+            }
+        }
 
     }
 }

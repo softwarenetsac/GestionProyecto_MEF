@@ -76,7 +76,6 @@
                         { "data": "NOMBRE_EVALUADOR", "title": "Evaluador" },
                         { "data": "PLAZO", "title": "Plazo", "class": "text-center" },
                         { "data": "NOMBRE_ESTADO", "title": "Estado", "class": "text-center" },
-                       
                         { "data": "ID_OFICINA", "visible": false },
                         { "data": "ID_PERSONAL", "visible": false },
                         { "data": "ID_ESTADO", "visible": false },

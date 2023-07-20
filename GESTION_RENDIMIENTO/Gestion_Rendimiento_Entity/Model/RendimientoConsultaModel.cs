@@ -23,5 +23,7 @@ namespace Gestion_Rendimiento_Entity.Model
         public string NOMBRE_EVALUADOR { get; set; }
         public string NOMBRE_ESTADO { get; set; }
         public string TIPO { get; set; }
+        public string NOMBRE_OFICINA { get; set; }
+        
     }
 }

@@ -11,5 +11,6 @@ namespace Gestion_Rendimiento_IService
     public interface IEvaluadoService
     {
         IEnumerable<EvaluadoModel> GetAll(EvaluadoModel modelo);
+        IEnumerable<EvaluadoModel> GetAll_Evaluador(EvaluadoModel modelo);
     }
 }

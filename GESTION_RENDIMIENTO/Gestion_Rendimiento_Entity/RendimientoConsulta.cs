@@ -26,7 +26,8 @@ namespace Gestion_Rendimiento_Entity
         public string NOMBRE_CARGO { get; set; }
         public string NOMBRE_EVALUADOR { get; set; }
         public string NOMBRE_ESTADO { get; set; }
-
+        public string NOMBRE_OFICINA { get; set; }
+        
 
     }
 }

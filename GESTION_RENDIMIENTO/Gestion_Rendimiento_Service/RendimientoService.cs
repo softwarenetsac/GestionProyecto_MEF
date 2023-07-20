@@ -58,6 +58,7 @@ namespace Gestion_Rendimiento_Service
             NOMBRE_EVALUADOR = t.NOMBRE_EVALUADOR,
             DESCRIPCION = t.DESCRIPCION,
             PLAZO = t.PLAZO,
+            NOMBRE_OFICINA = t.NOMBRE_OFICINA
         }).ToList().Where(x => x.ID_OFICINA == (modelo.ID_OFICINA == 0 ? x.ID_OFICINA : modelo.ID_OFICINA) &&
                x.ID_PERSONAL == (string.IsNullOrEmpty(modelo.ID_PERSONAL) ? modelo.ID_PERSONAL : modelo.ID_PERSONAL)).ToList();
             return lista;
@@ -81,7 +82,8 @@ PLAZO = t.PLAZO,
 NOMBRE_EVALUADO = t.NOMBRE_EVALUADO,
 NOMBRE_CARGO = t.NOMBRE_CARGO,
 NOMBRE_EVALUADOR = t.NOMBRE_EVALUADOR,
-NOMBRE_ESTADO = t.NOMBRE_ESTADO
+NOMBRE_ESTADO = t.NOMBRE_ESTADO,
+    NOMBRE_OFICINA = t.NOMBRE_OFICINA
 }).ToList().Where(x => x.ID_PERSONAL == request.ID_PERSONAL).ToList();
                 return lista;
             }
@@ -102,7 +104,8 @@ PLAZO = t.PLAZO,
 NOMBRE_EVALUADO = t.NOMBRE_EVALUADO,
 NOMBRE_CARGO = t.NOMBRE_CARGO,
 NOMBRE_EVALUADOR = t.NOMBRE_EVALUADOR,
-NOMBRE_ESTADO = t.NOMBRE_ESTADO
+NOMBRE_ESTADO = t.NOMBRE_ESTADO,
+    NOMBRE_OFICINA=t.NOMBRE_OFICINA
 }).ToList().Where(x => x.ID_OFICINA== (request.ID_OFICINA == 0 ? x.ID_OFICINA : request.ID_OFICINA) && x.ANIO== request.ANIO).ToList();
                 return lista;
             }
@@ -123,7 +126,8 @@ PLAZO = t.PLAZO,
 NOMBRE_EVALUADO = t.NOMBRE_EVALUADO,
 NOMBRE_CARGO = t.NOMBRE_CARGO,
 NOMBRE_EVALUADOR = t.NOMBRE_EVALUADOR,
-NOMBRE_ESTADO = t.NOMBRE_ESTADO
+NOMBRE_ESTADO = t.NOMBRE_ESTADO,
+    NOMBRE_OFICINA = t.NOMBRE_OFICINA
 }).ToList();
                 return lista;
             }

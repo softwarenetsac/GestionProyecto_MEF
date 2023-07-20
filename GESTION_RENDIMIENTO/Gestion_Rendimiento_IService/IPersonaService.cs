@@ -15,6 +15,6 @@ namespace Gestion_Rendimiento_IService
         List<Persona> GetTodosXRegimen(int id_regimen_laboral);
         Persona DetallePorUsuario(string usuario, string flg_estado = "1");
         List<Persona> GetTodosXUnidad(int id_area);
-
+        List<Persona> GetTodosXOficina(int id_area, int id_oficina);
     }
 }

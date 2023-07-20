@@ -32,17 +32,23 @@
                     if (typeof id !== 'undefined' && id > 0)
                         base.Function.AbrirModalMantenimientoResponsable(id, this);
                 });
-
+            base.Control.FrmConsulta.GridAutorizador().on('click', '.findone_personal', function (e) {
+                var id = $(e.target).attr("idPk");
+                if (typeof id !== 'undefined' && id > 0)
+                    base.Function.ModalAgregarEvaluadoPersonal(id, this);
+            });
                 base.Function.CrearGrillaAutorizador();
                 base.Function.BuscarGrilla();
         };
 
         base.Parameters = {
-            TableAutorizador: null
+            TableAutorizador: null,
+            TableEvaPers: null
         };
 
         base.Control = {
             Mensaje: new SoftwareNet.DJ.Web.Components.Message(),
+            ModalAgregarEvaluadoPersonal: function () { return $("#modalEvaluadorPersonal"); },
             ModalAgregarMantenimientoMasivo: function () { return $("#modalMantenimientoMasivo"); },
             ModalAgregarMantenimientoResponsable: function () { return $("#modalMantenimientResponsable"); },
             FormAutorizadorRegistro: function () { return $("#frmModelResponsalbe"); },
@@ -60,7 +66,10 @@
                 DllOrgano: function () { return $("#ID_AREA_REGISTRO"); },
                 DllUnidadOrganica: function () { return $("#ID_OFICINA_REGISTRO"); }
              },
-
+            FrmEvaPersonal: {
+                hdnIdEvaluador_: function () { return $("#hdnIdEvaluador_"); },
+                GridEvaPers: function () { return $("#gridEvaPers"); },
+            },
 
             BotonBuscar: function () { return $("#btnBotonBuscar"); },
             BotonExportar: function () { return $("#btnExportar"); },
@@ -87,7 +96,6 @@
                     base.Ajax.AjaxConsultarUnidadOrganica.submit();
                 }
             },
-
             DllOrganoChangeRegistro: function ()
             {
                 base.Control.FrmRegistroAutorizador.DllUnidadOrganica().find('option').remove();
@@ -103,10 +111,6 @@
                     base.Ajax.AjaxConsultarUnidadOrganicaRegistro.submit();
                 }
             },
-
-
-
-   
             BotonBuscarClick: function () {
                 base.Function.BuscarGrilla();
             },
@@ -148,9 +152,6 @@
                     })
                 }
             },
-
-
-            
             AjaxConsultarUnidadOrganicaRegistroSuccess: function (data) {
                 if (data != null) {
                     var id_oficina = $("#hdnIdOficina").val();
@@ -167,8 +168,6 @@
                     })
                 }
             },
-
-
             AjaxAutorizadorGuardarSuccess: function (data) {
                 if (data.Success) {
                     base.Control.Mensaje.Information({ message: SoftwareNet.DJ.Web.Shared.Mensaje.Resources.EtiquetaGuardoExito })
@@ -186,18 +185,15 @@
                     base.Control.Mensaje.Warning({ message: data.Message }).WarningClose();
                 }
             },
-
-
-      
-
-
             BotonAgregarMasivoClick: function () {
                 base.Function.AbrirModalMantenimientoMasivo();
             },
             BotonAgregarResponsableClick: function () {
                 base.Function.AbrirModalMantenimientoResponsable();
             },
- 
+            BotonAgregarEvaluadoPerClick: function () {
+                base.Function.ModalAgregarEvaluadoPersonal();
+            },
             BotonGuardarMasivoClick: function () {
                 var form = base.Control.FormMantenimientoRegistroMasivo();
                 form.validate();
@@ -230,8 +226,6 @@
                     base.Control.Mensaje.Warning({ message: data.Message }).WarningClose();
                 }
             },
-
-
             AjaxEliminarSuccess: function (data) {
 
                 if (data.Success) {
@@ -251,12 +245,7 @@
    
 
             },
-
-       
-      
-            BotonGuardarClick: function () {
-
-
+           BotonGuardarClick: function () {
                 var form = base.Control.FormAutorizadorRegistro();
                 form.validate();
                 if (!form.valid()) { return false; }
@@ -308,8 +297,12 @@
 
                 }
             },
-
-
+            AjaxBuscarEvaPersSuccess: function (data) {
+                if (data.Result) {
+                    base.Parameters.TableEvaPers.clear().draw();
+                    base.Parameters.TableEvaPers.rows.add(data.Result).draw();
+                }
+            },
         };
         base.Ajax = {
             AjaxBuscar: new SoftwareNet.DJ.Web.Components.Ajax({
@@ -348,7 +341,11 @@
                 autoSubmit: false,
                 onSuccess: base.Event.AjaxAutorizadorGuardarSuccess
             }),
- 
+            AjaxBuscarEvaPers: new SoftwareNet.DJ.Web.Components.Ajax({
+                action: SoftwareNet.Web.Operacion.Evaluador.Actions.ListaEvaluados,
+                autoSubmit: false,
+                onSuccess: base.Event.AjaxBuscarEvaPersSuccess
+            }),
 
          };
         base.Function = {
@@ -368,9 +365,6 @@
                 }
                 return esValido;
             },
-
-
-
             CrearGrillaAutorizador: function () {
                 General.configurarGrilla();
                 base.Parameters.TableAutorizador = base.Control.FrmConsulta.GridAutorizador().DataTable({
@@ -392,6 +386,8 @@
                         { "data": "ID_OFICINA", "visible": false, "title": "ID_OFICINA" },
                         { "data": "ID_AREA", "visible": false, "title": "ID_AREA" },
                         { "data": "ID_EVALUADOR", "visible": false, "title": "ID_EVALUADOR" },
+                        { "data": "ID_PERSONA", "visible": false, "title": "ID_PERSONA" },
+                        
                        
                     ],
                       "pageLength": 30,
@@ -449,10 +445,12 @@
 
                                
                                 if (row.TOTAL_EVALUADO > 0) {
-                                    html += '<span class="badge badge-info">' + row.TOTAL_EVALUADO+ '</span>';
+                                    html += '<a href="javascript:void(0);" ><span class="badge badge-danger findone_personal" secuencial="' + row.INDICE + '" idpk="' + row.ID_PERSONA + '">' + row.TOTAL_EVALUADO + '</span></a>';
                                 }
                                 else {
-                                    html += '<span class="badge badge-danger">' + row.TOTAL_EVALUADO + '</span>';
+                                    html += '<span class="badge badge-info">' + row.TOTAL_EVALUADO + '</span>';
+
+                 
                                 }
                                
                               
@@ -481,15 +479,12 @@
                 }
                 base.Ajax.AjaxBuscar.submit();
             },
-
             GetParamnetroDetalleAutorizador: function (ID_EVALUADOR) {
                 var parametro = {
                     ID_EVALUADOR: ID_EVALUADOR,
                 };
                 return parametro;
             },
-
-
             AbrirModalMantenimientoResponsable: function (id, parent) {
 
                 base.Control.FrmRegistroAutorizador.DdlGrupoAsistencia().val('');
@@ -533,27 +528,39 @@
                 }
                 base.Control.ModalAgregarMantenimientoResponsable().modal('show');
             },
-
             AbrirModalMantenimientoMasivo: function (id, parent) {
                 limpiarValidacionForm("frmModelMasivo");
                 base.Control.ModalAgregarMantenimientoMasivo().modal('show');
             },
-            /*
-            HabilitarOpciones: function () {
-                var flg_tipo = base.Control.FrmRegistroAutorizador.ddlTipo().val();
-                base.Control.FrmRegistroAutorizador.DllUnidadOrganica().trigger("change");
-                base.Control.FrmRegistroAutorizador.DllOrgano().trigger("change");
-                base.Control.FrmRegistroAutorizador.DdlGrupoAsistencia().trigger("change");
-                if (flg_tipo == "3") {
-                    $("#div_grupo").show();
-                    $("#div_organica").hide();
-                }
-                else {
-                    $("#div_grupo").hide();
-                    $("#div_organica").show();
-                }
+            ModalAgregarEvaluadoPersonal: function (id, parent) {
+                base.Control.FrmEvaPersonal.hdnIdEvaluador_().val(id);
+                base.Function.CrearGrillaEvaPers();
+                base.Function.BuscarGrillaEvaPers(id);
+                base.Control.ModalAgregarEvaluadoPersonal().modal('show');
             },
-            */
+            CrearGrillaEvaPers: function () {
+                General.configurarGrilla();
+                base.Parameters.TableEvaPers = base.Control.FrmEvaPersonal.GridEvaPers().DataTable({
+                    ordering: false,
+                    select: true,
+                    columns: [
+                        { "data": "NOMBRE_COMPLETO", "title": "Apellidos y Nombres" },
+                        { "data": "NOMBRE_CARGO", "title": "Puesto" },
+                    ],
+                    "pageLength": 30,
+                    "columnDefs": [
+                        {
+                        },
+                    ],
+
+                });
+            },
+            BuscarGrillaEvaPers: function (id) {
+                base.Ajax.AjaxBuscarEvaPers.data = {
+                    ID_EVALUADOR_EVALUADO: id,
+                }
+                base.Ajax.AjaxBuscarEvaPers.submit();
+            },
             EliminarMantenimiento: function (parent) {
                 var padre = $(parent).parent().parent();
                 var indice = base.Parameters.TableAutorizador.row(padre).index();
@@ -584,7 +591,6 @@
 
 
             },
-
             loading: null,
             ShowLoading: function () {
                 this.loading = new SoftwareNet.DJ.Web.Components.ProgressBar({ targetLoading: this.targetLoading });
