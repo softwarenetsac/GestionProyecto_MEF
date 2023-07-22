@@ -135,6 +135,27 @@ NOMBRE_ESTADO = t.NOMBRE_ESTADO,
 
 
         }
+        public IEnumerable<RendimientoConsultaModel> GetAllProyectoEvaluadoAnio(string ID_PERSONAL, string ANIO)
+        {
 
+            var lista = _context.RendimientoConsulta
+           .Select(t => new RendimientoConsultaModel
+           {
+               ID_EVALUADOR = t.ID_EVALUADOR,
+               ID_ESTADO = t.ID_ESTADO,
+               ID_OFICINA = t.ID_OFICINA,
+               ID_PERSONAL = t.ID_PERSONAL,
+               ID_PROYECTO = t.ID_PROYECTO,
+               ANIO = t.ANIO,
+               FLG_ESTADO = t.FLG_ESTADO,
+               NOMBRE_CARGO = t.NOMBRE_CARGO,
+               NOMBRE_EVALUADO = t.NOMBRE_EVALUADO,
+               NOMBRE_ESTADO = t.NOMBRE_ESTADO,
+               NOMBRE_EVALUADOR = t.NOMBRE_EVALUADOR,
+               DESCRIPCION = t.DESCRIPCION,
+               PLAZO = t.PLAZO,
+           }).ToList().Where(x => x.ID_PERSONAL == ID_PERSONAL && x.ANIO== ANIO && x.FLG_ESTADO=="1").ToList();
+            return lista;
+        }
     }
 }

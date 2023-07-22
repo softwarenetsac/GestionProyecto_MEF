@@ -20,7 +20,8 @@
                 base.Control.BotonCargaMasivo().click(base.Event.BotonAgregarMasivoClick);
                 base.Control.BotonAgregarResponable().click(base.Event.BotonAgregarResponsableClick);
                 base.Control.BotonGuardarMasivo().click(base.Event.BotonGuardarMasivoClick);
-                base.Control.FrmRegistroAutorizador.BotonGuardar().click(base.Event.BotonGuardarClick);
+            base.Control.FrmRegistroAutorizador.BotonGuardar().click(base.Event.BotonGuardarClick);
+            base.Function.CrearGrillaEvaPers();
                 base.Control.FrmConsulta.GridAutorizador().on('click', '.delete_mantenimiento', function (e) {
                     var id = $(e.target).attr("idPk");
                     if (typeof id !== 'undefined' && id > 0)
@@ -534,7 +535,6 @@
             },
             ModalAgregarEvaluadoPersonal: function (id, parent) {
                 base.Control.FrmEvaPersonal.hdnIdEvaluador_().val(id);
-                base.Function.CrearGrillaEvaPers();
                 base.Function.BuscarGrillaEvaPers(id);
                 base.Control.ModalAgregarEvaluadoPersonal().modal('show');
             },

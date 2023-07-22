@@ -39,6 +39,7 @@ namespace Gestion_Rendimiento_Service
     ID_SITUACION_LABORAL = t.ID_SITUACION_LABORAL,
     ID_OFICINA = t.ID_OFICINA,
     ID_PERSONAL = t.ID_PERSONAL,
+    NUM_ACTIVIDADES=t.NUM_ACTIVIDADES
 
 
 }).ToList().Where(x => x.ID_OFICINA == (modelo.ID_OFICINA == 0 ? x.ID_OFICINA : modelo.ID_OFICINA) && x.ID_AREA == (modelo.ID_AREA == 0 ? x.ID_AREA : modelo.ID_AREA)).ToList();

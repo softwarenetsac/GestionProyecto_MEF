@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.32630.194
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33829.357
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gestion_Rendimiento_Frontend", "Gestion_Rendimiento_Frontend\Gestion_Rendimiento_Frontend.csproj", "{397A771B-ECD1-4861-9699-3532A0086C16}"
 EndProject
@@ -9,13 +9,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gestion_Rendimiento_Entity"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gestion_Rendimiento_Data", "Gestion_Rendimiento_Data\Gestion_Rendimiento_Data.csproj", "{CC816A18-6023-48E2-9A7E-70DFE30927F7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gestion_Rendimiento_Common", "Gestion_Rendimiento_Common\Gestion_Rendimiento_Common.csproj", "{B70F2A2B-4AA9-45F4-96A2-C17B0FE528DA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gestion_Rendimiento_Common", "Gestion_Rendimiento_Common\Gestion_Rendimiento_Common.csproj", "{B70F2A2B-4AA9-45F4-96A2-C17B0FE528DA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gestion_Rendimiento_Repository", "Gestion_Rendimiento_Repository\Gestion_Rendimiento_Repository.csproj", "{2B6C1C50-9A2C-411E-8A3A-5FFF2FB9B1B4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gestion_Rendimiento_Repository", "Gestion_Rendimiento_Repository\Gestion_Rendimiento_Repository.csproj", "{2B6C1C50-9A2C-411E-8A3A-5FFF2FB9B1B4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gestion_Rendimiento_Service", "Gestion_Rendimiento_Service\Gestion_Rendimiento_Service.csproj", "{F7E7D3E3-E201-423C-A3B3-D36DBE4635DB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gestion_Rendimiento_Service", "Gestion_Rendimiento_Service\Gestion_Rendimiento_Service.csproj", "{F7E7D3E3-E201-423C-A3B3-D36DBE4635DB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gestion_Rendimiento_IService", "Gestion_Rendimiento_IService\Gestion_Rendimiento_IService.csproj", "{70DC13C1-45E6-44DF-B90E-9ACBE5B17F17}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gestion_Rendimiento_IService", "Gestion_Rendimiento_IService\Gestion_Rendimiento_IService.csproj", "{70DC13C1-45E6-44DF-B90E-9ACBE5B17F17}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

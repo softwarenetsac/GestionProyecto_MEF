@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using Gestion_Rendimiento_Common;
 
 namespace Gestion_Rendimiento_Laserfiche
 {
@@ -26,8 +27,7 @@ namespace Gestion_Rendimiento_Laserfiche
             }
             catch (Exception ex)
             {
-                AplicacionLog.MensajeLog("User: " + Usuario + "[" + IP + "] - LASERFICHE 1", "UtilLaserfiche.IniciarSesion", "E");
-                AplicacionLog.Mensaje(ex, "E");
+                Gestion_Rendimiento_Common.Log.CreateLogger(ex.Message);
             }
             return session;
         }

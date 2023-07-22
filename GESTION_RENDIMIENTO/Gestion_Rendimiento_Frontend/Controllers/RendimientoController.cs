@@ -395,30 +395,38 @@ namespace Gestion_Rendimiento_Frontend.Controllers
             return Ok(result);
 
         }
-        #region SEGUIMIENTO
-        public IActionResult Seguimiento()
-        {
-            return View();
-        }
-        public IActionResult GetAll_Seguimiento([FromBody] RendimientoConsultaModel request)
-        {
-            var result = new MethodResponseModel<IEnumerable<RendimientoConsultaModel>> { Result = null };
-            var lista = GetLista_Seguimiento(request).ToList();
-            result.Result = lista;
-            return Ok(result);
-
-        }
         private List<RendimientoConsultaModel> GetLista_Seguimiento(RendimientoConsultaModel request)
         {
             var lista = _RendimientoService.GetAll(request).ToList();
             return lista;
         }
-        private MethodResponseModel<IEnumerable<RendimientoConsultaModel>> ListarReporteSeguimiento([FromBody] RendimientoConsultaModel request)
+        #region SEGUIMIENTO
+        public IActionResult Seguimiento()
         {
-            var result = new MethodResponseModel<IEnumerable<RendimientoConsultaModel>> { Result = null };
+            return View();
+        }
+        public IActionResult GetAll_Seguimiento([FromBody] EvaluadoModel request)
+        {
+            var result = new MethodResponseModel<IEnumerable<EvaluadoModel>> { Result = null };
+            var lista = GetListaEvaluadoSeguimiento(request).ToList();
+            result.Result = lista;
+            return Ok(result);
+
+        }
+        private List<EvaluadoModel> GetListaEvaluadoSeguimiento(EvaluadoModel request)
+        {
+            EvaluadoModel modelo = new EvaluadoModel();
+            modelo.ID_AREA = request.ID_AREA;
+            modelo.ID_OFICINA = request.ID_OFICINA;
+            var lista = _evaluadoService.GetAll(modelo).ToList();
+            return lista;
+        }
+        private MethodResponseModel<IEnumerable<EvaluadoModel>> ListarReporteSeguimiento([FromBody] EvaluadoModel request)
+        {
+            var result = new MethodResponseModel<IEnumerable<EvaluadoModel>> { Result = null };
             try
             {
-                var lista = GetLista_Seguimiento(request);
+                var lista = GetListaEvaluadoSeguimiento(request);
                 result.Result = lista;
                 result.Success = lista.Count > 0;
             }
@@ -427,12 +435,12 @@ namespace Gestion_Rendimiento_Frontend.Controllers
                 Log.CreateLogger(ex.Message);
                 result.Message = ex.Message;
                 result.Code = (int)HttpStatusCode.InternalServerError;
-                result.Result = new List<RendimientoConsultaModel>();
+                result.Result = new List<EvaluadoModel>();
             }
             return result;
         }
         #endregion
-        public IActionResult ExportarExcelSeguimiento(RendimientoConsultaModel request)
+        public IActionResult ExportarExcelSeguimiento(EvaluadoModel request)
         {
             try
             {
@@ -491,13 +499,13 @@ namespace Gestion_Rendimiento_Frontend.Controllers
                             {
                                 row++;
                                 int columna = 1;
-                                ExcelUtil.CeldaFormatoEtiqueta_V2(ws1, item.DESCRIPCION, row, columna, 0, 0, "L"); columna++;
-                                ExcelUtil.CeldaFormatoEtiqueta_V2(ws1, item.ANIO, row, columna, 0, 0, "L"); columna++;
-                                ExcelUtil.CeldaFormatoEtiqueta_V2(ws1, item.NOMBRE_EVALUADO, row, columna, 0, 0, "L"); columna++;
-                                ExcelUtil.CeldaFormatoEtiqueta_V2(ws1, item.NOMBRE_CARGO, row, columna, 0, 0, "L"); columna++;
-                                ExcelUtil.CeldaFormatoEtiqueta_V2(ws1, item.NOMBRE_EVALUADOR, row, columna, 0, 0, "L"); columna++;
-                                ExcelUtil.CeldaFormatoEtiqueta_V2(ws1, item.PLAZO, row, columna, 0, 0, "L"); columna++;
-                                ExcelUtil.CeldaFormatoEtiqueta_V2(ws1, item.NOMBRE_ESTADO, row, columna, 0, 0, "L"); columna++;
+                                //ExcelUtil.CeldaFormatoEtiqueta_V2(ws1, item.DESCRIPCION, row, columna, 0, 0, "L"); columna++;
+                                //ExcelUtil.CeldaFormatoEtiqueta_V2(ws1, item.ANIO, row, columna, 0, 0, "L"); columna++;
+                                //ExcelUtil.CeldaFormatoEtiqueta_V2(ws1, item.NOMBRE_EVALUADO, row, columna, 0, 0, "L"); columna++;
+                                //ExcelUtil.CeldaFormatoEtiqueta_V2(ws1, item.NOMBRE_CARGO, row, columna, 0, 0, "L"); columna++;
+                                //ExcelUtil.CeldaFormatoEtiqueta_V2(ws1, item.NOMBRE_EVALUADOR, row, columna, 0, 0, "L"); columna++;
+                                //ExcelUtil.CeldaFormatoEtiqueta_V2(ws1, item.PLAZO, row, columna, 0, 0, "L"); columna++;
+                                //ExcelUtil.CeldaFormatoEtiqueta_V2(ws1, item.NOMBRE_ESTADO, row, columna, 0, 0, "L"); columna++;
                             }
                         }
                     }
@@ -511,6 +519,151 @@ namespace Gestion_Rendimiento_Frontend.Controllers
             {
                 throw new Exception(ex.Message);
             }
+        }
+        public IActionResult GenerarHTML_Seg([FromBody] RendimientoModel model)
+        {
+            var respuesta = new BaseResponse();
+            respuesta.Extra = FilaTabla_Seg(model);
+
+            return Ok(respuesta);
+
+        }
+        private string FilaTabla_Seg(RendimientoModel modelo)
+        {
+            string html = "";
+            try
+            {
+                var listaPrioridad = new List<ProyectoModel>();
+                var lista = _RendimientoService.GetAllProyectoEvaluadoAnio(modelo.ID_PERSONAL, modelo.ANIO);
+                listaPrioridad = lista.Select(t => new ProyectoModel
+                {
+                    DESCRIPCION = t.DESCRIPCION,
+                    ID_PROYECTO = t.ID_PROYECTO,
+                }).ToList();
+                var listaPrioridadD = new List<RendimientoDetalleModel>();
+                foreach (var item_P in listaPrioridad)
+                {
+                    var getProyecto = _proyectodetalleService.GetProyectoXId(item_P.ID_PROYECTO);
+                    if (getProyecto.Count() > 0)
+                    {
+                        var entity_ = getProyecto.Select(t => new RendimientoDetalleModel
+                        {
+                            ID_DETALLE = t.ID_DETALLE_PROYECTO,
+                            ID_PROYECTO = t.ID_PROYECTO,
+                            INDICADOR = t.INDICADOR_PRODUCTO,
+                            VALOR = t.VALOR,
+                            EVIDENCIA = t.EVIDENCIA,
+                            PLAZOS = t.PLAZO,
+                        }).First();
+                        listaPrioridadD.Add(entity_);
+                    }
+                  
+                }
+                if (listaPrioridad.Count() > 0)
+                {
+                    foreach (var item_PROYECTO in listaPrioridad)
+                    {
+                        var detalle = listaPrioridadD.Where(x => x.ID_PROYECTO == item_PROYECTO.ID_PROYECTO).ToList();
+                        html += GrupoCabeceraRegistroSegHTML(item_PROYECTO.ID_PROYECTO, item_PROYECTO.DESCRIPCION, detalle.Count());
+                        if (detalle.Count > 0)
+                        {
+                            foreach (var item in detalle)
+                            {
+                                html += GrupoDetalleRegistroSegHTML(item.EVIDENCIA, item.PLAZOS, item.INDICADOR, item.VALOR, item.ID_DETALLE, item.ID_PROYECTO);
+                            }
+                        }
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                html = "";
+                Log.CreateLogger(ex.Message);
+
+            }
+            return html;
+
+        }
+        private string GrupoCabeceraRegistroSegHTML(int ID, string DES, int CANT)
+        {
+            string html = "";
+            string evaluar = EvaluarFila(ID);
+            html += "<tr style='background-color:#FCE4D6;' id='" + ID + "'>";
+            html += "<td colspan='5'>";
+            html += "<div class='form-group'>";
+            html += "<textarea rows=\"3\" cols=\"50\" id='" + ID + "' name='" + ID + "' maxlength='4000' class='form-control tdDESCRIPCION' required>" + DES + "</textarea>";
+            html += "</div>";
+            html += "</td>";
+            if (CANT > 0)
+            {
+                html += "<td style='background:white;'>" + evaluar + "</td>";
+            }
+            html += "<td class='tdID_DETALLE' style='display:none;'>" + ID + "</td>";
+            html += "<td class='tdP_G' style='display:none;'>1</td>";
+            html += "</tr>";
+            return html;
+        }
+        private string GrupoDetalleRegistroSegHTML(string EVIDENCIA, string PLAZOS, string INDICADOR, int VALOR, int FILA, int ID_PROYECTO)
+        {
+            string html = "";
+            //string remove = EvaluarFila(FILA);
+            //var td_id = GetId();
+            var E = "S_EV_" + FILA;
+            var P = "S_P_" + FILA;
+            var I = "S_I_" + FILA;
+            var V = "S_V_" + FILA;
+            html += "<tr>";
+            html += "<td class='tdID_PROYECTO_S' style='display:none;'>" + ID_PROYECTO + "</td>";
+            //html += "<td>" + remove + "</td>";
+            html += "<td>";
+            html += "<div class='form-group'>";
+            html += "<label>Indicador / Producto<span class=\"text-primary m-l-sm\">(*)</span></label>";
+            html += "<textarea id='" + I + "' name='" + I + "' maxlength='4000' rows=\"4\" cols=\"50\" class='form-control tdINDICADOR' required>" + INDICADOR + "</textarea>";
+            html += "</div>";
+            html += "</td>";
+
+            html += "<td>";
+            html += "<div class='form-group'>";
+            html += "<label>Valor Meta<span class=\"text-primary m-l-sm\">(*)</span></label>";
+            html += "<input id='" + V + "' name='" + V + "' type ='text' maxlength='2'  value='" + VALOR + "' class='form-control tdVALOR' required/>";
+            html += "</div>";
+            html += "</td>";
+
+            html += "<td>";
+            html += "<div class='form-group'>";
+            html += "<label>Evidencia<span class=\"text-primary m-l-sm\">(*)</span></label>";
+            html += "<textarea id='" + E + "' name='" + E + "'  rows=\"4\" cols=\"50\" maxlength='4000' class='form-control tdEVIDENCIA' required>" + EVIDENCIA + "</textarea>";
+            html += "</div>";
+            html += "</td>";
+
+            html += "<td>";
+            html += "<div class='form-group'>";
+            html += "<label>Plazos<span class=\"text-primary m-l-sm\">(*)</span></label>";
+            if (PLAZOS == "")
+            {
+                html += "<input id='" + P + "' name='" + P + "' type ='text' maxlength='10'  value='" + PLAZOS + "' class='form-control tdPLAZOS' data-provide=\"datepicker\" data-date-today-highlight=\"true\" data-date-format=\"dd/mm/yyyy\" data-date-language=\"es\" data-date-autoclose=\"true\" required/>";
+
+            }
+            else
+            {
+                html += "<input id='" + P + "' name='" + P + "' type ='text' maxlength='10'  value='" + Convert.ToDateTime(PLAZOS).ToString("dd/MM/yyyy") + "' class='form-control tdPLAZOS' data-provide=\"datepicker\" data-date-today-highlight=\"true\" data-date-format=\"dd/mm/yyyy\" data-date-language=\"es\" data-date-autoclose=\"true\" required/>";
+            }
+            html += "</div>";
+            html += "</td>";
+            html += "<td class='tdID_SUB_DETALLE' style='display:none;'>1</td>";
+            html += "<td class='tdDetPrioridad' style='display:none;'>";
+            html += FILA;
+            html += "</td>";
+
+            html += "</tr>";
+            return html;
+        }
+        private string EvaluarFila(int FILA)
+        {
+            string html = "";
+         html = "<a value=" + FILA + " href ='javascript:void(0);' title='Registro de seguimiento' ><i class='icon icon-pencil-square-o icon-2x mantenimiento_seguimiento' style='color:black'></i></a>";
+            return html;
         }
         #region     EVALUACION
         public IActionResult Evaluacion()

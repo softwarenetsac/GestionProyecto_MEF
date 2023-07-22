@@ -31,7 +31,7 @@ namespace Gestion_Rendimiento_Entity.Model
         public string PROYECTO { get; set; }
         public int ID_PROYECTO { get; set; }
         public string ID_EVALUADOR_EVALUADO { get; set; }
+        public int NUM_ACTIVIDADES { get; set; }
         
-
     }
 }

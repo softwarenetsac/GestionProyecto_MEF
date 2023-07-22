@@ -34,5 +34,7 @@ namespace Gestion_Rendimiento_Entity
         public string NOMBRE_EVALUADOR { get; set; }
         public string PROYECTO { get; set; }
         public int ID_PROYECTO { get; set; }
+        public int NUM_ACTIVIDADES { get; set; }
+        
     }
 }

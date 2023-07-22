@@ -13,6 +13,6 @@ namespace Gestion_Rendimiento_IService
         RendimientoConsultaModel GetOne(int ID_PROYECTO);
         IEnumerable<RendimientoConsultaModel> GetRenmientoEvaluado(RendimientoModel modelo);
         IEnumerable<RendimientoConsultaModel> GetAll(RendimientoConsultaModel request);
-
+        IEnumerable<RendimientoConsultaModel> GetAllProyectoEvaluadoAnio(string ID_PERSONAL, string ANIO);
     }
 }

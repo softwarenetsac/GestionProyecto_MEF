@@ -105,7 +105,7 @@
                         { "data": "NOMBRE_COMPLETO", "title": "Apellidos y Nombres" },
                         { "data": "NUMERO_DNI", "title": "N° Documento" },
                         { "data": "FECHA_INGRESO", "title": "F. Ingreso" },
-                        { "data": "NOMBRE_CARGO", "title": "Cargo" },
+                        { "data": "NOMBRE_CARGO", "title": "Puesto" },
                         { "data": "NOMBRE_CATEGORIA", "title": "Categoría" },
                         { "data": "CORREO_INSTITUCIONAL", "title": "Correo" },
                         { "data": "NOMBRE_OFICINA", "title": "Unidad Orgánica" },

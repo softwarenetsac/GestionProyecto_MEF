@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="..\.editorconfig" Link=".editorconfig" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Gestion_Rendimiento_Common\Gestion_Rendimiento_Common.csproj" />
     <ProjectReference Include="..\Gestion_Rendimiento_Entity\Gestion_Rendimiento_Entity.csproj" />
     <ProjectReference Include="..\Gestion_Rendimiento_IService\Gestion_Rendimiento_IService.csproj" />

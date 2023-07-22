@@ -339,9 +339,12 @@
                         indexes = 1;
                     }
                 );
-                base.Control.DllAreaReas('');
-                base.Control.DllOficinaReas('');
-                base.Control.DllEvaluadoReas('');
+                base.Control.DllAreaReas().val(0);
+                base.Control.DllAreaReas().trigger("change"); 
+                base.Control.DllOficinaReas().val(0);
+                base.Control.DllOficinaReas().trigger("change"); 
+                base.Control.DllEvaluadoReas().val(0);
+                base.Control.DllEvaluadoReas().trigger("change");
                 if (indexes>0) {
                     base.Control.ModalAgregarReasignacion().modal('show');
                 } else {

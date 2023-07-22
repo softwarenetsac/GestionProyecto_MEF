@@ -8,7 +8,7 @@
             <div class="wizard-header">
                 <div class="row m-x-sm">
                     <div class="col-md-4">
-                        <h4 class="m-t-sm">Gestión Rendimiento</h4>
+                        <h4 class="m-t-sm">Reasignación</h4>
                     </div>
                     <div class="col-md-8 text-right">
                     </div>
@@ -72,9 +72,9 @@
             <div class="row text-left m-l-md m-r-md">
                 <div class="col-md-6">
                     <div class="row text-left">
-                        <button class="btn btn-default" type="button" id="btnExportar" name="btnExportar">
+                        <button class="btn btn-primary" type="button" id="btnReasignar" name="btnReasignar">
                             <i class="icon icon-file-excel-o icon-lg m-r-sm"></i>
-                            Exportar
+                            Reasignar
                         </button>
                     </div>
                 </div>
@@ -88,7 +88,7 @@
                 </div>
             </div>
             <br />
-            <div class="row text-left m-l-md m-r-md">
+    @*        <div class="row text-left m-l-md m-r-md">
                 <div class="col-md-6">
                     <div class="row text-left">
                         <button class="btn btn-primary" type="button" id="btnReasignar" name="btnExportar">
@@ -97,7 +97,7 @@
                         </button>
                     </div>
                 </div>
-            </div>
+            </div>*@
             <br />
             <div class="card card-body m-l-md m-r-md">
                 <div class="table-responsive">
@@ -192,7 +192,7 @@
     </div>
 
     <div id="modalReasignacion" role="dialog" class="modal fade" data-backdrop="static" data-keyboard="false">
-        <div class="modal-dialog modal-xl">
+        <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header bg-primary" style="cursor:pointer;">
                     <h4 class="modal-title">Reasignación</h4>
@@ -205,7 +205,7 @@
                                 <div class="form-group">
                                     <label>&Oacute;rgano</label><label class="text-primary m-l-sm">(*)</label>
                                     <select class="form-control" id="ID_AREA_REAS" name="ID_AREA_REAS" required>
-                                        <option value="">---Seleccionar-----</option>
+                                        <option value="0">---Seleccionar-----</option>
                                         @{
                                             if (Model.Oficinas != null)
                                             {
@@ -224,7 +224,7 @@
                                 <div class="form-group">
                                     <label>Unidad Org&aacute;nica</label><label class="text-primary m-l-sm">(*)</label>
                                     <select class="form-control" id="ID_OFICINA_REAS" name="ID_OFICINA_REAS" required>
-                                        <option value="">---Seleccionar-----</option>
+                                        <option value="0">---Seleccionar-----</option>
                                     </select>
                                 </div>
                             </div>
@@ -234,7 +234,7 @@
                                 <div class="form-group">
                                     <label for="ddlTitular">Evaluador</label><label class="text-primary m-l-sm">(*)</label>
                                     <select class="form-control" id="ID_EVALUADO_REAS" name="ID_EVALUADO_REAS" required>
-                                        <option value="">---Seleccionar-----</option>
+                                        <option value="0">---Seleccionar-----</option>
                                   @*      @{
                                             if (Model.Personas != null)
                                             {
