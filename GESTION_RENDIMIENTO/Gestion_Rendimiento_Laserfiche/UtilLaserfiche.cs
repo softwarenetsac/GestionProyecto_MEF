@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
-using Gestion_Rendimiento_Common;
+using System.Web.Configuration;
 
 namespace Gestion_Rendimiento_Laserfiche
 {
@@ -14,8 +14,8 @@ namespace Gestion_Rendimiento_Laserfiche
     {
         private static Session IniciarSesion(string Servidor, string Repositorio, string Usuario, string IP)
         {
-            String usuarioLF1 = "";
-            String clave1 = "";
+            string usuarioLF1 = "";
+            string clave1 = "";
             Session session = null;
             try
             {
@@ -23,11 +23,11 @@ namespace Gestion_Rendimiento_Laserfiche
                 clave1 = WebConfigurationManager.AppSettings["PasswordLaserfiche"].ToString();
                 session = new Session();
                 session.LogIn(usuarioLF1, clave1, new RepositoryRegistration(Servidor, Repositorio));
-                AplicacionLog.MensajeLog("User: " + Usuario + "[" + IP + "] - LASERFICHE 1", "UtilLaserfiche.IniciarSesion", "D");
+                AplicacionLog.Mensaje("User: " + Usuario + "[" + IP + "] - LASERFICHE 1"+ " UtilLaserfiche.IniciarSesion");
             }
             catch (Exception ex)
             {
-                Gestion_Rendimiento_Common.Log.CreateLogger(ex.Message);
+                AplicacionLog.Mensaje(ex.Message);
             }
             return session;
         }
@@ -143,16 +143,16 @@ namespace Gestion_Rendimiento_Laserfiche
                     IdLaserFiche = 0;
                 }
             }
-            catch (Exception EX)
+            catch (Exception ex)
             {
-                AplicacionLog.Mensaje(EX, "E");
+                AplicacionLog.Mensaje(ex.Message);
                 try
                 {
                     session.LogOut();
                 }
-                catch (Exception ex)
+                catch (Exception ex_)
                 {
-                    AplicacionLog.Mensaje(ex, "E");
+                    AplicacionLog.Mensaje(ex_.Message);
                 }
             }
             return IdLaserFiche;
@@ -203,8 +203,8 @@ namespace Gestion_Rendimiento_Laserfiche
             }
             catch (Exception err)
             {
-                //AplicacionLog.MensajeLog("ERROR: Al exportar el archivo escaneado... " + err.Message, "UtilLaserfiche.ExportarDocumentoPDF", "E");
-                AplicacionLog.Mensaje(err, "E");
+              
+                AplicacionLog.Mensaje(err.Message);
                 valorDevuelve = false;
             }
             finally
@@ -216,14 +216,14 @@ namespace Gestion_Rendimiento_Laserfiche
                 catch (Exception ex)
                 {
                     //AplicacionLog.MensajeLog("LogOut: " + ex.Message, "UtilLaserfiche.ExportarDocumentoPDF", "E");
-                    AplicacionLog.Mensaje(ex, "E");
+                    AplicacionLog.Mensaje(ex.Message);
                 }
             }
 
             return valorDevuelve;
         }
 
-        public static String ExportarDocumentoPDF(int IdArchivo, string Servidor, string Repositorio, string Usuario, string Carpeta, string IP)
+        public static string ExportarDocumentoPDF(int IdArchivo, string Servidor, string Repositorio, string Usuario, string Carpeta, string IP)
         {
             String nombreArchivo = "";
             Guid myName = Guid.NewGuid();
@@ -258,7 +258,7 @@ namespace Gestion_Rendimiento_Laserfiche
             catch (Exception err)
             {
                 //AplicacionLog.MensajeLog("ERROR: Al exportar el archivo escaneado... " + err.Message, "UtilLaserfiche.ExportarDocumentoPDF", "E");
-                AplicacionLog.Mensaje(err, "E");
+                AplicacionLog.Mensaje(err.Message);
                 nombreArchivo = "";
             }
             finally
@@ -269,8 +269,8 @@ namespace Gestion_Rendimiento_Laserfiche
                 }
                 catch (Exception ex)
                 {
-                    //AplicacionLog.MensajeLog("LogOut: " + ex.Message, "UtilLaserfiche.ExportarDocumentoPDF", "E");
-                    AplicacionLog.Mensaje(ex, "E");
+                
+                    AplicacionLog.Mensaje(ex.Message);
                 }
             }
 
