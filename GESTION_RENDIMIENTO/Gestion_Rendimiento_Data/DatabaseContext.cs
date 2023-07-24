@@ -33,7 +33,7 @@ namespace Gestion_Rendimiento_Data
         public virtual DbSet<ConfiguracionRendimiento> ConfiguracionRendimiento { get; set; }
         public virtual DbSet<ConfiguracionDetalle> ConfiguracionDetalle { get; set; }
 
-
+        public virtual DbSet<NivelSeguimiento> NivelSeguimiento { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

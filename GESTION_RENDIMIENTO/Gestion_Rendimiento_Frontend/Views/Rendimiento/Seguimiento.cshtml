@@ -1,7 +1,7 @@
 ﻿@{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-@model Gestion_Rendimiento_Frontend.Models.EvaluadorViewModel
+@model Gestion_Rendimiento_Frontend.Models.RendimientoViewModel
 <div id="div_consulta">
     <div class="wizard-container">
         <div class="card wizard-card ct-wizard-red" id="wizard">
@@ -137,6 +137,52 @@
                                             </div>
                                         </div>
                                     </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <br />
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label> <span class="text-primary m-l-sm">(*) Campo obligatoro</span></label>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <div class="row">
+                        <div class="m-t-lg text-center">
+                            <button class="btn btn-default m-l-lg" data-dismiss="modal" type="button">Cancelar</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="modalRegistroSeg" role="dialog" class="modal fade" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-primary" style="cursor:pointer;">
+                    <h4 class="modal-title">Registro Seguimiento</h4>
+                </div>
+                <div class="modal-body">
+                    <form id="frmModel" name="frmModel" data-toggle="validator" method="post" enctype="multipart/form-data">
+                        <input type="hidden" id="hdnIdProyecto" name="hdnIdProyecto" value="0" />
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>Evaluador/a (Jefe Directo)<span class="text-primary m-l-sm">(*)</span></label>
+                                    <select class="form-control" required id="ID_TIPO_NIVEL" name="ID_TIPO_NIVEL">
+                                        <option value="" selected="selected">---Seleccionar-----</option>
+                                        @{
+                                            foreach (var item in Model.NivelSeguimiento)
+                                            {
+                                                <option value=@item.ID_TIPO_NIVEL>@item.DESCRIPCION</option>
+                                            }
+                                        }
+                                    </select>
                                 </div>
                             </div>
                         </div>

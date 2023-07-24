@@ -9,6 +9,6 @@ namespace Gestion_Rendimiento_IService
 {
     public interface INivelSeguimientoService
     {
-        IEnumerable<NivelSeguimiento> GetAll();
+        IEnumerable<NivelSeguimiento> GetListNivel();
     }
 }

@@ -37,6 +37,7 @@ namespace Gestion_Rendimiento_Frontend.Controllers
         private readonly IProyectoDetalleService _proyectodetalleService;
         private readonly IPersonaService _personaService;
         private readonly IEvaluadorService _evaluadorService;
+        private readonly INivelSeguimientoService _nivelseguimiento;
         public RendimientoController(
           IPersonaService personaService,
           IOficinaService oficinaService,
@@ -44,12 +45,14 @@ namespace Gestion_Rendimiento_Frontend.Controllers
           IEvaluadoService evaluadoService,
           IProyectoDetalleService proyectodetalleService,
           IProyectoService proyectoService,
-                      IEvaluadorService evaluadorService,
+          IEvaluadorService evaluadorService,
           IConfiguracionRendimientoService configuracionRendimientoService,
+          INivelSeguimientoService nivelseguimiento,
           IOptions<ConfiguracionSistemaModel> configuracionSistema,
            IHttpContextAccessor contextAccessor
             )
         {
+            _nivelseguimiento = nivelseguimiento;
             _proyectodetalleService = proyectodetalleService;
             _proyectoService = proyectoService;
             _oficinaService = oficinaService;
@@ -403,7 +406,9 @@ namespace Gestion_Rendimiento_Frontend.Controllers
         #region SEGUIMIENTO
         public IActionResult Seguimiento()
         {
-            return View();
+            var modelo = new RendimientoViewModel();
+            modelo.NivelSeguimiento = _nivelseguimiento.GetListNivel();
+            return View(modelo);
         }
         public IActionResult GetAll_Seguimiento([FromBody] EvaluadoModel request)
         {
@@ -662,7 +667,7 @@ namespace Gestion_Rendimiento_Frontend.Controllers
         private string EvaluarFila(int FILA)
         {
             string html = "";
-         html = "<a value=" + FILA + " href ='javascript:void(0);' title='Registro de seguimiento' ><i class='icon icon-pencil-square-o icon-2x mantenimiento_seguimiento' style='color:black'></i></a>";
+         html = "<a href ='javascript:void(0);' title='Registro de seguimiento' idpk_p=" + FILA + " ><i class='icon icon-pencil-square-o icon-2x mantenimiento_seguimiento' style='color:black'></i></a>";
             return html;
         }
         #region     EVALUACION

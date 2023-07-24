@@ -18,7 +18,7 @@ namespace Gestion_Rendimiento_Service
         public NivelSeguimientoService(DatabaseContext context) : base(context)
         {
         }
-        public IEnumerable<NivelSeguimiento> GetAll()
-   => GetAll();
+        public IEnumerable<NivelSeguimiento> GetListNivel()
+            => FindAll(w => w.FLG_ESTADO == "1");
     }
 }

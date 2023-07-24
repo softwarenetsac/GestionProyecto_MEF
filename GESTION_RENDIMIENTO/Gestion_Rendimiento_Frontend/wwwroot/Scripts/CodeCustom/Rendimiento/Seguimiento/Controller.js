@@ -15,6 +15,13 @@
                 if (typeof ID_PERSONAL !== 'undefined' && ID_PERSONAL > 0)
                     base.Function.AbrirModalSeguimiento(ID_PERSONAL, ANIO);
             });
+            base.Control.GridBody().on('click', '.mantenimiento_seguimiento', function (e) {
+                var elemento = this;
+                debugger;
+                var id = elemento.getAttribute("idpk_p");
+                if (typeof id !== 'undefined')
+                    base.Function.AbrirModalManSegui(id);
+            });
         };
 
         base.Parameters = {
@@ -29,8 +36,11 @@
             DllOrgano: function () { return $("#ID_AREA_CONSULTA"); },
             DllUnidadOrganica: function () { return $("#ID_OFICINA_CONSULTA"); },
             ModalSeguimiento: function () { return $("#modalSeguimiento"); },
+            modalRegistroSeg: function () { return $("#modalRegistroSeg"); },
             hdnIdPersonal: function () { return $("#hdnIdPersonal"); },
             hdnAnio: function () { return $("#hdnAnio"); },
+            hdnIdProyecto: function () { return $("#hdnIdProyecto"); },
+            GridBody: function () { return $("#gridBody"); },
         };
 
         base.Event = {
@@ -138,6 +148,10 @@
                     base.Control.hdnAnio().val(anio);
                 base.Function.RegistrosProyecto(id_personal, anio);
                 base.Control.ModalSeguimiento().modal('show');
+            },
+            AbrirModalManSegui: function (id_proyect) {
+                base.Control.hdnIdProyecto().val(id_proyect);
+                base.Control.modalRegistroSeg().modal('show');
             },
             RegistrosProyecto: function (ID_PERSONAL,ANIO) {
                 var url = SoftwareNet.Web.Operacion.Seguimiento.Actions.NuevaFila;

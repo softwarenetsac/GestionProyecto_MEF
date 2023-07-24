@@ -9,6 +9,7 @@ namespace Gestion_Rendimiento_Frontend.Models
     {
         public IEnumerable<Oficina> Oficinas { get; set; }
         public IEnumerable<EvaluadorConsultaModel> Personas { get; set; }
+        public IEnumerable<NivelSeguimiento> NivelSeguimiento { get; set; }
         public List<SelectListItem> List_Anio { get; set; }
         public int ID_AREA { get; set; }
         public int ID_OFICINA { get; set; }
