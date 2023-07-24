@@ -1,6 +1,5 @@
 D:\1.APLICACIONES\16.Gestion_Proyecto\1.Aplicación\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\appsettings.Development.json
 D:\1.APLICACIONES\16.Gestion_Proyecto\1.Aplicación\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\appsettings.json
-D:\1.APLICACIONES\16.Gestion_Proyecto\1.Aplicación\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\Gestion_Rendimiento_Frontend.StaticWebAssets.xml
 D:\1.APLICACIONES\16.Gestion_Proyecto\1.Aplicación\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\Gestion_Rendimiento_Frontend.exe
 D:\1.APLICACIONES\16.Gestion_Proyecto\1.Aplicación\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\Gestion_Rendimiento_Frontend.deps.json
 D:\1.APLICACIONES\16.Gestion_Proyecto\1.Aplicación\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\Gestion_Rendimiento_Frontend.runtimeconfig.json
