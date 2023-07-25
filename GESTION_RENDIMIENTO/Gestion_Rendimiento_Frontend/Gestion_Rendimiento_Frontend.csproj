@@ -9,6 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="AspNetCore.Reporting" Version="2.1.0" />
     <PackageReference Include="DocumentFormat.OpenXml" Version="2.13.0" />
     <PackageReference Include="EPPlus" Version="5.6.3" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.3" />
@@ -44,6 +45,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Reporte\" />
     <Folder Include="wwwroot\Scripts\CodeCustom\Evaluado\Consulta\" />
   </ItemGroup>
 

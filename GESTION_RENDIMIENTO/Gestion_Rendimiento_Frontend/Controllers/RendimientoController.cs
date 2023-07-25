@@ -25,6 +25,8 @@ using OfficeOpenXml.ConditionalFormatting;
 using DocumentFormat.OpenXml.Office2010.Excel;
 using DocumentFormat.OpenXml.Spreadsheet;
 using DocumentFormat.OpenXml.Office2010.CustomUI;
+using Microsoft.AspNetCore.Hosting;
+using AspNetCore.Reporting;
 
 namespace Gestion_Rendimiento_Frontend.Controllers
 {
@@ -43,6 +45,7 @@ namespace Gestion_Rendimiento_Frontend.Controllers
         private readonly INivelSeguimientoService _nivelseguimiento;
         private readonly IProyectoSeguimientoService _proyectoseguimiento;
         private readonly IProyectoDetalleSubService _proyectodetallesubService;
+        private readonly IWebHostEnvironment _webHostEnvironment;
         public RendimientoController(
           IProyectoSeguimientoService proyectoseguimiento,
           IPersonaService personaService,
@@ -55,8 +58,9 @@ namespace Gestion_Rendimiento_Frontend.Controllers
           IConfiguracionRendimientoService configuracionRendimientoService,
           INivelSeguimientoService nivelseguimiento,
           IOptions<ConfiguracionSistemaModel> configuracionSistema,
-                    IProyectoDetalleSubService proyectodetallesubService,
-           IHttpContextAccessor contextAccessor
+          IProyectoDetalleSubService proyectodetallesubService,
+           IHttpContextAccessor contextAccessor,
+           IWebHostEnvironment webHostEnvironment
             )
         {
             _proyectodetallesubService = proyectodetallesubService;
@@ -72,6 +76,8 @@ namespace Gestion_Rendimiento_Frontend.Controllers
             _evaluadoService = evaluadoService;
             _personaService = personaService;
             _evaluadorService = evaluadorService;
+            _webHostEnvironment = webHostEnvironment;
+            System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
         }
         #region PROGRAMACION
         public IActionResult Programacion()
@@ -1152,6 +1158,78 @@ namespace Gestion_Rendimiento_Frontend.Controllers
             return Ok(result);
         }
         #endregion
+        #region REPORTE
+        public IActionResult ImprimirRendimientoPDF(RendimientoModel modelo)
+        {
+
+            string fecha_imprimir = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
+            string mimetype = "";
+            int extension = 1;
+            try
+            {
+                modelo.ID_PERSONAL = UsuarioActual.ID_PERSONAL;
+                string report_rdlc = "";
+                var data = new List<ReporteRendimientoModel>();
+
+                report_rdlc = "GestionRendimiento.rdlc";
+                data = _RendimientoService.GetReporteRendimiento(modelo.ID_PERSONAL, modelo.ANIO);
+
+
+                Dictionary<string, string> parameters = new Dictionary<string, string>();
+                string nombre_evaluado = "",
+                       nombre_evaluador = "",
+                       nombre_cargo_evaluado = "",
+                       nombre_cargo_evaluador = "",
+                       nombre_segmento_evaluado = "",
+                       nombre_segmento_evaluador = "",
+                       nombre_organo_evaluado = "",
+                       nombre_organo_evaluador = "",
+                       dni_evaluado = "",
+                       fecha_registro = "",
+                       nombre_entidad = "";
+                if (data != null)
+                {
+                    var itemData = data.FirstOrDefault();
+                    nombre_evaluado = itemData.NOMBRE_EVALUADO;
+                    nombre_evaluador = itemData.NOMBRE_EVALUADOR;
+                    nombre_cargo_evaluado = itemData.NOMBRE_CARGO_EVALUADO;
+                    nombre_cargo_evaluador = itemData.NOMBRE_CARGO_EVALUADOR;
+                    nombre_segmento_evaluado = itemData.NOMBRE_SEGMENTO_EVALUADO;
+                    nombre_segmento_evaluador = itemData.NOMBRE_SEGMENTO_EVALUADOR;
+                    nombre_organo_evaluado = itemData.NOMBRE_ORGANO_EVALUADO;
+                    nombre_organo_evaluador = itemData.NOMBRE_ORGANO_EVALUADOR;
+                    dni_evaluado = itemData.DNI_EVALUADO;
+                    fecha_registro = itemData.FECHA_REGISTRO;
+                    nombre_entidad = itemData.NOMBRE_ENTIDAD;
+                }
+
+                parameters.Add("P_FECHA_REGISTRO", fecha_registro);
+                parameters.Add("P_DNI_EVALUADO", dni_evaluado);
+                parameters.Add("P_NOMBRE_EVALUADO", nombre_evaluado);
+                parameters.Add("P_NOMBRE_EVALUADOR", nombre_evaluador);
+                parameters.Add("P_NOMBRE_CARGO_EVALUADO", nombre_cargo_evaluado);
+                parameters.Add("P_NOMBRE_CARGO_EVALUADOR", nombre_cargo_evaluador);
+                parameters.Add("P_NOMBRE_SEGMENTO_EVALUADO", nombre_segmento_evaluado);
+                parameters.Add("P_NOMBRE_SEGMENTO_EVALUADOR", nombre_segmento_evaluador);
+                parameters.Add("P_NOMBRE_ORGANO_EVALUADO", nombre_organo_evaluado);
+                parameters.Add("P_NOMBRE_ORGANO_EVALUADOR", nombre_organo_evaluador);
+                parameters.Add("P_NOMBRE_ENTIDAD", nombre_entidad);
+                string rutaBse = _webHostEnvironment.ContentRootPath + "\\Reporte\\" + report_rdlc;
+                LocalReport report = new LocalReport(rutaBse);
+                report.AddDataSource("DS_RENDIMIENTO", data);
+                var result = report.Execute(RenderType.Pdf, extension, parameters, mimetype);
+                var array_pdf = result.MainStream;
+                string nombre_archivo = "FORMATO RENDIMIENTO" + DateTime.Now.ToString();
+                return FilePreview(array_pdf, "application/pdf", nombre_archivo);
+            }
+            catch (Exception ex)
+            {
+                Log.CreateLogger(ex.Message);
+                return new EmptyResult();
+            }
+
+        }
+        #endregion REPORTE
     }
 }
    

@@ -36,6 +36,7 @@ namespace Gestion_Rendimiento_Data
         public virtual DbSet<NivelSeguimiento> NivelSeguimiento { get; set; }
         public virtual DbSet<ProyectoSeguimientoConsulta> ProyectoSeguimientoConsulta { get; set; }
         public virtual DbSet<Proyecto_Detalle_Sub> Proyecto_Detalle_Sub { get; set; }
+        public virtual DbSet<ReporteRendimiento> ReporteRendimiento { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
