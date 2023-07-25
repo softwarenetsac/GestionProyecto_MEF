@@ -22,6 +22,9 @@ using System.Security.Policy;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using DocumentFormat.OpenXml.Office.CustomUI;
 using OfficeOpenXml.ConditionalFormatting;
+using DocumentFormat.OpenXml.Office2010.Excel;
+using DocumentFormat.OpenXml.Spreadsheet;
+using DocumentFormat.OpenXml.Office2010.CustomUI;
 
 namespace Gestion_Rendimiento_Frontend.Controllers
 {
@@ -38,7 +41,10 @@ namespace Gestion_Rendimiento_Frontend.Controllers
         private readonly IPersonaService _personaService;
         private readonly IEvaluadorService _evaluadorService;
         private readonly INivelSeguimientoService _nivelseguimiento;
+        private readonly IProyectoSeguimientoService _proyectoseguimiento;
+        private readonly IProyectoDetalleSubService _proyectodetallesubService;
         public RendimientoController(
+          IProyectoSeguimientoService proyectoseguimiento,
           IPersonaService personaService,
           IOficinaService oficinaService,
           IRendimientoService RendimientoService,
@@ -49,9 +55,12 @@ namespace Gestion_Rendimiento_Frontend.Controllers
           IConfiguracionRendimientoService configuracionRendimientoService,
           INivelSeguimientoService nivelseguimiento,
           IOptions<ConfiguracionSistemaModel> configuracionSistema,
+                    IProyectoDetalleSubService proyectodetallesubService,
            IHttpContextAccessor contextAccessor
             )
         {
+            _proyectodetallesubService = proyectodetallesubService;
+            _proyectoseguimiento = proyectoseguimiento;
             _nivelseguimiento = nivelseguimiento;
             _proyectodetalleService = proyectodetalleService;
             _proyectoService = proyectoService;
@@ -134,6 +143,7 @@ namespace Gestion_Rendimiento_Frontend.Controllers
 
                 var det = _proyectodetalleService.GetProyectoXId(modelo.ID_PROYECTO);
                 List<RendimientoDetalleModel> det_datos = null;
+           
                 if (det != null)
                 {
                     det_datos = det.Select(t => new RendimientoDetalleModel
@@ -165,7 +175,33 @@ namespace Gestion_Rendimiento_Frontend.Controllers
                     };
                     listaPrioridadD.Add(entity_);
                 }
+                var det_evidencia_ = _proyectodetallesubService.GetEvidenciaXProyecto();
+                List<RendimientoDetalleSubModel> det_evidencia = null;
+                if (det_evidencia_ != null)
+                {
+                    det_evidencia = det_evidencia_.Select(t => new RendimientoDetalleSubModel
+                    {
+                        EVIDENCIA = t.EVIDENCIA,
+                        ID_DETALLE_PROYECTO = t.ID_DETALLE_PROYECTO,
+                        ID_DETALLE_SUB = t.ID_DETALLE_SUB,
+                    }).ToList();
+                }
+                var listaEvidenciaD = new List<RendimientoDetalleSubModel>();
+                if (modelo.ItemsDetalleEvidencia != null)
+                {
+                    listaEvidenciaD = modelo.ItemsDetalleEvidencia.Count == 0 ? (det_evidencia_ == null ? new List<RendimientoDetalleSubModel>() : det_evidencia) : modelo.ItemsDetalleEvidencia;
+                }
 
+                if (modelo.TIPO == "EV")
+                {
+                    var entity_ = new RendimientoDetalleSubModel
+                    {
+                        EVIDENCIA = "",
+                        ID_DETALLE_PROYECTO = modelo.ID_DETALLE_PROYECTO,
+                        ID_DETALLE_SUB = 0,
+                    };
+                    listaEvidenciaD.Add(entity_);
+                }
 
                 if (listaPrioridad.Count() > 0)
                 {
@@ -177,7 +213,8 @@ namespace Gestion_Rendimiento_Frontend.Controllers
                         {
                             foreach (var item in detalle)
                             {
-                                html += GrupoDetalleRegistroHTML(item.EVIDENCIA, item.PLAZOS, item.INDICADOR, item.VALOR, item.ID_DETALLE, item.ID_PROYECTO);
+                                var detalle_evidencia = listaEvidenciaD.Where(x => x.ID_DETALLE_PROYECTO == item.ID_DETALLE).ToList();
+                                html += GrupoDetalleRegistroHTML(item.EVIDENCIA, item.PLAZOS, item.INDICADOR, item.VALOR, item.ID_DETALLE, item.ID_PROYECTO, detalle_evidencia);
                             }
                         }
 
@@ -214,7 +251,7 @@ namespace Gestion_Rendimiento_Frontend.Controllers
             html += "</tr>";
             return html;
         }
-        private string GrupoDetalleRegistroHTML(string EVIDENCIA, string PLAZOS, string INDICADOR, int VALOR, int FILA, int ID_PROYECTO)
+        private string GrupoDetalleRegistroHTML(string EVIDENCIA, string PLAZOS, string INDICADOR, int VALOR, int FILA, int ID_PROYECTO, List<RendimientoDetalleSubModel> DETALLE_EVIDENCIA)
         {
             string html = "";
             string remove = deleteFila(FILA, "1");
@@ -242,8 +279,28 @@ namespace Gestion_Rendimiento_Frontend.Controllers
 
             html += "<td>";
             html += "<div class='form-group'>";
-            html += "<label>Evidencia<span class=\"text-primary m-l-sm\">(*)</span></label>";
-            html += "<textarea id='" + E + "' name='" + E + "'  rows=\"4\" cols=\"50\" maxlength='4000' class='form-control tdEVIDENCIA' required>" + EVIDENCIA + "</textarea>";
+            html += "<label style=\"width:100%\">Evidencia<span class=\"text-primary m-l-sm\" > (*)</span>";
+            ///
+            if (FILA>0)
+            {
+                html += "<a value=" + FILA + " href ='javascript:void(0);' idpk_detalle=" + FILA + " idpk_proy=" + ID_PROYECTO + " class='AddEvidencia' style=\"float:right\"><i class='icon icon-plus-circle icon-2x'></i></a>";
+
+            }
+            ///
+            html += "</label>";
+            if (FILA>0)
+            {
+                foreach (var item in DETALLE_EVIDENCIA)
+                {
+                    html += "<textarea rows=\"4\" cols=\"50\" maxlength='4000' class='form-control tdEVIDENCIA' idpk_detalle_=" + FILA + "   idpk_detallesub=" + item.ID_DETALLE_SUB + "  required>" + item.EVIDENCIA + "</textarea>";
+                    html += "" +
+                        "</br>";
+                }
+            }
+            else
+            {
+                html += "<textarea  rows=\"4\" cols=\"50\" maxlength='4000' class='form-control tdEVIDENCIA' idpk_detalle_=" + FILA + "   required>" + EVIDENCIA + "</textarea>";
+            }
             html += "</div>";
             html += "</td>";
 
@@ -332,7 +389,7 @@ namespace Gestion_Rendimiento_Frontend.Controllers
                         INDICADOR_PRODUCTO = item.INDICADOR,
                         VALOR = item.VALOR,
                         PLAZO = item.PLAZOS,
-                        EVIDENCIA = item.EVIDENCIA,
+                        EVIDENCIA = "",
                         USUARIO_CREACION = usuario_login,
                         FECHA_CREACION = DateTime.Now,
                         IP_CREACION = IP,
@@ -343,11 +400,59 @@ namespace Gestion_Rendimiento_Frontend.Controllers
                     {
                         var valor = _proyectodetalleService.Insertar(entidad);
                         id = valor.ID_DETALLE_PROYECTO;
+                        var ent_sub = new Proyecto_Detalle_Sub
+                        {
+                            ID_DETALLE_SUB = 0,
+                            ID_DETALLE_PROYECTO = id,
+                            EVIDENCIA = item.EVIDENCIA,
+                            USUARIO_CREACION = usuario_login,
+                            FECHA_CREACION = DateTime.Now,
+                            IP_CREACION = IP,
+                            FLG_ESTADO = "1",
+
+                        };
+                        var valor_sub = _proyectodetallesubService.Insertar(ent_sub);
+                        id = valor_sub.ID_DETALLE_PROYECTO;
                     }
                     else
                     {
                         var valor = _proyectodetalleService.Actualizar(entidad);
                         id = entidad.ID_DETALLE_PROYECTO;
+                        foreach (var item_sub in items.ItemsDetalleEvidencia)
+                        {
+                            if (item_sub.ID_DETALLE_SUB==0)
+                            {
+                                var ent_sub = new Proyecto_Detalle_Sub
+                                {
+                                    ID_DETALLE_SUB = 0,
+                                    ID_DETALLE_PROYECTO = id,
+                                    EVIDENCIA = item_sub.EVIDENCIA,
+                                    USUARIO_CREACION = usuario_login,
+                                    FECHA_CREACION = DateTime.Now,
+                                    IP_CREACION = IP,
+                                    FLG_ESTADO = "1",
+
+                                };
+                                var valor_sub = _proyectodetallesubService.Insertar(ent_sub);
+                                id = valor_sub.ID_DETALLE_PROYECTO;
+                            }
+                            else
+                            {
+                                var ent_sub = new Proyecto_Detalle_Sub
+                                {
+                                    ID_DETALLE_SUB = item_sub.ID_DETALLE_SUB,
+                                    ID_DETALLE_PROYECTO = id,
+                                    EVIDENCIA = item_sub.EVIDENCIA,
+                                    USUARIO_CREACION = usuario_login,
+                                    FECHA_CREACION = DateTime.Now,
+                                    IP_CREACION = IP,
+                                    FLG_ESTADO = "1",
+
+                                };
+                                var valor_sub = _proyectodetallesubService.Actualizar(ent_sub);
+                                id = valor_sub.ID_DETALLE_PROYECTO;
+                            }
+                        }
                     }
 
                     if (id > 0)
@@ -564,6 +669,17 @@ namespace Gestion_Rendimiento_Frontend.Controllers
                     }
                   
                 }
+                var det_evidencia_ = _proyectodetallesubService.GetEvidenciaXProyecto();
+                List<RendimientoDetalleSubModel> det_evidencia = null;
+                if (det_evidencia_ != null)
+                {
+                    det_evidencia = det_evidencia_.Select(t => new RendimientoDetalleSubModel
+                    {
+                        EVIDENCIA = t.EVIDENCIA,
+                        ID_DETALLE_PROYECTO = t.ID_DETALLE_PROYECTO,
+                        ID_DETALLE_SUB = t.ID_DETALLE_SUB,
+                    }).ToList();
+                }
                 if (listaPrioridad.Count() > 0)
                 {
                     foreach (var item_PROYECTO in listaPrioridad)
@@ -574,7 +690,8 @@ namespace Gestion_Rendimiento_Frontend.Controllers
                         {
                             foreach (var item in detalle)
                             {
-                                html += GrupoDetalleRegistroSegHTML(item.EVIDENCIA, item.PLAZOS, item.INDICADOR, item.VALOR, item.ID_DETALLE, item.ID_PROYECTO);
+                                var detalle_evidencia = det_evidencia.Where(x => x.ID_DETALLE_PROYECTO == item.ID_DETALLE).ToList();
+                                html += GrupoDetalleRegistroSegHTML(item.EVIDENCIA, item.PLAZOS, item.INDICADOR, item.VALOR, item.ID_DETALLE, item.ID_PROYECTO, detalle_evidencia);
                             }
                         }
 
@@ -609,7 +726,7 @@ namespace Gestion_Rendimiento_Frontend.Controllers
             html += "</tr>";
             return html;
         }
-        private string GrupoDetalleRegistroSegHTML(string EVIDENCIA, string PLAZOS, string INDICADOR, int VALOR, int FILA, int ID_PROYECTO)
+        private string GrupoDetalleRegistroSegHTML(string EVIDENCIA, string PLAZOS, string INDICADOR, int VALOR, int FILA, int ID_PROYECTO, List<RendimientoDetalleSubModel> DETALLE_EVIDENCIA)
         {
             string html = "";
             //string remove = EvaluarFila(FILA);
@@ -638,7 +755,13 @@ namespace Gestion_Rendimiento_Frontend.Controllers
             html += "<td>";
             html += "<div class='form-group'>";
             html += "<label>Evidencia<span class=\"text-primary m-l-sm\">(*)</span></label>";
-            html += "<textarea id='" + E + "' name='" + E + "'  rows=\"4\" cols=\"50\" maxlength='4000' class='form-control tdEVIDENCIA' required>" + EVIDENCIA + "</textarea>";
+            foreach (var item in DETALLE_EVIDENCIA)
+            {
+                html += "<textarea rows=\"4\" cols=\"50\" maxlength='4000' class='form-control tdEVIDENCIA' idpk_detalle_=" + FILA + "   idpk_detallesub=" + item.ID_DETALLE_SUB + "  required>" + item.EVIDENCIA + "</textarea>";
+                html += "" +
+                    "</br>";
+            }
+          //  html += "<textarea id='" + E + "' name='" + E + "'  rows=\"4\" cols=\"50\" maxlength='4000' class='form-control tdEVIDENCIA' required>" + EVIDENCIA + "</textarea>";
             html += "</div>";
             html += "</td>";
 
@@ -667,8 +790,73 @@ namespace Gestion_Rendimiento_Frontend.Controllers
         private string EvaluarFila(int FILA)
         {
             string html = "";
-         html = "<a href ='javascript:void(0);' title='Registro de seguimiento' idpk_p=" + FILA + " ><i class='icon icon-pencil-square-o icon-2x mantenimiento_seguimiento' style='color:black'></i></a>";
+         html = "<a href ='javascript:void(0);' title='Registro de seguimiento' ><i class='icon icon-pencil-square-o icon-2x mantenimiento_seguimiento' idpk_p=" + FILA + " style='color:black'></i></a>";
             return html;
+        }
+        public BaseResponse GuardarSeguimiento([FromBody] ProyectoSeguimiento entidad)
+        {
+            BaseResponse respuesta = new BaseResponse();
+            string usuario_login = UsuarioActual == null ? "" : UsuarioActual.UsuarioLogin;
+            string id_personal = UsuarioActual == null ? "" : UsuarioActual.ID_PERSONAL;
+            int id = 0;
+
+                if (entidad.ID_SEGUIMIENTO == 0)
+                {
+                entidad.ID_EVALUADOR = id_personal;
+                entidad.USUARIO_CREACION = usuario_login;
+                entidad.FECHA_CREACION = DateTime.Now;
+                entidad.IP_CREACION = IP;
+                entidad.FLG_ESTADO = "1";
+                    var valor = _proyectoseguimiento.Insertar(entidad);
+                    id = valor.ID_SEGUIMIENTO;
+                }
+                else
+                {
+                   // var valor = _proyectoseguimiento.Actualizar(entidad);
+                   // id = valor.ID_SEGUIMIENTO;
+                }
+
+                if (id > 0)
+                {
+                    respuesta.Success = true;
+                    respuesta.Message = "Se ha procesado correctamente";
+                }
+            
+
+            return respuesta;
+        }
+        public IActionResult GetAll_SeguimientoProyecto([FromBody] ProyectoSeguimiento request)
+        {
+            var result = new MethodResponseModel<IEnumerable<ProyectoSeguimientoConsulta>> { Result = null };
+            var lista = _proyectoseguimiento.GetAllSeguimientoProyecto(request.ID_PROYECTO).ToList();
+            result.Result = lista;
+            return Ok(result);
+
+        }
+        public BaseResponse DeleteSeguimiento([FromBody] ProyectoSeguimiento entidad)
+        {
+            BaseResponse respuesta = new BaseResponse();
+            string usuario_login = UsuarioActual == null ? "" : UsuarioActual.UsuarioLogin;
+            string id_personal = UsuarioActual == null ? "" : UsuarioActual.ID_PERSONAL;
+            int id = 0;
+
+                entidad.ID_SEGUIMIENTO = entidad.ID_SEGUIMIENTO;
+                entidad.USUARIO_MODIFICACION = usuario_login;
+                entidad.FECHA_MODIFICACION = DateTime.Now;
+                entidad.IP_MODIFICACION = IP;
+                entidad.FLG_ESTADO = "0";
+                var valor = _proyectoseguimiento.DeleteSeguimiento(entidad);
+                id = entidad.ID_SEGUIMIENTO;
+
+
+            if (id > 0)
+            {
+                respuesta.Success = true;
+                respuesta.Message = "Se ha procesado correctamente";
+            }
+
+
+            return respuesta;
         }
         #region     EVALUACION
         public IActionResult Evaluacion()
@@ -747,6 +935,17 @@ namespace Gestion_Rendimiento_Frontend.Controllers
                     }).ToList();
                 }
                 var listaPrioridadD = det == null ? new List<RendimientoDetalleModel>() : det_datos;
+                var det_evidencia_ = _proyectodetallesubService.GetEvidenciaXProyecto();
+                List<RendimientoDetalleSubModel> det_evidencia = null;
+                if (det_evidencia_ != null)
+                {
+                    det_evidencia = det_evidencia_.Select(t => new RendimientoDetalleSubModel
+                    {
+                        EVIDENCIA = t.EVIDENCIA,
+                        ID_DETALLE_PROYECTO = t.ID_DETALLE_PROYECTO,
+                        ID_DETALLE_SUB = t.ID_DETALLE_SUB,
+                    }).ToList();
+                }
                 if (listaPrioridad.Count() > 0)
                 {
                     foreach (var item_PROYECTO in listaPrioridad)
@@ -757,7 +956,9 @@ namespace Gestion_Rendimiento_Frontend.Controllers
                         {
                             foreach (var item in detalle)
                             {
-                                html += GrupoDetalleRegistroHTML(item.EVIDENCIA, item.PLAZOS, item.INDICADOR, item.VALOR, item.ID_DETALLE, item.ID_PROYECTO);
+                                var detalle_evidencia = det_evidencia.Where(x => x.ID_DETALLE_PROYECTO == item.ID_DETALLE).ToList();
+
+                                html += GrupoDetalleRegistroHTML(item.EVIDENCIA, item.PLAZOS, item.INDICADOR, item.VALOR, item.ID_DETALLE, item.ID_PROYECTO, detalle_evidencia);
                             }
                         }
 

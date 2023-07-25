@@ -8,6 +8,7 @@ namespace Gestion_Rendimiento_Entity.Model
 {
     public class RendimientoDetalleSubModel
     {
+        public int ID_DETALLE_PROYECTO { get; set; }
         public int ID_DETALLE { get; set; }
         public int ID_DETALLE_SUB { get; set; }
         

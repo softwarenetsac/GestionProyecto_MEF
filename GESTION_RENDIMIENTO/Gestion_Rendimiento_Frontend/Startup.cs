@@ -72,6 +72,8 @@ namespace Gestion_Rendimiento_Frontend
             services.AddScoped<IProyectoService, ProyectoService>();
             services.AddScoped<IProyectoDetalleService, ProyectoDetalleService>();
             services.AddScoped<INivelSeguimientoService, NivelSeguimientoService>();
+            services.AddScoped<IProyectoSeguimientoService, ProyectoSeguimientoService>();
+            services.AddScoped<IProyectoDetalleSubService, ProyectoDetalleSubService>();
             services.Configure<CookiePolicyOptions>(options =>
             {
                 // This lambda determines whether user consent for non-essential cookies is needed for a given request.  

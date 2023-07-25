@@ -52,10 +52,10 @@
                             <i class="icon icon-file-excel-o icon-lg m-r-sm"></i>
                             Exportar
                         </button>
-                        <button class="btn btn-danger" type="button" id="btnBotonFirmar" name="btnBotonFirmar">
+              @*          <button class="btn btn-danger" type="button" id="btnBotonFirmar" name="btnBotonFirmar">
                             <i class="icon icon-spinner icon-lg m-r-sm"></i>
                             Firmar
-                        </button>
+                        </button>*@
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -162,16 +162,16 @@
         </div>
     </div>
     <div id="modalRegistroSeg" role="dialog" class="modal fade" data-backdrop="static" data-keyboard="false">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-xl">
             <div class="modal-content">
                 <div class="modal-header bg-primary" style="cursor:pointer;">
                     <h4 class="modal-title">Registro Seguimiento</h4>
                 </div>
                 <div class="modal-body">
-                    <form id="frmModel" name="frmModel" data-toggle="validator" method="post" enctype="multipart/form-data">
+                    <form id="frmModelRegSeguimiento" name="frmModelRegSeguimiento" data-toggle="validator" method="post" enctype="multipart/form-data">
                         <input type="hidden" id="hdnIdProyecto" name="hdnIdProyecto" value="0" />
                         <div class="row">
-                            <div class="col-md-12">
+                            <div class="col-md-4">
                                 <div class="form-group">
                                     <label>Nivel de logro<span class="text-primary m-l-sm">(*)</span></label>
                                     <select class="form-control" required id="ID_TIPO_NIVEL" name="ID_TIPO_NIVEL">
@@ -188,9 +188,7 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label>Comentarios<span class="text-primary m-l-sm">(*)</span></label>
-                                    <select class="form-control" required id="ID_TIPO_NIVEL" name="ID_TIPO_NIVEL">
                                         <textarea rows="3" cols="50" id="TXT_DES_SEGUIMIENTO" name="TXT_DES_SEGUIMIENTO" maxlength='4000' class='form-control' required></textarea>
-                                    </select>
                                 </div>
                             </div>
                         </div>
@@ -198,11 +196,21 @@
 
                         <br />
                         <div class="row">
-                            <div class="col-md-12">
+                            <div class="col-md-6">
                                 <label> <span class="text-primary m-l-sm">(*) Campo obligatoro</span></label>
                             </div>
+                            <div class="col-md-6" style="text-align:end">
+                                <button id="btnRegistrarSeg" name="btnRegistrarSeg" class="btn btn-primary" type="button">Registrar Seguimiento</button>
+                            </div>
+                            
                         </div>
                     </form>
+                </div>
+                <div class="card card-body m-l-md m-r-md">
+                    <div class="table-responsive">
+                        <table id="gridSeguimientoRegistro" class="table table-striped table-bordered">
+                        </table>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <div class="row">
@@ -229,16 +237,12 @@
     {
     <script type="text/javascript">
         ns('SoftwareNet.Web.Operacion.Seguimiento.Actions')
-        //SoftwareNet.Web.Operacion.Evaluador.Actions.BuscarUnidadOrganica = '@Url.Action("ListarUnidadOrganica", "Oficina")';
-        //SoftwareNet.Web.Operacion.Evaluador.Actions.Inicio = '@Url.Action("Index", "Evaluador")';
         SoftwareNet.Web.Operacion.Seguimiento.Actions.Buscar = '@Url.Action("GetAll_Seguimiento", "Rendimiento")';
         SoftwareNet.Web.Operacion.Seguimiento.Actions.ExportarExcel = '@Url.Action("ExportarExcelSeguimiento", "Rendimiento")';
         SoftwareNet.Web.Operacion.Seguimiento.Actions.NuevaFila = '@Url.Action("GenerarHTML_Seg", "Rendimiento")';
-
-        //SoftwareNet.Web.Operacion.Evaluador.Actions.RegistrarMasivo = '@Url.Action("ProcesarMarcaMasivo", "Evaluador")';
-        //SoftwareNet.Web.Operacion.Evaluador.Actions.Eliminar = '@Url.Action("Anular", "Evaluador")';
-        //SoftwareNet.Web.Operacion.Evaluador.Actions.RegistrarAutorizador = '@Url.Action("ProcearAutorizador", "Evaluador")';
-        //SoftwareNet.Web.Operacion.Evaluador.Actions.ObtenerDetalleAutorizador = '@Url.Action("ListarDetalleAutorizador", "Evaluador")';
+        SoftwareNet.Web.Operacion.Seguimiento.Actions.GuardarSeguimiento = '@Url.Action("GuardarSeguimiento", "Rendimiento")';
+        SoftwareNet.Web.Operacion.Seguimiento.Actions.BuscarSeguimientoProyecto = '@Url.Action("GetAll_SeguimientoProyecto", "Rendimiento")';
+        SoftwareNet.Web.Operacion.Seguimiento.Actions.DeleteSeguimiento = '@Url.Action("DeleteSeguimiento", "Rendimiento")';
     </script>
     <script src="@Url.Content("~/Scripts/jquery.form.js")"></script>
     <script type="text/javascript" src="@Url.Content("~/Scripts/CodeCustom/Rendimiento/Seguimiento/Controller.js?id=1")"></script>

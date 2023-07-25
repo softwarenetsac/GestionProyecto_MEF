@@ -22,6 +22,15 @@
                 if (typeof id !== 'undefined' && id > 0)
                     base.Function.AbrirModalRendimiento(id, this);
             });
+            base.Control.GridBody().on('click', '.AddEvidencia', function (e) {
+                var elemento = this;
+                debugger;
+                var id_proy = elemento.getAttribute("idpk_proy");
+                var id = elemento.getAttribute("idpk_detalle");
+                
+                if (typeof id !== 'undefined')
+                    base.Function.AgregarRegistroPrioridadEvi(id_proy,id);
+            });
             base.Control.BotonGuardar().click(base.Event.BotonGuardarClick);
             base.Control.BotonBuscar().click(base.Event.BotonBuscarClick);
             base.Function.CrearGrillaRendimiento();
@@ -72,6 +81,7 @@
                             if (opt) {
                                 var dataRequest = new Array();
                                 var dataRequestD = new Array();
+                                var dataRequestEvidencia = new Array();
                                 $("#frmModel").find("#gridMantenimiento" + " tbody > tr").each(function (index, item) {
                                     var entorno = $(this);
                                     var ID_EVALUADOR = base.Control.DllProgramacionr().val();
@@ -109,10 +119,25 @@
                                     }
 
                                 });
-
+                                $('.tdEVIDENCIA').each(
+                                    function () {
+                                        var elemento = this;
+                                        debugger;
+                                        var ID_ = elemento.getAttribute("idpk_detalle_");
+                                        var ID_SUB = elemento.getAttribute("idpk_detallesub");
+                                        
+                                        var objdata = {
+                                            ID_DETALLE_PROYECTO: ID_,
+                                            ID_DETALLE_SUB: parseInt(ID_SUB),
+                                            EVIDENCIA: $(this).val(),
+                                        };
+                                        dataRequestEvidencia.push(objdata);
+                                    }
+                                );
                                 base.Ajax.AjaxGuardar.data = {
                                     ItemsProyecto: dataRequest,
                                     ItemsPrioridad: dataRequestD,
+                                    ItemsDetalleEvidencia: dataRequestEvidencia
                                 }
                                 base.Ajax.AjaxGuardar.submit();
                             }
@@ -222,7 +247,7 @@
                             VALOR: parseInt(VALOR),
                             PLAZOS: PLAZOS,
                             //ID_DETALLE_SUB: parseInt(fila),
-                            ID_DETALLE: parseInt(ID_DETALLE),
+                            ID_DETALLE: ID_DETALLE ,
                             ID_PROYECTO: parseInt(id),
                         });
                         fila++;
@@ -230,6 +255,23 @@
                
                 });
 
+                return dataRequest;
+            },
+            GetDataDetEvidencia: function (ID_DETALLE_PROYECTO,ID) {
+                var dataRequest = new Array();
+                $('.tdEVIDENCIA').each(
+                    function () {
+                        var elemento = this;
+                        debugger;
+                        var ID_ = elemento.getAttribute("idpk_detalle_");
+                        var objdata = {
+                            ID_DETALLE_PROYECTO: ID_,// == 0 ? ID_ : parseInt(ID_DETALLE_PROYECTO),
+                            ID_DETALLE_SUB: parseInt(0),
+                            EVIDENCIA: $(this).val(),
+                        };
+                        dataRequest.push(objdata);
+                    }
+                );
                 return dataRequest;
             },
             AgregarRegistroPrioridadM: function (id) {
@@ -250,9 +292,11 @@
                 var url = SoftwareNet.Web.Operacion.Programacion.Actions.NuevaFila;
                 var itemPrioridad = base.Function.GetData();
                 var itemPrioridadDet = base.Function.GetDataDet(0);
+                var itemPrioridadEvidencia = base.Function.GetDataDetEvidencia(0);
                     var item = {
                         ItemsProyecto: itemPrioridad,
                         ItemsPrioridad: itemPrioridadDet,
+                        ItemsDetalleEvidencia: itemPrioridadEvidencia,
                         ID_PROYECTO: base.Control.hdnIdProyecto().val(),
                         TIPO: "E",
                         ID_DETALLE_TEMP: parseInt(0),
@@ -266,12 +310,33 @@
                 var url = SoftwareNet.Web.Operacion.Programacion.Actions.NuevaFila;
                 var itemPrioridad = base.Function.GetData();
                 var itemPrioridadDet = base.Function.GetDataDet(id);
+                var itemPrioridadEvidencia = base.Function.GetDataDetEvidencia(id);
                 var item = {
                     ItemsProyecto: itemPrioridad,
                     ItemsPrioridad: itemPrioridadDet,
+                    ItemsDetalleEvidencia: itemPrioridadEvidencia,
                     ID_PROYECTO: parseInt(base.Control.hdnIdProyecto().val()),
                     TIPO: "D",
                     ID_DETALLE_TEMP: parseInt(id),
+                }
+                var respuesta = General.POST(url, item, false);
+                var row = respuesta.Extra;
+                $("#gridBody").html(row);
+            },
+            AgregarRegistroPrioridadEvi: function (ID_PROYECTO, ID_DETALLE_PROYECTO) {
+                var url = SoftwareNet.Web.Operacion.Programacion.Actions.NuevaFila;
+                var itemPrioridad = base.Function.GetData();
+                var itemPrioridadDet = base.Function.GetDataDet(ID_PROYECTO);
+                var itemPrioridadEvidencia = base.Function.GetDataDetEvidencia(ID_DETALLE_PROYECTO,1);
+                debugger;
+                var item = {
+                    ItemsProyecto: itemPrioridad,
+                    ItemsPrioridad: itemPrioridadDet,
+                    ItemsDetalleEvidencia: itemPrioridadEvidencia,
+                    ID_PROYECTO: parseInt(ID_PROYECTO),
+                    TIPO: "EV",
+                    ID_DETALLE_TEMP: parseInt(ID_PROYECTO),
+                    ID_DETALLE_PROYECTO: parseInt(ID_DETALLE_PROYECTO),
                 }
                 var respuesta = General.POST(url, item, false);
                 var row = respuesta.Extra;

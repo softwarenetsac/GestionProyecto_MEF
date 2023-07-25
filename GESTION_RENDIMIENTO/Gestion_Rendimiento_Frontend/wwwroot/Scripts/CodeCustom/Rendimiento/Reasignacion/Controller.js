@@ -314,6 +314,7 @@
                     $('.btn_agr').hide(); 
                     $('.AddRegDet').hide();
                     $('.delete_mantenimiento').hide();
+                    $('.AddEvidencia').hide();
                     
                 } 
                 base.Control.ModalAgregarRendimiento().modal('show');

@@ -32,9 +32,10 @@ namespace Gestion_Rendimiento_Data
         public virtual DbSet<TipoGestionRendimiento> TipoGestionRendimiento { get; set; }
         public virtual DbSet<ConfiguracionRendimiento> ConfiguracionRendimiento { get; set; }
         public virtual DbSet<ConfiguracionDetalle> ConfiguracionDetalle { get; set; }
-
+        public virtual DbSet<ProyectoSeguimiento> ProyectoSeguimiento { get; set; }
         public virtual DbSet<NivelSeguimiento> NivelSeguimiento { get; set; }
-
+        public virtual DbSet<ProyectoSeguimientoConsulta> ProyectoSeguimientoConsulta { get; set; }
+        public virtual DbSet<Proyecto_Detalle_Sub> Proyecto_Detalle_Sub { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
