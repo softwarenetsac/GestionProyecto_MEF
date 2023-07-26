@@ -29,6 +29,13 @@
                 if (typeof id !== 'undefined')
                     base.Function.DeleteSegRegistro(id);
             });
+            base.Control.GridSeguimientoRegistro().on('click', '.findone_DescargarArchivo', function (e) {
+                var elemento = this;
+                debugger;
+                var id = elemento.getAttribute("idpk_Arch");
+                if (typeof id !== 'undefined')
+                    base.Event.DescargarArchivoClick(id);// base.Function.DescargarArchivo(id);
+            });
             base.Control.BotonRegistrarSeg().click(base.Event.BotonRegistrarSegClick);
             base.Function.CrearGrillaSeguimientoRegistro();
         };
@@ -72,6 +79,15 @@
                 $.redirect();
 
             },
+            DescargarArchivoClick: function (ID_ARCHIVO) {
+                $.paramcustom = {
+                    url: SoftwareNet.Web.Operacion.Seguimiento.Actions.DescargarArchivo,
+                    values: {
+                        ID_ARCHIVO: parseInt(ID_ARCHIVO),
+                    }
+                }
+                $.redirect();
+            },
             AjaxBuscarSuccess: function (data) {
 
                 if (data.Result) {
@@ -90,23 +106,50 @@
                     }).ConfirmationAcept({
                         callback: function (opt) {
                             if (opt) {
-                                var ID_SEGUIMIENTO = 0;
-                                var ID_PROYECTO = base.Control.hdnIdProyecto().val();
-                                var DETALLE_NOTA = base.Control.txtDescSeguimiento().val();
-                                var ID_TIPO_NIVEL = base.Control.DllTipoNivel().val();
-                                debugger;
-                                base.Ajax.AjaxRegistrarSeg.data = {
-                                    ID_SEGUIMIENTO: parseInt(ID_SEGUIMIENTO),
-                                    ID_PROYECTO: parseInt(ID_PROYECTO),
-                                    DETALLE_NOTA: DETALLE_NOTA,
-                                    ID_TIPO_NIVEL: parseInt(ID_TIPO_NIVEL),
-                                }
-                                base.Ajax.AjaxRegistrarSeg.submit();
+                                var url = SoftwareNet.Web.Operacion.Seguimiento.Actions.GuardarSeguimiento;
+                                var data = new FormData();
+                                data.append('FILE_ARCHIVO', $('#fileArchivo').prop('files')[0]);
+                                data.append('ID_SEGUIMIENTO', 0);
+                                data.append('ID_PROYECTO', base.Control.hdnIdProyecto().val());
+                                data.append('DETALLE_NOTA', base.Control.txtDescSeguimiento().val());
+                                data.append('ID_TIPO_NIVEL', base.Control.DllTipoNivel().val());
+                                                $.ajax({
+                                                    url: url,
+                                                    data: data,
+                                                    processData: false,
+                                                    contentType: false,
+                                                    type: 'POST',
+                                                    success: function (respuesta) {
+                                                        debugger;
+                                                        if (respuesta.Success) {
+                                                            base.Control.Mensaje.Information({ message: SoftwareNet.DJ.Web.Shared.Mensaje.Resources.EtiquetaGuardoExito })
+                                                                .InformationClose({
+                                                                    callback: function (opt) {
+
+                                                                        if (opt) {
+                                                                            base.Control.txtDescSeguimiento().val('');
+                                                                            base.Control.DllTipoNivel().val('');
+                                                                            $('#fileArchivo').val('');
+                                                                            base.Ajax.AjaxBuscarSeguimientoRegistro.data = {
+                                                                                ID_PROYECTO: parseInt(base.Control.hdnIdProyecto().val()),
+                                                                            }
+                                                                            base.Ajax.AjaxBuscarSeguimientoRegistro.submit();
+                                                                        }
+                                                                    }
+                                                                });
+                                                        }
+                                                        else {
+                                                            base.Control.Mensaje.Warning({ message: data.Message }).WarningClose();
+                                                        }
+                                                    },
+                                                    error: function (jqXHR, textStatus, errorThrown) {
+                                                        base.Control.Mensaje.Warning( jqXHR.status ).WarningClose();
+                                               
+                                                    }
+                                                });
                             }
                         }
                     });
-
-
                 }
             },
             AjaxGuardarSeguimientoSuccess: function (data) {
@@ -179,6 +222,11 @@
                 action: SoftwareNet.Web.Operacion.Seguimiento.Actions.DeleteSeguimiento,
                 autoSubmit: false,
                 onSuccess: base.Event.AjaxDeleteSeguimientoSuccess
+            }),
+            AjaxDescargaDocumento: new SoftwareNet.DJ.Web.Components.Ajax({
+                action: SoftwareNet.Web.Operacion.Seguimiento.Actions.DescargarArchivo,
+                autoSubmit: false,
+                onSuccess: false,//base.Event.AjaxDeleteSeguimientoSuccess
             }),
         };
         base.Function = {
@@ -277,6 +325,7 @@
                     select: true,
                     columns: [
                         { "data": "ID_SEGUIMIENTO", "title": "Eliminar", "class": "text-center" },
+                        { "data": "ID_ARCHIVO", "title": "Archivo", "class": "text-center" },
                         { "data": "DES_PROYECTO", "title": "Proyecto", "width": "20%", "visible": false },
                         { "data": "DETALLE_NOTA", "title": "Detalle"},
                         { "data": "EVALUADOR", "title": "Evaluador"},
@@ -301,6 +350,19 @@
                                 return html;
                             }
                         },
+                        {
+                            'targets': 1,
+                            'searchable': false,
+                            'orderable': false,
+                            'className': 'dt-body-center',
+                            'render': function (data, type, row, meta) {
+                                var html = ""
+                                if (row.ID_ARCHIVO>0) {
+                                    html += '<a href="javascript:void(0);" ><span class="icon icon-download icon-lg  findone_DescargarArchivo" secuencial="' + row.INDICE + '" idpk_Arch="' + row.ID_ARCHIVO + '"> </span></a>';
+                                }
+                                return html;
+                            }
+                        },
                     ],
                 });
             },
@@ -319,6 +381,20 @@
                     }
                 });
        
+            },
+            DescargarArchivo: function (ID_ARCHIVO) {
+                $.paramcustom = {
+                    url: SoftwareNet.Web.Operacion.Seguimiento.Actions.DescargarArchivo,
+                    values: {
+                        ID_ARCHIVO: parseInt(ID_ARCHIVO),
+                    }
+                }
+                $.redirect();
+
+                //base.Ajax.AjaxDescargaDocumento.data = {
+                //    ID_ARCHIVO: parseInt(ID_ARCHIVO),
+                //}
+                //base.Ajax.AjaxDescargaDocumento.submit();
             },
             loading: null,
             ShowLoading: function () {

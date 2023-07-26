@@ -104,6 +104,9 @@ namespace Gestion_Rendimiento_Frontend.Controllers
             entitySession.UsuarioLogin = usuario;
             entitySession.Nombre = _configuracionSistema.UsuarioPrueba.Nombre;
             entitySession.ID_PERSONAL = id_personal;
+            entitySession.Nombre = _configuracionSistema.UsuarioPrueba.Nombre;
+
+
             string nombres = CultureInfo.InvariantCulture.TextInfo.ToTitleCase(entitySession.Nombre);
             entitySession.Nombre = nombres;
             return entitySession;

@@ -1,5 +1,4 @@
 ﻿General = {
-
     POST_Async: function (url, parameters, funcionSuccess) {
         var rsp;
         $.ajax({
@@ -167,9 +166,6 @@
         });
 
     },
-
-
-
     configurarGrilla_2: function (searching, pageLength) {
         // Setting datatable defaults
         if (searching == null || searching == "" || searching == undefined) { searching = false };
@@ -226,7 +222,6 @@
         });
 
     },
-
     seleccionarGrid: function (grid) {
         grid.ControlGrid.find('tr').eq(grid.Fila).addClass("selected");
 

@@ -19,5 +19,6 @@ namespace Gestion_Rendimiento_Entity
         public int ID_TIPO_NIVEL { get; set; }
         public long ID_ARCHIVO { get; set; }
         public string ID_EVALUADOR { get; set; }
+
     }
 }

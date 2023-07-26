@@ -22,7 +22,7 @@ namespace Gestion_Rendimiento_Entity.Model
         public ConfiguracionSeguridad Seguridad { get; set; }
         public AccesoPrueba UsuarioPrueba { get; set; }
         public Variable VariableGeneral { get; set; }
-
+        public ApiLF ApiLaserfiche { get; set; }
         public class ConfiguracionCorreo
         {
             public string Cuenta { get; set; }
@@ -45,7 +45,11 @@ namespace Gestion_Rendimiento_Entity.Model
             public string CorreosDestinatarios { get; set; }
             public string CorreosCopia { get; set; }
         }
-
+        public class ApiLF
+        {
+            public string ApiUrl { get; set; }
+            public string TokenLf { get; set; }
+        }
         public class AccesoPrueba
         {
             public string Id_Persona { get; set; }

@@ -56,9 +56,18 @@ namespace Gestion_Rendimiento_Repository
 
         public T Add(T entity)
         {
-            _context.Set<T>().Add(entity);
-            _context.SaveChanges();
-            return entity;
+            try
+            {
+                _context.Set<T>().Add(entity);
+                _context.SaveChanges();
+                return entity;
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+     
         }
 
         public IEnumerable<T> AddRange(IEnumerable<T> entities)

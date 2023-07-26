@@ -9,6 +9,7 @@ namespace Gestion_Rendimiento_Laserfiche
     {
 
         public int  Id_Laser_Fiche { get; set; }
+        public byte[] archivo_lf { get; set; }
         public bool Success { get; set; }
         public string Message { get; set; }
     }

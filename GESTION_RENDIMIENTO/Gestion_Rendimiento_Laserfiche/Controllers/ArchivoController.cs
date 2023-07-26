@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Laserfiche.RepositoryAccess;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Web;
@@ -7,52 +9,52 @@ using System.Web.Configuration;
 using System.Web.Http;
 using System.Web.Mvc;
 using HttpPostAttribute = System.Web.Http.HttpPostAttribute;
-
+using Gestion_Rendimiento_Laserfiche.Repositorio;
 namespace Gestion_Rendimiento_Laserfiche.Controllers
 {
+
     public class ArchivoController : ApiController
     {
-
-
-
-
-
-
-
-       // POST api/values
-
-        public RespuestaAPI Post(string cadenaByteArchivo, string nombreArchivo, string keyWS)
+        // POST api/values
+        public RespuestaAPI UploadFile(Archivo entidad)
         {
+            int id_laser = 1;
             var respuesta = new RespuestaAPI();
             try
             {
                 var key = WebConfigurationManager.AppSettings["KeyWS"].ToString();
-                if (string.IsNullOrEmpty(cadenaByteArchivo))
+                if (entidad.ARCHIVO == null)
                 {
                     throw new Exception("el Archivo a adjuntar no puede ser null");
                 }
-                if (string.IsNullOrEmpty(keyWS))
+                if (string.IsNullOrEmpty(entidad.KEY))
                 {
                     throw new Exception("la credencia no puede ser null");
                 }
-                if (keyWS != key)
+                if (entidad.KEY != key)
                 {
                     throw new Exception("la credencia es incorrecta");
                 }
-                byte[] bytes = Encoding.ASCII.GetBytes(cadenaByteArchivo);
-
-                // implemetar registro archivo 
-
-                int id_laser = 1;
-                respuesta.Id_Laser_Fiche = id_laser;
-                respuesta.Message = "";
+                string carpeta = System.Web.HttpContext.Current.Server.MapPath("~/Archivos_Temporales");
+                string rutaPdf = Path.Combine(carpeta, entidad.NOMBRE_ARCHIVO);
+                using (FileStream fs = new FileStream(rutaPdf, FileMode.Create))
+                {
+                    fs.Write(entidad.ARCHIVO, 0, entidad.ARCHIVO.Length);
+                    fs.Close();
+                }
+                id_laser = UtilLaserfiche.SubirArchivoSubSubCarpeta(rutaPdf,entidad.RUTA_PRINCIPAL.ToString(), entidad.RUTA_GUARDAR, entidad.NOMBRE_ARCHIVO);
                 if (id_laser > 0)
                 {
-                    respuesta.Success = false;
+                    respuesta.Success = true;
+                    respuesta.Id_Laser_Fiche = id_laser;
+                    respuesta.Message = "Archivo se registro correctamente";
                 }
-
-
-
+                else
+                {
+                    respuesta.Success = true;
+                    respuesta.Id_Laser_Fiche = 0;
+                    respuesta.Message = "Se genero problemas al subir el archivo";
+                }
             }
             catch (Exception ex)
             {
@@ -63,7 +65,58 @@ namespace Gestion_Rendimiento_Laserfiche.Controllers
             }
             return respuesta;
         }
-
+        //public RespuestaAPI DescargarArchivoLF(Archivo entidad)
+        //{
+        //    int id_laser = 1;
+        //    var respuesta = new RespuestaAPI();
+        //    try
+        //    {
+        //        var key = WebConfigurationManager.AppSettings["KeyWS"].ToString();
+        //        if (string.IsNullOrEmpty(entidad.KEY))
+        //        {
+        //            throw new Exception("la credencia no puede ser null");
+        //        }
+        //        if (entidad.KEY != key)
+        //        {
+        //            throw new Exception("la credencia es incorrecta");
+        //        }
+        //        string carpeta = System.Web.HttpContext.Current.Server.MapPath("~/Archivos_Temporales");
+        //        string rutaPdf = Path.Combine(carpeta, entidad.NOMBRE_ARCHIVO);
+        //        using (FileStream fs = new FileStream(rutaPdf, FileMode.Create))
+        //        {
+        //            fs.Write(entidad.ARCHIVO, 0, entidad.ARCHIVO.Length);
+        //            fs.Close();
+        //        }
+        //        respuesta.archivo_lf = UtilLaserfiche.ExportarDocumentoPDF(entidad.ID_LASERFICHE, "");
+        //        if (respuesta.archivo_lf.Length > 0)
+        //        {
+        //            respuesta.Success = true;
+        //            respuesta.Message = "Archivo se descargo correctamente";
+        //        }
+        //        else
+        //        {
+        //            respuesta.Success = true;
+        //            respuesta.Message = "Error al descargar archivo";
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        AplicacionLog.Mensaje(ex.Message);
+        //        respuesta.Message = ex.Message;
+        //        respuesta.Id_Laser_Fiche = 0;
+        //        respuesta.Success = false;
+        //    }
+        //    return respuesta;
+        //}
+        public class Archivo
+        {
+            public byte[] ARCHIVO { get; set; }
+            public string NOMBRE_ARCHIVO { get; set; }
+            public string RUTA_PRINCIPAL { get; set; }
+            public string KEY { get; set; }
+            public string RUTA_GUARDAR { get; set; }
+            public int ID_LASERFICHE { get; set; }
+        }
 
     }
 }
