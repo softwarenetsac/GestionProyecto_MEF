@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 D:\1.APLICACIONES\16.Gestion_Proyecto\1.Aplicación\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Entity\bin\Debug\net5.0\Gestion_Rendimiento_Entity.deps.json
 D:\1.APLICACIONES\16.Gestion_Proyecto\1.Aplicación\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Entity\bin\Debug\net5.0\Gestion_Rendimiento_Entity.dll
 D:\1.APLICACIONES\16.Gestion_Proyecto\1.Aplicación\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Entity\bin\Debug\net5.0\Gestion_Rendimiento_Entity.pdb
@@ -14,20 +13,3 @@ D:\1.APLICACIONES\16.Gestion_Proyecto\1.Aplicación\GestionProyecto_MEF\GESTION_
 D:\1.APLICACIONES\16.Gestion_Proyecto\1.Aplicación\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Entity\obj\Debug\net5.0\refint\Gestion_Rendimiento_Entity.dll
 D:\1.APLICACIONES\16.Gestion_Proyecto\1.Aplicación\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Entity\obj\Debug\net5.0\Gestion_Rendimiento_Entity.pdb
 D:\1.APLICACIONES\16.Gestion_Proyecto\1.Aplicación\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Entity\obj\Debug\net5.0\ref\Gestion_Rendimiento_Entity.dll
-=======
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Entity\bin\Debug\net5.0\Gestion_Rendimiento_Entity.deps.json
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Entity\bin\Debug\net5.0\Gestion_Rendimiento_Entity.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Entity\bin\Debug\net5.0\Gestion_Rendimiento_Entity.pdb
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Entity\bin\Debug\net5.0\Gestion_Rendimiento_Common.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Entity\bin\Debug\net5.0\Gestion_Rendimiento_Common.pdb
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Entity\obj\Debug\net5.0\Gestion_Rendimiento_Entity.csproj.AssemblyReference.cache
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Entity\obj\Debug\net5.0\Gestion_Rendimiento_Entity.GeneratedMSBuildEditorConfig.editorconfig
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Entity\obj\Debug\net5.0\Gestion_Rendimiento_Entity.AssemblyInfoInputs.cache
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Entity\obj\Debug\net5.0\Gestion_Rendimiento_Entity.AssemblyInfo.cs
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Entity\obj\Debug\net5.0\Gestion_Rendimiento_Entity.csproj.CoreCompileInputs.cache
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Entity\obj\Debug\net5.0\Gestion_Rendimiento_Entity.csproj.CopyComplete
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Entity\obj\Debug\net5.0\Gestion_Rendimiento_Entity.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Entity\obj\Debug\net5.0\refint\Gestion_Rendimiento_Entity.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Entity\obj\Debug\net5.0\Gestion_Rendimiento_Entity.pdb
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Entity\obj\Debug\net5.0\ref\Gestion_Rendimiento_Entity.dll
->>>>>>> 8a2f9166856ca9e6cf90905ea0dbcfcb64d96a11

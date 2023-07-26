@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 D:\1.APLICACIONES\16.Gestion_Proyecto\1.Aplicación\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\appsettings.Development.json
 D:\1.APLICACIONES\16.Gestion_Proyecto\1.Aplicación\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\appsettings.json
 D:\1.APLICACIONES\16.Gestion_Proyecto\1.Aplicación\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\Gestion_Rendimiento_Frontend.exe
@@ -9,6 +8,8 @@ D:\1.APLICACIONES\16.Gestion_Proyecto\1.Aplicación\GestionProyecto_MEF\GESTION_
 D:\1.APLICACIONES\16.Gestion_Proyecto\1.Aplicación\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\Gestion_Rendimiento_Frontend.pdb
 D:\1.APLICACIONES\16.Gestion_Proyecto\1.Aplicación\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\Gestion_Rendimiento_Frontend.Views.dll
 D:\1.APLICACIONES\16.Gestion_Proyecto\1.Aplicación\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\Gestion_Rendimiento_Frontend.Views.pdb
+D:\1.APLICACIONES\16.Gestion_Proyecto\1.Aplicación\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\AspNetCore.Reporting.dll
+D:\1.APLICACIONES\16.Gestion_Proyecto\1.Aplicación\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\AspNetCore.ReportingServices.dll
 D:\1.APLICACIONES\16.Gestion_Proyecto\1.Aplicación\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\DocumentFormat.OpenXml.dll
 D:\1.APLICACIONES\16.Gestion_Proyecto\1.Aplicación\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\EPPlus.dll
 D:\1.APLICACIONES\16.Gestion_Proyecto\1.Aplicación\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\Humanizer.dll
@@ -35,18 +36,23 @@ D:\1.APLICACIONES\16.Gestion_Proyecto\1.Aplicación\GestionProyecto_MEF\GESTION_
 D:\1.APLICACIONES\16.Gestion_Proyecto\1.Aplicación\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\Newtonsoft.Json.dll
 D:\1.APLICACIONES\16.Gestion_Proyecto\1.Aplicación\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\Oracle.EntityFrameworkCore.dll
 D:\1.APLICACIONES\16.Gestion_Proyecto\1.Aplicación\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\Oracle.ManagedDataAccess.dll
+D:\1.APLICACIONES\16.Gestion_Proyecto\1.Aplicación\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\System.CodeDom.dll
 D:\1.APLICACIONES\16.Gestion_Proyecto\1.Aplicación\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\System.Composition.AttributedModel.dll
 D:\1.APLICACIONES\16.Gestion_Proyecto\1.Aplicación\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\System.Composition.Convention.dll
 D:\1.APLICACIONES\16.Gestion_Proyecto\1.Aplicación\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\System.Composition.Hosting.dll
 D:\1.APLICACIONES\16.Gestion_Proyecto\1.Aplicación\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\System.Composition.Runtime.dll
 D:\1.APLICACIONES\16.Gestion_Proyecto\1.Aplicación\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\System.Composition.TypedParts.dll
 D:\1.APLICACIONES\16.Gestion_Proyecto\1.Aplicación\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\System.Configuration.ConfigurationManager.dll
+D:\1.APLICACIONES\16.Gestion_Proyecto\1.Aplicación\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\System.Data.SqlClient.dll
 D:\1.APLICACIONES\16.Gestion_Proyecto\1.Aplicación\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\System.Diagnostics.DiagnosticSource.dll
 D:\1.APLICACIONES\16.Gestion_Proyecto\1.Aplicación\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\System.Diagnostics.PerformanceCounter.dll
 D:\1.APLICACIONES\16.Gestion_Proyecto\1.Aplicación\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\System.DirectoryServices.dll
 D:\1.APLICACIONES\16.Gestion_Proyecto\1.Aplicación\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\System.DirectoryServices.Protocols.dll
 D:\1.APLICACIONES\16.Gestion_Proyecto\1.Aplicación\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\System.IO.Packaging.dll
 D:\1.APLICACIONES\16.Gestion_Proyecto\1.Aplicación\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\System.Security.Cryptography.ProtectedData.dll
+D:\1.APLICACIONES\16.Gestion_Proyecto\1.Aplicación\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\System.ServiceModel.Http.dll
+D:\1.APLICACIONES\16.Gestion_Proyecto\1.Aplicación\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\System.ServiceModel.Primitives.dll
+D:\1.APLICACIONES\16.Gestion_Proyecto\1.Aplicación\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\System.ServiceModel.dll
 D:\1.APLICACIONES\16.Gestion_Proyecto\1.Aplicación\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\System.Xml.XPath.XmlDocument.dll
 D:\1.APLICACIONES\16.Gestion_Proyecto\1.Aplicación\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\cs\Microsoft.CodeAnalysis.resources.dll
 D:\1.APLICACIONES\16.Gestion_Proyecto\1.Aplicación\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\de\Microsoft.CodeAnalysis.resources.dll
@@ -102,9 +108,16 @@ D:\1.APLICACIONES\16.Gestion_Proyecto\1.Aplicación\GestionProyecto_MEF\GESTION_
 D:\1.APLICACIONES\16.Gestion_Proyecto\1.Aplicación\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
 D:\1.APLICACIONES\16.Gestion_Proyecto\1.Aplicación\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\runtimes\win-arm\lib\net5.0\dotnet-aspnet-codegenerator-design.exe
 D:\1.APLICACIONES\16.Gestion_Proyecto\1.Aplicación\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\runtimes\win-arm64\lib\net5.0\dotnet-aspnet-codegenerator-design.exe
+D:\1.APLICACIONES\16.Gestion_Proyecto\1.Aplicación\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\runtimes\win-arm64\native\sni.dll
+D:\1.APLICACIONES\16.Gestion_Proyecto\1.Aplicación\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\runtimes\win-x64\native\sni.dll
+D:\1.APLICACIONES\16.Gestion_Proyecto\1.Aplicación\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\runtimes\win-x86\native\sni.dll
+D:\1.APLICACIONES\16.Gestion_Proyecto\1.Aplicación\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\1.APLICACIONES\16.Gestion_Proyecto\1.Aplicación\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
 D:\1.APLICACIONES\16.Gestion_Proyecto\1.Aplicación\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\runtimes\win\lib\netcoreapp2.0\System.Diagnostics.PerformanceCounter.dll
 D:\1.APLICACIONES\16.Gestion_Proyecto\1.Aplicación\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\runtimes\win\lib\netcoreapp2.0\System.DirectoryServices.dll
 D:\1.APLICACIONES\16.Gestion_Proyecto\1.Aplicación\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\runtimes\win\lib\netcoreapp2.0\System.DirectoryServices.Protocols.dll
+D:\1.APLICACIONES\16.Gestion_Proyecto\1.Aplicación\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\runtimes\unix\lib\netstandard2.0\System.Private.ServiceModel.dll
+D:\1.APLICACIONES\16.Gestion_Proyecto\1.Aplicación\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Private.ServiceModel.dll
 D:\1.APLICACIONES\16.Gestion_Proyecto\1.Aplicación\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 D:\1.APLICACIONES\16.Gestion_Proyecto\1.Aplicación\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\Gestion_Rendimiento_Common.dll
 D:\1.APLICACIONES\16.Gestion_Proyecto\1.Aplicación\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\Gestion_Rendimiento_Data.dll
@@ -168,183 +181,3 @@ D:\1.APLICACIONES\16.Gestion_Proyecto\1.Aplicación\GestionProyecto_MEF\GESTION_
 D:\1.APLICACIONES\16.Gestion_Proyecto\1.Aplicación\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\obj\Debug\net5.0\Gestion_Rendimiento_Frontend.pdb
 D:\1.APLICACIONES\16.Gestion_Proyecto\1.Aplicación\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\obj\Debug\net5.0\Gestion_Rendimiento_Frontend.genruntimeconfig.cache
 D:\1.APLICACIONES\16.Gestion_Proyecto\1.Aplicación\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\obj\Debug\net5.0\ref\Gestion_Rendimiento_Frontend.dll
-=======
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\appsettings.Development.json
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\appsettings.json
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\Gestion_Rendimiento_Frontend.exe
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\Gestion_Rendimiento_Frontend.deps.json
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\Gestion_Rendimiento_Frontend.runtimeconfig.json
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\Gestion_Rendimiento_Frontend.runtimeconfig.dev.json
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\Gestion_Rendimiento_Frontend.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\Gestion_Rendimiento_Frontend.pdb
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\Gestion_Rendimiento_Frontend.Views.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\Gestion_Rendimiento_Frontend.Views.pdb
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\DocumentFormat.OpenXml.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\EPPlus.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\Humanizer.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\Microsoft.AspNetCore.Razor.Language.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\Microsoft.Bcl.AsyncInterfaces.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\Microsoft.CodeAnalysis.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\Microsoft.CodeAnalysis.CSharp.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\Microsoft.CodeAnalysis.Razor.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\Microsoft.CodeAnalysis.Workspaces.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Abstractions.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Relational.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\Microsoft.IO.RecyclableMemoryStream.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\Microsoft.VisualStudio.Web.CodeGeneration.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\Microsoft.VisualStudio.Web.CodeGeneration.Contracts.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\Microsoft.VisualStudio.Web.CodeGeneration.Core.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\dotnet-aspnet-codegenerator-design.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\Microsoft.VisualStudio.Web.CodeGeneration.Templating.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\Newtonsoft.Json.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\Oracle.EntityFrameworkCore.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\Oracle.ManagedDataAccess.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\System.Composition.AttributedModel.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\System.Composition.Convention.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\System.Composition.Hosting.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\System.Composition.Runtime.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\System.Composition.TypedParts.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\System.Configuration.ConfigurationManager.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\System.Diagnostics.DiagnosticSource.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\System.Diagnostics.PerformanceCounter.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\System.DirectoryServices.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\System.DirectoryServices.Protocols.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\System.IO.Packaging.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\System.Security.Cryptography.ProtectedData.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\System.Xml.XPath.XmlDocument.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\cs\Microsoft.CodeAnalysis.resources.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\de\Microsoft.CodeAnalysis.resources.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\es\Microsoft.CodeAnalysis.resources.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\fr\Microsoft.CodeAnalysis.resources.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\it\Microsoft.CodeAnalysis.resources.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\ja\Microsoft.CodeAnalysis.resources.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\ko\Microsoft.CodeAnalysis.resources.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\pl\Microsoft.CodeAnalysis.resources.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\pt-BR\Microsoft.CodeAnalysis.resources.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\ru\Microsoft.CodeAnalysis.resources.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\tr\Microsoft.CodeAnalysis.resources.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\zh-Hans\Microsoft.CodeAnalysis.resources.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\it\Microsoft.CodeAnalysis.CSharp.resources.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\runtimes\win-arm\lib\net5.0\dotnet-aspnet-codegenerator-design.exe
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\runtimes\win-arm64\lib\net5.0\dotnet-aspnet-codegenerator-design.exe
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\runtimes\win\lib\netcoreapp2.0\System.Diagnostics.PerformanceCounter.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\runtimes\win\lib\netcoreapp2.0\System.DirectoryServices.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\runtimes\win\lib\netcoreapp2.0\System.DirectoryServices.Protocols.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\Gestion_Rendimiento_Common.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\Gestion_Rendimiento_Data.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\Gestion_Rendimiento_Entity.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\Gestion_Rendimiento_IService.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\Gestion_Rendimiento_Repository.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\Gestion_Rendimiento_Service.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\Gestion_Rendimiento_Common.pdb
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\Gestion_Rendimiento_Entity.pdb
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\Gestion_Rendimiento_Service.pdb
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\Gestion_Rendimiento_Data.pdb
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\Gestion_Rendimiento_IService.pdb
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\Gestion_Rendimiento_Repository.pdb
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\obj\Debug\net5.0\Gestion_Rendimiento_Frontend.csproj.AssemblyReference.cache
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\obj\Debug\net5.0\Gestion_Rendimiento_Frontend.Recursos.Forms.Autorizador.resources
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\obj\Debug\net5.0\Gestion_Rendimiento_Frontend.Recursos.Forms.Estado.resources
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\obj\Debug\net5.0\Gestion_Rendimiento_Frontend.Recursos.Shared.GeneralRecurso.resources
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\obj\Debug\net5.0\Gestion_Rendimiento_Frontend.Recursos.Shared.MensajeRecurso.resources
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\obj\Debug\net5.0\Gestion_Rendimiento_Frontend.csproj.GenerateResource.cache
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\obj\Debug\net5.0\Gestion_Rendimiento_Frontend.GeneratedMSBuildEditorConfig.editorconfig
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\obj\Debug\net5.0\Gestion_Rendimiento_Frontend.AssemblyInfoInputs.cache
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\obj\Debug\net5.0\Gestion_Rendimiento_Frontend.AssemblyInfo.cs
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\obj\Debug\net5.0\Gestion_Rendimiento_Frontend.csproj.CoreCompileInputs.cache
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\obj\Debug\net5.0\Gestion_Rendimiento_Frontend.MvcApplicationPartsAssemblyInfo.cache
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\obj\Debug\net5.0\Gestion_Rendimiento_Frontend.RazorAssemblyInfo.cache
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\obj\Debug\net5.0\Gestion_Rendimiento_Frontend.RazorAssemblyInfo.cs
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\obj\Debug\net5.0\scopedcss\bundle\Gestion_Rendimiento_Frontend.styles.css
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\obj\Debug\net5.0\staticwebassets\Gestion_Rendimiento_Frontend.StaticWebAssets.Manifest.cache
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\obj\Debug\net5.0\Gestion_Rendimiento_Frontend.TagHelpers.input.cache
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\obj\Debug\net5.0\Gestion_Rendimiento_Frontend.TagHelpers.output.cache
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\obj\Debug\net5.0\Gestion_Rendimiento_Frontend.RazorCoreGenerate.cache
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\obj\Debug\net5.0\Razor\Views\ConfiguracionRendimiento\Index.cshtml.g.cs
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\obj\Debug\net5.0\Razor\Views\Evaluador\Index.cshtml.g.cs
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\obj\Debug\net5.0\Razor\Views\Evaluado\Index.cshtml.g.cs
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\obj\Debug\net5.0\Razor\Views\Login\Caducidad.cshtml.g.cs
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\obj\Debug\net5.0\Razor\Views\Login\Error.cshtml.g.cs
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\obj\Debug\net5.0\Razor\Views\Login\Index.cshtml.g.cs
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\obj\Debug\net5.0\Razor\Views\Login\NoAutorizado.cshtml.g.cs
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\obj\Debug\net5.0\Razor\Views\Panel\Index.cshtml.g.cs
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\obj\Debug\net5.0\Razor\Views\Panel\Roles.cshtml.g.cs
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\obj\Debug\net5.0\Razor\Views\Rendimiento\Evaluacion.cshtml.g.cs
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\obj\Debug\net5.0\Razor\Views\Rendimiento\Programacion.cshtml.g.cs
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\obj\Debug\net5.0\Razor\Views\Rendimiento\Reasignacion.cshtml.g.cs
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\obj\Debug\net5.0\Razor\Views\Rendimiento\RendimientoORH.cshtml.g.cs
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\obj\Debug\net5.0\Razor\Views\Rendimiento\Seguimiento.cshtml.g.cs
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\obj\Debug\net5.0\Razor\Views\Shared\Error.cshtml.g.cs
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\obj\Debug\net5.0\Razor\Views\Shared\_Layout.cshtml.g.cs
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\obj\Debug\net5.0\Razor\Views\_ViewImports.cshtml.g.cs
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\obj\Debug\net5.0\Razor\Views\_ViewStart.cshtml.g.cs
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\obj\Debug\net5.0\Gestion_Rendimiento_Frontend.RazorTargetAssemblyInfo.cache
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\obj\Debug\net5.0\Gestion_Rendimiento_Frontend.RazorTargetAssemblyInfo.cs
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\obj\Debug\net5.0\Gestion_Rendimiento_Frontend.Views.pdb
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\obj\Debug\net5.0\Gestion_Rendimiento_Frontend.csproj.CopyComplete
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\obj\Debug\net5.0\Gestion_Rendimiento_Frontend.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\obj\Debug\net5.0\refint\Gestion_Rendimiento_Frontend.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\obj\Debug\net5.0\Gestion_Rendimiento_Frontend.pdb
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\obj\Debug\net5.0\Gestion_Rendimiento_Frontend.genruntimeconfig.cache
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\obj\Debug\net5.0\ref\Gestion_Rendimiento_Frontend.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\AspNetCore.Reporting.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\AspNetCore.ReportingServices.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\System.CodeDom.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\System.Data.SqlClient.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\System.ServiceModel.Http.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\System.ServiceModel.Primitives.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\System.ServiceModel.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\runtimes\win-arm64\native\sni.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\runtimes\win-x64\native\sni.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\runtimes\win-x86\native\sni.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\runtimes\unix\lib\netstandard2.0\System.Private.ServiceModel.dll
-D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Frontend\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Private.ServiceModel.dll
->>>>>>> 8a2f9166856ca9e6cf90905ea0dbcfcb64d96a11
