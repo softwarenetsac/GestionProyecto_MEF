@@ -157,5 +157,42 @@ NOMBRE_ESTADO = t.NOMBRE_ESTADO,
            }).ToList().Where(x => x.ID_PERSONAL == ID_PERSONAL && x.ANIO== ANIO && x.FLG_ESTADO=="1").ToList();
             return lista;
         }
+
+        //public List<ReporteRendimientoModel> GetReporteRendimiento(string ID_PERSONAL, string ANIO)
+        //{
+        //    var lista = _context.ReporteRendimiento
+        //   .Select(t => new ReporteRendimientoModel
+        //   {
+        //       ID_PROYECTO = t.ID_PROYECTO ?? 0,
+        //       NOMBRE_ENTIDAD = string.IsNullOrEmpty(t.NOMBRE_ENTIDAD) ? "" : t.NOMBRE_ENTIDAD,
+        //       DESCRIPCION = string.IsNullOrEmpty(t.DESCRIPCION) ? "" : t.DESCRIPCION,
+        //       ID_PERSONAL = string.IsNullOrEmpty(t.ID_PERSONAL) ? "" : t.ID_PERSONAL,
+        //       ID_OFICINA = t.ID_OFICINA ?? 0,
+        //       ID_ESTADO = string.IsNullOrEmpty(t.ID_ESTADO) ? "" : t.ID_ESTADO,
+        //       FLG_ESTADO = string.IsNullOrEmpty(t.FLG_ESTADO) ? "" : t.FLG_ESTADO,
+        //       ID_EVALUADOR = string.IsNullOrEmpty(t.ID_EVALUADOR) ? "" : t.ID_EVALUADOR,
+        //       ANIO = string.IsNullOrEmpty(t.ANIO) ? "" : t.ANIO,
+        //       FECHA_REGISTRO = string.IsNullOrEmpty(t.FECHA_REGISTRO) ? "" : t.FECHA_REGISTRO,
+        //       DNI_EVALUADO = string.IsNullOrEmpty(t.DNI_EVALUADO) ? "" : t.DNI_EVALUADO,
+        //       NOMBRE_EVALUADO = string.IsNullOrEmpty(t.NOMBRE_EVALUADO) ? "" : t.NOMBRE_EVALUADO,
+        //       NOMBRE_CARGO_EVALUADO = string.IsNullOrEmpty(t.NOMBRE_CARGO_EVALUADO) ? "" : t.NOMBRE_CARGO_EVALUADO,
+        //       NOMBRE_SEGMENTO_EVALUADO = string.IsNullOrEmpty(t.NOMBRE_SEGMENTO_EVALUADO) ? "" : t.NOMBRE_SEGMENTO_EVALUADO,
+        //       NOMBRE_ORGANO_EVALUADO = string.IsNullOrEmpty(t.NOMBRE_ORGANO_EVALUADO) ? "" : t.NOMBRE_ORGANO_EVALUADO,
+        //       NOMBRE_EVALUADOR = string.IsNullOrEmpty(t.NOMBRE_EVALUADOR) ? "" : t.NOMBRE_EVALUADOR,
+        //       NOMBRE_CARGO_EVALUADOR = string.IsNullOrEmpty(t.NOMBRE_CARGO_EVALUADOR) ? "" : t.NOMBRE_CARGO_EVALUADOR,
+        //       NOMBRE_SEGMENTO_EVALUADOR = string.IsNullOrEmpty(t.NOMBRE_SEGMENTO_EVALUADOR) ? "" : t.NOMBRE_SEGMENTO_EVALUADOR,
+        //       NOMBRE_ORGANO_EVALUADOR = string.IsNullOrEmpty(t.NOMBRE_ORGANO_EVALUADOR) ? "" : t.NOMBRE_ORGANO_EVALUADOR,
+        //       NOMBRE_ESTADO = string.IsNullOrEmpty(t.NOMBRE_ESTADO) ? "" : t.NOMBRE_ESTADO,
+        //       //ID_DETALLE_PROYECTO = t.ID_DETALLE_PROYECTO,
+        //       INDICADOR_PRODUCTO = string.IsNullOrEmpty(t.INDICADOR_PRODUCTO) ? "" : t.INDICADOR_PRODUCTO,
+        //       VALOR = t.VALOR ?? 0,
+        //       PESO = t.PESO ?? 0,
+        //       EVIDENCIA = string.IsNullOrEmpty(t.EVIDENCIA) ? "" : t.EVIDENCIA,
+        //       PLAZO = string.IsNullOrEmpty(t.PLAZO) ? "" : t.PLAZO,
+        //       TIPO_FORMULA = string.IsNullOrEmpty(t.TIPO_FORMULA) ? "" : t.TIPO_FORMULA
+        //   }).ToList().Where(x => x.ID_PERSONAL == ID_PERSONAL && x.ANIO == ANIO).ToList();
+        //    return lista;
+
+        //}
     }
 }

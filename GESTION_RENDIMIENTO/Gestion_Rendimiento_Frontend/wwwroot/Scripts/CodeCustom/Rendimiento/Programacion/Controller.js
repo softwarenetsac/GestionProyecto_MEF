@@ -35,6 +35,7 @@
             base.Control.BotonBuscar().click(base.Event.BotonBuscarClick);
             base.Function.CrearGrillaRendimiento();
             base.Function.BuscarGrilla();
+            base.Control.BotonExportarPDF().click(base.Event.BotonExportarPDFClick);
         };
 
         base.Parameters = {
@@ -54,7 +55,7 @@
             GridRendimiento: function () { return $("#gridRendimiento"); },
             hdnIdProyecto: function () { return $("#hdnIdProyecto"); },
             DllAnioConsulta: function () { return $("#ddlAnio_Consulta"); },
-            
+            BotonExportarPDF: function () { return $("#btnExportarPDF"); },
         
         };
 
@@ -163,6 +164,17 @@
                 else {
                     base.Control.Mensaje.Warning({ message: data.Message }).WarningClose();
                 }
+            },
+            BotonExportarPDFClick: function () {
+                var anio = base.Control.DllAnioConsulta().val();
+
+                $.paramcustom = {
+                    url: SoftwareNet.Web.Operacion.Programacion.Actions.ExportarPDF,
+                    values: {
+                        ANIO: anio,
+                    }
+                }
+                $.redirect();
             },
             BotonBuscarClick: function () {
                 base.Function.BuscarGrilla();

@@ -58,10 +58,43 @@
                         <i class="icon icon-plus-circle icon-lg m-r-sm"></i>
                         Nueva Planificación
                     </button>
-                    <button class="btn btn-default m-l-sm" id="btnExportarEXCEl" name="btnExportarEXCEl">
+                    @*<button class="btn btn-default m-l-sm" id="btnExportarEXCEl" name="btnExportarEXCEl">
                         <i class="icon icon-file-excel-o icon-lg m-r-sm"></i>
                         Exportar en EXCEL
-                    </button>
+                    </button>*@
+                    <div class="btn-group dropup">
+                      <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" type="button">
+                        <span class="icon icon-download icon-lg icon-fw"></span>
+                        Exportar
+                        <span class="caret"></span>
+                      </button>
+                      <ul class="dropdown-menu dropdown-menu-right">
+                        <li>
+                          <a href="#">
+                            <div class="media">
+                              <div class="media-left">
+                                <span class="icon file-excel-o icon-lg icon-fw text-default"></span>
+                              </div>
+                              <div class="media-body">
+                                <span id="btnExportarEXCEl" class="d-b">EXPORTAR PRIORIDADES EN EXCEL</span>
+                              </div>
+                            </div>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="#">
+                            <div class="media">
+                              <div class="media-left">
+                                <span class="icon file-pdf-o icon-lg icon-fw text-default"></span>
+                              </div>
+                              <div class="media-body">
+                                <span id="btnExportarPDF" class="d-b">DESCARGAR EN PDF EVALUACION Y DESENPEQEÑO</span>
+                              </div>
+                            </div>
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
                 </div>
             </div>
             <div class="col-md-6">
@@ -191,8 +224,9 @@
         SoftwareNet.Web.Operacion.Programacion.Actions.NuevaFilaDetalle = '@Url.Action("GenerarHTMLDET", "Rendimiento")';
         SoftwareNet.Web.Operacion.Programacion.Actions.Registrar = '@Url.Action("GuardarProyecto", "Rendimiento")';
         SoftwareNet.Web.Operacion.Programacion.Actions.Buscar = '@Url.Action("GetAll_Proyecto", "Rendimiento")';
+        SoftwareNet.Web.Operacion.Programacion.Actions.ExportarPDF = '@Url.Action("ImprimirRendimientoPDF", "Rendimiento")';
     </script>
     <script src="@Url.Content("~/Scripts/jquery.form.js")"></script>
-    <script type="text/javascript" src="@Url.Content("~/Scripts/CodeCustom/Rendimiento/Programacion/Controller.js?id=3.3")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/CodeCustom/Rendimiento/Programacion/Controller.js?id=3.4")"></script>
     <script type="text/javascript" src="@Url.Content("~/Scripts/CodeCustom/Rendimiento/Programacion/Index.js?id=88")"></script>
 }

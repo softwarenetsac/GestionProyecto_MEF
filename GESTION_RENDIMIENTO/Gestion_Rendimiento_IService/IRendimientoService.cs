@@ -14,5 +14,6 @@ namespace Gestion_Rendimiento_IService
         IEnumerable<RendimientoConsultaModel> GetRenmientoEvaluado(RendimientoModel modelo);
         IEnumerable<RendimientoConsultaModel> GetAll(RendimientoConsultaModel request);
         IEnumerable<RendimientoConsultaModel> GetAllProyectoEvaluadoAnio(string ID_PERSONAL, string ANIO);
+     //   List<ReporteRendimientoModel> GetReporteRendimiento(string ID_PERSONAL, string ANIO);
     }
 }
