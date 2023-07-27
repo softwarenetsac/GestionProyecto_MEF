@@ -724,12 +724,12 @@ namespace Gestion_Rendimiento_Frontend.Controllers
             html += "<tr style='background-color:#FCE4D6;' id='" + ID + "'>";
             html += "<td colspan='5'>";
             html += "<div class='form-group'>";
-            html += "<textarea rows=\"3\" cols=\"50\" id='" + ID + "' name='" + ID + "' maxlength='4000' class='form-control tdDESCRIPCION' required>" + DES + "</textarea>";
+            html += "<textarea rows=\"3\" cols=\"50\" id='" + ID + "' name='" + ID + "' maxlength='4000' class='form-control tdDESCRIPCION' disabled style='background:white'>" + DES + "</textarea>";
             html += "</div>";
             html += "</td>";
             if (CANT > 0)
             {
-                html += "<td style='background:white;'>" + evaluar + "</td>";
+                html += "<td style='background:white;text-align:center;'>" + evaluar + "</td>";
             }
             html += "<td class='tdID_DETALLE' style='display:none;'>" + ID + "</td>";
             html += "<td class='tdP_G' style='display:none;'>1</td>";
@@ -750,24 +750,24 @@ namespace Gestion_Rendimiento_Frontend.Controllers
             //html += "<td>" + remove + "</td>";
             html += "<td>";
             html += "<div class='form-group'>";
-            html += "<label>Indicador / Producto<span class=\"text-primary m-l-sm\">(*)</span></label>";
-            html += "<textarea id='" + I + "' name='" + I + "' maxlength='4000' rows=\"4\" cols=\"50\" class='form-control tdINDICADOR' required>" + INDICADOR + "</textarea>";
+            html += "<label>Indicador / Producto<span class=\"text-primary m-l-sm\"></span></label>";
+            html += "<textarea id='" + I + "' name='" + I + "' maxlength='4000' rows=\"4\" cols=\"50\" class='form-control tdINDICADOR' disabled style='background:white'>" + INDICADOR + "</textarea>";
             html += "</div>";
             html += "</td>";
 
             html += "<td>";
             html += "<div class='form-group'>";
-            html += "<label>Valor Meta<span class=\"text-primary m-l-sm\">(*)</span></label>";
-            html += "<input id='" + V + "' name='" + V + "' type ='text' maxlength='2'  value='" + VALOR + "' class='form-control tdVALOR' required/>";
+            html += "<label>Valor Meta<span class=\"text-primary m-l-sm\"></span></label>";
+            html += "<input id='" + V + "' name='" + V + "' type ='text' maxlength='2'  value='" + VALOR + "' class='form-control tdVALOR' disabled style='background:white'/>";
             html += "</div>";
             html += "</td>";
 
             html += "<td>";
             html += "<div class='form-group'>";
-            html += "<label>Evidencia<span class=\"text-primary m-l-sm\">(*)</span></label>";
+            html += "<label>Evidencia<span class=\"text-primary m-l-sm\"></span></label>";
             foreach (var item in DETALLE_EVIDENCIA)
             {
-                html += "<textarea rows=\"4\" cols=\"50\" maxlength='4000' class='form-control tdEVIDENCIA' idpk_detalle_=" + FILA + "   idpk_detallesub=" + item.ID_DETALLE_SUB + "  required>" + item.EVIDENCIA + "</textarea>";
+                html += "<textarea rows=\"4\" cols=\"50\" maxlength='4000' class='form-control tdEVIDENCIA' idpk_detalle_=" + FILA + "   idpk_detallesub=" + item.ID_DETALLE_SUB + "  disabled style='background:white'>" + item.EVIDENCIA + "</textarea>";
                 html += "" +
                     "</br>";
             }
@@ -777,15 +777,15 @@ namespace Gestion_Rendimiento_Frontend.Controllers
 
             html += "<td>";
             html += "<div class='form-group'>";
-            html += "<label>Plazos<span class=\"text-primary m-l-sm\">(*)</span></label>";
+            html += "<label>Plazos<span class=\"text-primary m-l-sm\"></span></label>";
             if (PLAZOS == "")
             {
-                html += "<input id='" + P + "' name='" + P + "' type ='text' maxlength='10'  value='" + PLAZOS + "' class='form-control tdPLAZOS' data-provide=\"datepicker\" data-date-today-highlight=\"true\" data-date-format=\"dd/mm/yyyy\" data-date-language=\"es\" data-date-autoclose=\"true\" required/>";
+                html += "<input id='" + P + "' name='" + P + "' type ='text' maxlength='10'  value='" + PLAZOS + "' class='form-control tdPLAZOS' data-provide=\"datepicker\" data-date-today-highlight=\"true\" data-date-format=\"dd/mm/yyyy\" data-date-language=\"es\" data-date-autoclose=\"true\" disabled style='background:white'/>";
 
             }
             else
             {
-                html += "<input id='" + P + "' name='" + P + "' type ='text' maxlength='10'  value='" + Convert.ToDateTime(PLAZOS).ToString("dd/MM/yyyy") + "' class='form-control tdPLAZOS' data-provide=\"datepicker\" data-date-today-highlight=\"true\" data-date-format=\"dd/mm/yyyy\" data-date-language=\"es\" data-date-autoclose=\"true\" required/>";
+                html += "<input id='" + P + "' name='" + P + "' type ='text' maxlength='10'  value='" + Convert.ToDateTime(PLAZOS).ToString("dd/MM/yyyy") + "' class='form-control tdPLAZOS' data-provide=\"datepicker\" data-date-today-highlight=\"true\" data-date-format=\"dd/mm/yyyy\" data-date-language=\"es\" data-date-autoclose=\"true\" disabled style='background:white'/>";
             }
             html += "</div>";
             html += "</td>";
@@ -800,7 +800,7 @@ namespace Gestion_Rendimiento_Frontend.Controllers
         private string EvaluarFila(int FILA)
         {
             string html = "";
-         html = "<a href ='javascript:void(0);' title='Registro de seguimiento' ><i class='icon icon-pencil-square-o icon-2x mantenimiento_seguimiento' idpk_p=" + FILA + " style='color:black'></i></a>";
+         html = "<a href ='javascript:void(0);' title='Registro de seguimiento' ><i class='icon icon-pencil-square-o icon-2x mantenimiento_seguimiento' idpk_p=" + FILA + "></i></a>";
             return html;
         }
         //public BaseResponse GuardarSeguimiento([FromBody] ProyectoSeguimiento entidad)
