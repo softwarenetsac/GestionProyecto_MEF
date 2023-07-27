@@ -171,6 +171,8 @@
                 <div class="modal-body">
                     <form id="frmModelRegSeguimiento" name="frmModelRegSeguimiento" data-toggle="validator" method="post" enctype="multipart/form-data">
                         <input type="hidden" id="hdnIdProyecto" name="hdnIdProyecto" value="0" />
+                        <input type="hidden" id="hdnIdSeguimiento" name="hdnIdSeguimiento" value="0" />
+                        
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="form-group">
@@ -189,13 +191,13 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label>Comentarios<span class="text-primary m-l-sm">(*)</span></label>
-                                        <textarea rows="3" cols="50" id="TXT_DES_SEGUIMIENTO" name="TXT_DES_SEGUIMIENTO" maxlength='4000' class='form-control' required></textarea>
+                                    <textarea rows="3" cols="50" id="TXT_DES_SEGUIMIENTO" name="TXT_DES_SEGUIMIENTO" maxlength='4000' class='form-control' required></textarea>
                                 </div>
                             </div>
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label>Informe<span class="text-primary m-l-sm"></span></label>
-                                    <input type='file'  id="fileArchivo"  name="fileArchivo" />
+                                    <input type='file' id="fileArchivo" name="fileArchivo" />
                                 </div>
                             </div>
                         </div>
@@ -209,7 +211,7 @@
                             <div class="col-md-6" style="text-align:end">
                                 <button id="btnRegistrarSeg" name="btnRegistrarSeg" class="btn btn-primary" type="button">Registrar Seguimiento</button>
                             </div>
-                            
+
                         </div>
                     </form>
                 </div>

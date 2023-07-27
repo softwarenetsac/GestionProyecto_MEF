@@ -153,7 +153,7 @@ namespace Gestion_Rendimiento_Frontend.Controllers
 
                 var det = _proyectodetalleService.GetProyectoXId(modelo.ID_PROYECTO);
                 List<RendimientoDetalleModel> det_datos = null;
-           
+
                 if (det != null)
                 {
                     det_datos = det.Select(t => new RendimientoDetalleModel
@@ -291,14 +291,14 @@ namespace Gestion_Rendimiento_Frontend.Controllers
             html += "<div class='form-group'>";
             html += "<label style=\"width:100%\">Evidencia<span class=\"text-primary m-l-sm\" > (*)</span>";
             ///
-            if (FILA>0)
+            if (FILA > 0)
             {
                 html += "<a value=" + FILA + " href ='javascript:void(0);' idpk_detalle=" + FILA + " idpk_proy=" + ID_PROYECTO + " class='AddEvidencia' style=\"float:right\"><i class='icon icon-plus-circle icon-2x'></i></a>";
 
             }
             ///
             html += "</label>";
-            if (FILA>0)
+            if (FILA > 0)
             {
                 foreach (var item in DETALLE_EVIDENCIA)
                 {
@@ -430,7 +430,7 @@ namespace Gestion_Rendimiento_Frontend.Controllers
                         id = entidad.ID_DETALLE_PROYECTO;
                         foreach (var item_sub in items.ItemsDetalleEvidencia)
                         {
-                            if (item_sub.ID_DETALLE_SUB==0)
+                            if (item_sub.ID_DETALLE_SUB == 0)
                             {
                                 var ent_sub = new Proyecto_Detalle_Sub
                                 {
@@ -677,7 +677,7 @@ namespace Gestion_Rendimiento_Frontend.Controllers
                         }).First();
                         listaPrioridadD.Add(entity_);
                     }
-                  
+
                 }
                 var det_evidencia_ = _proyectodetallesubService.GetEvidenciaXProyecto();
                 List<RendimientoDetalleSubModel> det_evidencia = null;
@@ -771,7 +771,7 @@ namespace Gestion_Rendimiento_Frontend.Controllers
                 html += "" +
                     "</br>";
             }
-          //  html += "<textarea id='" + E + "' name='" + E + "'  rows=\"4\" cols=\"50\" maxlength='4000' class='form-control tdEVIDENCIA' required>" + EVIDENCIA + "</textarea>";
+            //  html += "<textarea id='" + E + "' name='" + E + "'  rows=\"4\" cols=\"50\" maxlength='4000' class='form-control tdEVIDENCIA' required>" + EVIDENCIA + "</textarea>";
             html += "</div>";
             html += "</td>";
 
@@ -800,80 +800,95 @@ namespace Gestion_Rendimiento_Frontend.Controllers
         private string EvaluarFila(int FILA)
         {
             string html = "";
-         html = "<a href ='javascript:void(0);' title='Registro de seguimiento' ><i class='icon icon-pencil-square-o icon-2x mantenimiento_seguimiento' idpk_p=" + FILA + "></i></a>";
+            html = "<a href ='javascript:void(0);' title='Registro de seguimiento' ><i class='icon icon-pencil-square-o icon-2x mantenimiento_seguimiento' idpk_p=" + FILA + "></i></a>";
             return html;
         }
-        //public BaseResponse GuardarSeguimiento([FromBody] ProyectoSeguimiento entidad)
-        public async Task<BaseResponse>  GuardarSeguimiento(IFormFile FILE_ARCHIVO, int ID_SEGUIMIENTO, int ID_PROYECTO, string DETALLE_NOTA, int ID_TIPO_NIVEL)
+       // public async Task<BaseResponse> GuardarSeguimiento(IFormFile FILE_ARCHIVO, int ID_SEGUIMIENTO, int ID_PROYECTO, string DETALLE_NOTA, int ID_TIPO_NIVEL)
+         public async Task<BaseResponse> GuardarSeguimiento()
         {
+          //  int ID_SEGUIMIENTO = 0; int ID_PROYECTO = 0; string DETALLE_NOTA = ""; int ID_TIPO_NIVEL = 0;
             BaseResponse respuesta = new BaseResponse();
-            string usuario_login = UsuarioActual == null ? "" : UsuarioActual.UsuarioLogin;
-            string id_personal = UsuarioActual == null ? "" : UsuarioActual.ID_PERSONAL;
-            int id = 0;
-            long id_lf = 0;
-            ProyectoSeguimiento entidad = new ProyectoSeguimiento();
-            using var memoryStream = new MemoryStream();
-            if (FILE_ARCHIVO.Length>0)
-            {
-                FILE_ARCHIVO.CopyToAsync(memoryStream);
-                byte[] arch = memoryStream.ToArray();
-                object item = new { ARCHIVO = arch, NOMBRE_ARCHIVO = FILE_ARCHIVO.FileName.ToString(), KEY = _configuracionSistemaBase.ApiLaserfiche.TokenLf, RUTA_PRINCIPAL = "PROYECTO", RUTA_GUARDAR = ID_PROYECTO.ToString() + "\\SEGUIMIENTO" };
-                RespuestaAPI apiDocumento = await new Api().PostApi<RespuestaAPI>(new ApiParams
-                {
-                    EndPoint = _configuracionSistemaBase.ApiLaserfiche.ApiUrl,//_configuracionSistemaBase.Api_lf.ApiUrl,
-                    Url = $"Archivo",
-                    parametros = item,
-                });
-                if (apiDocumento.Success)
-                {
-                    entidad.ID_SEGUIMIENTO = ID_SEGUIMIENTO;
-                    entidad.ID_PROYECTO = ID_PROYECTO;
-                    entidad.DETALLE_NOTA = DETALLE_NOTA;
-                    entidad.ID_TIPO_NIVEL = ID_TIPO_NIVEL;
-                    if (entidad.ID_SEGUIMIENTO == 0)
-                    {
-                        entidad.ID_EVALUADOR = id_personal;
-                        entidad.USUARIO_CREACION = usuario_login;
-                        entidad.FECHA_CREACION = DateTime.Now;
-                        entidad.IP_CREACION = IP;
-                        entidad.FLG_ESTADO = "1";
-                        entidad.ID_ARCHIVO = apiDocumento.Id_Laser_Fiche;
-                        var valor = _proyectoseguimiento.Insertar(entidad);
-                        id = valor.ID_SEGUIMIENTO;
-                    }
-                }
-                else
-                {
-                    respuesta.Success = false;
-                    respuesta.Message = "Se genero error al adjuntar el archivo.";
-                }
-            }
-            else
+            try
             {
 
+              var   ID_SEGUIMIENTO = Request.Form["hdnIdSeguimiento"] == DBNull.Value ? 0 : int.Parse(Request.Form["hdnIdSeguimiento"]);
+              var   ID_PROYECTO = Request.Form["hdnIdProyecto"] == DBNull.Value ? 0 : int.Parse(Request.Form["hdnIdProyecto"]);
+              var   ID_TIPO_NIVEL = Request.Form["ID_TIPO_NIVEL"] == DBNull.Value ? 0 : int.Parse(Request.Form["ID_TIPO_NIVEL"]);
+              var   DETALLE_NOTA = Request.Form["TXT_DES_SEGUIMIENTO"] == DBNull.Value ? "" : (Request.Form["TXT_DES_SEGUIMIENTO"]).ToString();
+               var FILE_ARCHIVO = Request.Form.Files["fileArchivo"];
+                string usuario_login = UsuarioActual == null ? "" : UsuarioActual.UsuarioLogin;
+                string id_personal = UsuarioActual == null ? "" : UsuarioActual.ID_PERSONAL;
+                long id_lf = 0;
+                ProyectoSeguimiento entidad = new ProyectoSeguimiento();
+                var respuestaApi = await GuardarArchivoLaserFiche(FILE_ARCHIVO, ID_PROYECTO, "SEGUIMIENTO");
+                id_lf = respuestaApi.Id_Laser_Fiche;
+
+                if (FILE_ARCHIVO.Length > 0 && respuestaApi.Success == false)
+                {
+                    throw new Exception("Se generó un error al adjuntar el archivo en el respositorio LaserFiche");
+                }
                 entidad.ID_SEGUIMIENTO = ID_SEGUIMIENTO;
                 entidad.ID_PROYECTO = ID_PROYECTO;
                 entidad.DETALLE_NOTA = DETALLE_NOTA;
                 entidad.ID_TIPO_NIVEL = ID_TIPO_NIVEL;
-                if (entidad.ID_SEGUIMIENTO == 0)
-                {
-                    entidad.ID_EVALUADOR = id_personal;
-                    entidad.USUARIO_CREACION = usuario_login;
-                    entidad.FECHA_CREACION = DateTime.Now;
-                    entidad.IP_CREACION = IP;
-                    entidad.FLG_ESTADO = "1";
-                    entidad.ID_ARCHIVO = 0;
-                    var valor = _proyectoseguimiento.Insertar(entidad);
-                    id = valor.ID_SEGUIMIENTO;
-                }
+                entidad.ID_EVALUADOR = id_personal;
+                entidad.USUARIO_CREACION = usuario_login;
+                entidad.FECHA_CREACION = GetFechaActual();
+                entidad.IP_CREACION = IP;
+                entidad.FLG_ESTADO = "1";
+                entidad.ID_ARCHIVO = id_lf;
+                respuesta = _proyectoseguimiento.Insertar(entidad);
+               
             }
-            if (id > 0)
+            catch (Exception ex)
             {
-                respuesta.Success = true;
-                respuesta.Message = "Se ha procesado correctamente";
+                respuesta.Message = ex.Message;
+                respuesta.ID = 0;
+                respuesta.Success = false;
+
             }
             return respuesta;
         }
+
+
+        private async Task<RespuestaAPI> GuardarArchivoLaserFiche(IFormFile FILE_ARCHIVO, int ID_PROYECTO, string etapa)
+        {
+            var resppuesta = new RespuestaAPI
+            {
+                Success = false
+            };
+
+            try
+            {
+                using var memoryStream = new MemoryStream();
+                if (FILE_ARCHIVO.Length > 0)
+                {
+                    await FILE_ARCHIVO.CopyToAsync(memoryStream);
+                    byte[] arch = memoryStream.ToArray();
+                    object item = new { ARCHIVO = arch, NOMBRE_ARCHIVO = FILE_ARCHIVO.FileName.ToString(), KEY = _configuracionSistemaBase.ApiLaserfiche.TokenLf, RUTA_PRINCIPAL = "PROYECTO", RUTA_GUARDAR = ID_PROYECTO.ToString() + "\\" + etapa };
+                    resppuesta = await new Api().PostApi<RespuestaAPI>(new ApiParams
+                    {
+                        EndPoint = _configuracionSistemaBase.ApiLaserfiche.ApiUrl,
+                        Url = $"Archivo",
+                        parametros = item,
+                    });
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Log.CreateLogger(ex.Message);
+                resppuesta.Message = ex.Message;
+                resppuesta.Success = false;
+                resppuesta.archivo_lf = null;
+                resppuesta.Id_Laser_Fiche = 0;
+
+            }
+
+            return resppuesta;
+        }
+
         public IActionResult GetAll_SeguimientoProyecto([FromBody] ProyectoSeguimiento request)
         {
             var result = new MethodResponseModel<IEnumerable<ProyectoSeguimientoConsulta>> { Result = null };
@@ -889,13 +904,13 @@ namespace Gestion_Rendimiento_Frontend.Controllers
             string id_personal = UsuarioActual == null ? "" : UsuarioActual.ID_PERSONAL;
             int id = 0;
 
-                entidad.ID_SEGUIMIENTO = entidad.ID_SEGUIMIENTO;
-                entidad.USUARIO_MODIFICACION = usuario_login;
-                entidad.FECHA_MODIFICACION = DateTime.Now;
-                entidad.IP_MODIFICACION = IP;
-                entidad.FLG_ESTADO = "0";
-                var valor = _proyectoseguimiento.DeleteSeguimiento(entidad);
-                id = entidad.ID_SEGUIMIENTO;
+            entidad.ID_SEGUIMIENTO = entidad.ID_SEGUIMIENTO;
+            entidad.USUARIO_MODIFICACION = usuario_login;
+            entidad.FECHA_MODIFICACION = DateTime.Now;
+            entidad.IP_MODIFICACION = IP;
+            entidad.FLG_ESTADO = "0";
+            var valor = _proyectoseguimiento.DeleteSeguimiento(entidad);
+            id = entidad.ID_SEGUIMIENTO;
 
 
             if (id > 0)
@@ -909,15 +924,44 @@ namespace Gestion_Rendimiento_Frontend.Controllers
         }
         public async Task<IActionResult> DescargaArchivo(ProyectoSeguimiento model)
         {
-            object item = new { KEY = _configuracionSistemaBase.ApiLaserfiche.TokenLf, ID_LASERFICHE=model.ID_ARCHIVO };
-            RespuestaAPI apiDocumento = await new Api().PostApi<RespuestaAPI>(new ApiParams
+            try
             {
-                EndPoint = _configuracionSistemaBase.ApiLaserfiche.ApiUrl,
-                Url = $"ExportarArchivo",
-                parametros = item,
-            });
-            return FileDownload(apiDocumento.archivo_lf, "application/pdf", Guid.NewGuid()+".pdf");
+                var archivo = await GetArchivo(model.ID_ARCHIVO);
+                return FilePreview(archivo.archivo_lf, "application/pdf", Guid.NewGuid() + ".pdf");
+            }
+            catch (Exception ex)
+            {
+                Log.CreateLogger(ex.Message);
+                return new EmptyResult();
+            }
+
         }
+
+        private async Task<RespuestaAPI> GetArchivo(long id_archivo) {
+            RespuestaAPI respuesta = new RespuestaAPI();
+            try
+            {
+                object item = new { KEY = _configuracionSistemaBase.ApiLaserfiche.TokenLf, ID_LASERFICHE = id_archivo };
+                respuesta = await new Api().PostApi<RespuestaAPI>(new ApiParams
+                {
+                    EndPoint = _configuracionSistemaBase.ApiLaserfiche.ApiUrl,
+                    Url = $"ExportarArchivo",
+                    parametros = item,
+                });
+
+            }
+            catch (Exception ex)
+            {
+                Log.CreateLogger(ex.Message);
+                respuesta.Message = ex.Message;
+                respuesta.Success = false;
+                respuesta.archivo_lf = null;
+            }
+
+            return respuesta;
+        }
+
+
         #region     EVALUACION
         public IActionResult Evaluacion()
         {
@@ -1184,8 +1228,8 @@ namespace Gestion_Rendimiento_Frontend.Controllers
                     USUARIO_MODIFICACION = usuario_login,
                     FECHA_MODIFICACION = DateTime.Now
                 };
-                    var valor = _proyectoService.ActualizarProyecto(entidad);
-                    id = valor.ID;
+                var valor = _proyectoService.ActualizarProyecto(entidad);
+                id = valor.ID;
                 if (id > 0)
                 {
                     respuesta.Success = true;
@@ -1244,17 +1288,17 @@ namespace Gestion_Rendimiento_Frontend.Controllers
                 if (data != null)
                 {
                     var itemData = data.FirstOrDefault();
-                   /* nombre_evaluado = itemData.NOMBRE_EVALUADO;
-                    nombre_evaluador = itemData.NOMBRE_EVALUADOR;
-                    nombre_cargo_evaluado = itemData.NOMBRE_CARGO_EVALUADO;
-                    nombre_cargo_evaluador = itemData.NOMBRE_CARGO_EVALUADOR;
-                    nombre_segmento_evaluado = itemData.NOMBRE_SEGMENTO_EVALUADO;
-                    nombre_segmento_evaluador = itemData.NOMBRE_SEGMENTO_EVALUADOR;
-                    nombre_organo_evaluado = itemData.NOMBRE_ORGANO_EVALUADO;
-                    nombre_organo_evaluador = itemData.NOMBRE_ORGANO_EVALUADOR;
-                    dni_evaluado = itemData.DNI_EVALUADO;
-                    fecha_registro = itemData.FECHA_REGISTRO;
-                    nombre_entidad = itemData.NOMBRE_ENTIDAD;*/
+                    /* nombre_evaluado = itemData.NOMBRE_EVALUADO;
+                     nombre_evaluador = itemData.NOMBRE_EVALUADOR;
+                     nombre_cargo_evaluado = itemData.NOMBRE_CARGO_EVALUADO;
+                     nombre_cargo_evaluador = itemData.NOMBRE_CARGO_EVALUADOR;
+                     nombre_segmento_evaluado = itemData.NOMBRE_SEGMENTO_EVALUADO;
+                     nombre_segmento_evaluador = itemData.NOMBRE_SEGMENTO_EVALUADOR;
+                     nombre_organo_evaluado = itemData.NOMBRE_ORGANO_EVALUADO;
+                     nombre_organo_evaluador = itemData.NOMBRE_ORGANO_EVALUADOR;
+                     dni_evaluado = itemData.DNI_EVALUADO;
+                     fecha_registro = itemData.FECHA_REGISTRO;
+                     nombre_entidad = itemData.NOMBRE_ENTIDAD;*/
                 }
 
                 parameters.Add("P_FECHA_REGISTRO", fecha_registro);
@@ -1286,4 +1330,3 @@ namespace Gestion_Rendimiento_Frontend.Controllers
         #endregion REPORTE
     }
 }
-   

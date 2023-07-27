@@ -9,7 +9,7 @@ namespace Gestion_Rendimiento_IService
 {
     public interface IProyectoSeguimientoService
     {
-        ProyectoSeguimiento Insertar(ProyectoSeguimiento item);
+        BaseResponse Insertar(ProyectoSeguimiento item);
         IEnumerable<ProyectoSeguimientoConsulta> GetAllSeguimientoProyecto(int ID_PROYECTO);
         BaseResponse DeleteSeguimiento(ProyectoSeguimiento request);
     }

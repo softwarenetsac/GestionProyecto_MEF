@@ -9,7 +9,6 @@
             base.Function.CrearGrillaSeguimiento();
             base.Function.BuscarGrilla();
             base.Control.GridSeguimiento().on('click', '.findone_Actividad', function (e) {
-                debugger;
                 var ID_PERSONAL = $(e.target).attr("idpk_per");
                 var ANIO = $(e.target).attr("idpk_anio");
                 if (typeof ID_PERSONAL !== 'undefined' && ID_PERSONAL > 0)
@@ -17,21 +16,18 @@
             });
             base.Control.GridBody().on('click', '.mantenimiento_seguimiento', function (e) {
                 var elemento = this;
-                debugger;
                 var id = elemento.getAttribute("idpk_p");
                 if (typeof id !== 'undefined')
                     base.Function.AbrirModalManSegui(id);
             });
             base.Control.GridSeguimientoRegistro().on('click', '.findone_DeleteSeguimiento', function (e) {
                 var elemento = this;
-                debugger;
                 var id = elemento.getAttribute("idpk_Seg");
                 if (typeof id !== 'undefined')
                     base.Function.DeleteSegRegistro(id);
             });
             base.Control.GridSeguimientoRegistro().on('click', '.findone_DescargarArchivo', function (e) {
                 var elemento = this;
-                debugger;
                 var id = elemento.getAttribute("idpk_Arch");
                 if (typeof id !== 'undefined')
                     base.Event.DescargarArchivoClick(id);// base.Function.DescargarArchivo(id);
@@ -100,12 +96,13 @@
                 form.validate();
                 if (!form.valid()) { return false; }
                 else {
-
                     base.Control.Mensaje.Confirmation({
                         message: "¿Estás seguro de realizar el registro?",
                     }).ConfirmationAcept({
                         callback: function (opt) {
                             if (opt) {
+                                base.Ajax.AjaxMantenimientoGuardarForm.submitForm();
+                                /*
                                 var url = SoftwareNet.Web.Operacion.Seguimiento.Actions.GuardarSeguimiento;
                                 var data = new FormData();
                                 data.append('FILE_ARCHIVO', $('#fileArchivo').prop('files')[0]);
@@ -120,12 +117,10 @@
                                                     contentType: false,
                                                     type: 'POST',
                                                     success: function (respuesta) {
-                                                        debugger;
                                                         if (respuesta.Success) {
                                                             base.Control.Mensaje.Information({ message: SoftwareNet.DJ.Web.Shared.Mensaje.Resources.EtiquetaGuardoExito })
                                                                 .InformationClose({
                                                                     callback: function (opt) {
-
                                                                         if (opt) {
                                                                             base.Control.txtDescSeguimiento().val('');
                                                                             base.Control.DllTipoNivel().val('');
@@ -147,11 +142,33 @@
                                                
                                                     }
                                                 });
+
+                                */
                             }
                         }
                     });
                 }
             },
+
+
+            AjaxMantenimientoGuardarFormSuccess: function (data) {
+                var respuesta = data;
+                if (respuesta.Success)
+                {
+                    base.Control.txtDescSeguimiento().val('');
+                    base.Control.DllTipoNivel().val('');
+                    base.Ajax.AjaxBuscarSeguimientoRegistro.data = {
+                     ID_PROYECTO: parseInt(base.Control.hdnIdProyecto().val()),
+                    }
+                    base.Ajax.AjaxBuscarSeguimientoRegistro.submit();
+                }
+                else {
+                    base.Control.Mensaje.Warning({ message: respuesta.Message }).WarningClose();
+                }
+            },
+
+
+            /*
             AjaxGuardarSeguimientoSuccess: function (data) {
                 if (data.Success) {
                     base.Control.Mensaje.Information({ message: SoftwareNet.DJ.Web.Shared.Mensaje.Resources.EtiquetaGuardoExito })
@@ -173,6 +190,7 @@
                     base.Control.Mensaje.Warning({ message: data.Message }).WarningClose();
                 }
             },
+            */
             AjaxBuscarSeguimientoRegistroSuccess: function (data) {
 
                 if (data.Result) {
@@ -208,11 +226,13 @@
                 autoSubmit: false,
                 onSuccess: base.Event.AjaxBuscarSuccess
             }),
+            /*
             AjaxRegistrarSeg: new SoftwareNet.DJ.Web.Components.Ajax({
                 action: SoftwareNet.Web.Operacion.Seguimiento.Actions.GuardarSeguimiento,
                 autoSubmit: false,
                 onSuccess: base.Event.AjaxGuardarSeguimientoSuccess
             }),
+            */
             AjaxBuscarSeguimientoRegistro: new SoftwareNet.DJ.Web.Components.Ajax({
                 action: SoftwareNet.Web.Operacion.Seguimiento.Actions.BuscarSeguimientoProyecto,
                 autoSubmit: false,
@@ -228,6 +248,13 @@
                 autoSubmit: false,
                 onSuccess: false,//base.Event.AjaxDeleteSeguimientoSuccess
             }),
+
+            AjaxMantenimientoGuardarForm: new SoftwareNet.DJ.Web.Components.AjaxForm({
+                action: SoftwareNet.Web.Operacion.Seguimiento.Actions.GuardarSeguimiento,
+                autoSubmit: false,
+                idForm: "frmModelRegSeguimiento",
+                onSuccess: base.Event.AjaxMantenimientoGuardarFormSuccess
+            })
         };
         base.Function = {
             CrearGrillaSeguimiento: function () {

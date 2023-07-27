@@ -272,6 +272,7 @@ namespace Gestion_Rendimiento_Laserfiche.Repositorio
                 AplicacionLog.Mensaje(EX.ToString());
                 try
                 {
+                    IdLaserFiche = 0;
                     session.LogOut();
                 }
                 catch (Exception ex)
