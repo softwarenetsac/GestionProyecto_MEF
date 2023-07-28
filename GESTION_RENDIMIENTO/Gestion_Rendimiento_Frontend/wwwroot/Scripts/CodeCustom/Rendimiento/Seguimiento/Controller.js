@@ -4,6 +4,7 @@
         var base = this;
         base.Ini = function (opts) {
             'use strict';
+            base.Control.DllUnidadOrganica().select2({});
             base.Control.BotonBuscar().click(base.Event.BotonBuscarClick);
             base.Control.BotonExportar().click(base.Event.BotonExportarClick);
             base.Function.CrearGrillaSeguimiento();
@@ -49,6 +50,7 @@
             GridSeguimiento: function () { return $("#gridSeguimiento"); },
             DllOrgano: function () { return $("#ID_AREA_CONSULTA"); },
             DllUnidadOrganica: function () { return $("#ID_OFICINA_CONSULTA"); },
+            DllAnioConsulta: function () { return $("#ddlAnio_Consulta"); },
             ModalSeguimiento: function () { return $("#modalSeguimiento"); },
             modalRegistroSeg: function () { return $("#modalRegistroSeg"); },
             hdnIdPersonal: function () { return $("#hdnIdPersonal"); },
@@ -102,55 +104,11 @@
                         callback: function (opt) {
                             if (opt) {
                                 base.Ajax.AjaxMantenimientoGuardarForm.submitForm();
-                                /*
-                                var url = SoftwareNet.Web.Operacion.Seguimiento.Actions.GuardarSeguimiento;
-                                var data = new FormData();
-                                data.append('FILE_ARCHIVO', $('#fileArchivo').prop('files')[0]);
-                                data.append('ID_SEGUIMIENTO', 0);
-                                data.append('ID_PROYECTO', base.Control.hdnIdProyecto().val());
-                                data.append('DETALLE_NOTA', base.Control.txtDescSeguimiento().val());
-                                data.append('ID_TIPO_NIVEL', base.Control.DllTipoNivel().val());
-                                                $.ajax({
-                                                    url: url,
-                                                    data: data,
-                                                    processData: false,
-                                                    contentType: false,
-                                                    type: 'POST',
-                                                    success: function (respuesta) {
-                                                        if (respuesta.Success) {
-                                                            base.Control.Mensaje.Information({ message: SoftwareNet.DJ.Web.Shared.Mensaje.Resources.EtiquetaGuardoExito })
-                                                                .InformationClose({
-                                                                    callback: function (opt) {
-                                                                        if (opt) {
-                                                                            base.Control.txtDescSeguimiento().val('');
-                                                                            base.Control.DllTipoNivel().val('');
-                                                                            $('#fileArchivo').val('');
-                                                                            base.Ajax.AjaxBuscarSeguimientoRegistro.data = {
-                                                                                ID_PROYECTO: parseInt(base.Control.hdnIdProyecto().val()),
-                                                                            }
-                                                                            base.Ajax.AjaxBuscarSeguimientoRegistro.submit();
-                                                                        }
-                                                                    }
-                                                                });
-                                                        }
-                                                        else {
-                                                            base.Control.Mensaje.Warning({ message: data.Message }).WarningClose();
-                                                        }
-                                                    },
-                                                    error: function (jqXHR, textStatus, errorThrown) {
-                                                        base.Control.Mensaje.Warning( jqXHR.status ).WarningClose();
-                                               
-                                                    }
-                                                });
-
-                                */
                             }
                         }
                     });
                 }
             },
-
-
             AjaxMantenimientoGuardarFormSuccess: function (data) {
                 var respuesta = data;
                 if (respuesta.Success)
@@ -166,31 +124,6 @@
                     base.Control.Mensaje.Warning({ message: respuesta.Message }).WarningClose();
                 }
             },
-
-
-            /*
-            AjaxGuardarSeguimientoSuccess: function (data) {
-                if (data.Success) {
-                    base.Control.Mensaje.Information({ message: SoftwareNet.DJ.Web.Shared.Mensaje.Resources.EtiquetaGuardoExito })
-                        .InformationClose({
-                            callback: function (opt) {
-
-                                if (opt) {
-                                    base.Control.txtDescSeguimiento().val('');
-                                    base.Control.DllTipoNivel().val('');
-                                    base.Ajax.AjaxBuscarSeguimientoRegistro.data = {
-                                        ID_PROYECTO: parseInt(base.Control.hdnIdProyecto().val()),
-                                    }
-                                    base.Ajax.AjaxBuscarSeguimientoRegistro.submit();
-                                }
-                            }
-                        });
-                }
-                else {
-                    base.Control.Mensaje.Warning({ message: data.Message }).WarningClose();
-                }
-            },
-            */
             AjaxBuscarSeguimientoRegistroSuccess: function (data) {
 
                 if (data.Result) {
@@ -226,13 +159,6 @@
                 autoSubmit: false,
                 onSuccess: base.Event.AjaxBuscarSuccess
             }),
-            /*
-            AjaxRegistrarSeg: new SoftwareNet.DJ.Web.Components.Ajax({
-                action: SoftwareNet.Web.Operacion.Seguimiento.Actions.GuardarSeguimiento,
-                autoSubmit: false,
-                onSuccess: base.Event.AjaxGuardarSeguimientoSuccess
-            }),
-            */
             AjaxBuscarSeguimientoRegistro: new SoftwareNet.DJ.Web.Components.Ajax({
                 action: SoftwareNet.Web.Operacion.Seguimiento.Actions.BuscarSeguimientoProyecto,
                 autoSubmit: false,
@@ -302,16 +228,13 @@
                 });
             },
             BuscarGrilla: function () {
-                var id_area = base.Control.DllOrgano().val();
                 var id_oficina = base.Control.DllUnidadOrganica().val();
-                if ((id_area == undefined || id_area == "" || id_area == null)) {
-                    id_area = 0;
-                }
                 if ((id_oficina == undefined || id_oficina == "" || id_oficina == null)) {
                     id_oficina = 0;
                 }
+                var anio = base.Control.DllAnioConsulta().val();
                 base.Ajax.AjaxBuscar.data = {
-                    ID_AREA: parseInt(id_area),
+                    ANIO: anio,
                     ID_OFICINA: parseInt(id_oficina),
                 }
                 base.Ajax.AjaxBuscar.submit();
@@ -417,11 +340,6 @@
                     }
                 }
                 $.redirect();
-
-                //base.Ajax.AjaxDescargaDocumento.data = {
-                //    ID_ARCHIVO: parseInt(ID_ARCHIVO),
-                //}
-                //base.Ajax.AjaxDescargaDocumento.submit();
             },
             loading: null,
             ShowLoading: function () {

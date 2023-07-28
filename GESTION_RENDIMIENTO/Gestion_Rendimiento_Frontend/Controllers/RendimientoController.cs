@@ -523,6 +523,29 @@ namespace Gestion_Rendimiento_Frontend.Controllers
         {
             var modelo = new RendimientoViewModel();
             modelo.NivelSeguimiento = _nivelseguimiento.GetListNivel();
+            OficinaModel ent = new OficinaModel();
+            modelo.Oficinas = _oficinaService.GetTodos(ent).ToList();
+            string Anio = _proyectoService.Proyecto_Min_Ano();
+            int Anio_a = DateTime.Now.Year;
+            modelo.List_Anio = new List<SelectListItem>();
+            if (Anio != null)
+            {
+                if (Anio_a == int.Parse(Anio))
+                {
+                    modelo.List_Anio.Add(new SelectListItem { Value = Anio_a.ToString(), Text = Anio_a.ToString() });
+                }
+                else
+                {
+                    for (int I = int.Parse(Anio); I <= Anio_a; I += 1)
+                    {
+                        modelo.List_Anio.Add(new SelectListItem { Value = I.ToString(), Text = I.ToString() });
+                    }
+                }
+            }
+            else
+            {
+                modelo.List_Anio.Add(new SelectListItem { Value = Anio_a.ToString(), Text = Anio_a.ToString() });
+            }
             return View(modelo);
         }
         public IActionResult GetAll_Seguimiento([FromBody] EvaluadoModel request)
@@ -536,9 +559,9 @@ namespace Gestion_Rendimiento_Frontend.Controllers
         private List<EvaluadoModel> GetListaEvaluadoSeguimiento(EvaluadoModel request)
         {
             EvaluadoModel modelo = new EvaluadoModel();
-            modelo.ID_AREA = request.ID_AREA;
             modelo.ID_OFICINA = request.ID_OFICINA;
-            var lista = _evaluadoService.GetAll(modelo).ToList();
+            modelo.ANIO = request.ANIO;
+            var lista = _evaluadoService.GetAll_Seguimiento(modelo).ToList();
             return lista;
         }
         private MethodResponseModel<IEnumerable<EvaluadoModel>> ListarReporteSeguimiento([FromBody] EvaluadoModel request)
@@ -714,6 +737,7 @@ namespace Gestion_Rendimiento_Frontend.Controllers
                 Log.CreateLogger(ex.Message);
 
             }
+    
             return html;
 
         }
@@ -721,86 +745,82 @@ namespace Gestion_Rendimiento_Frontend.Controllers
         {
             string html = "";
             string evaluar = EvaluarFila(ID);
-            html += "<tr style='background-color:#FCE4D6;' id='" + ID + "'>";
-            html += "<td colspan='5'>";
-            html += "<div class='form-group'>";
-            html += "<textarea rows=\"3\" cols=\"50\" id='" + ID + "' name='" + ID + "' maxlength='4000' class='form-control tdDESCRIPCION' disabled style='background:white'>" + DES + "</textarea>";
+            html += "<div class='accordion' id='accordionExample'>";
+            html += "<div class='card'>";
+            html += "<div class=\"card-header\" id=\"headingOne\">";
+            html += "<h2 class=\"mb-0\" style='padding:0px;margin:0px;'>";
+            html += "<button class=\"btn btn-link btn-block text-left\" type=\"button\" data-toggle=\"collapse\" data-target="+"#"+ID+" aria -expanded=\"true\" aria-controls="+ID+" style='white-space:normal'>";
+            html += "<p>"+DES+"</p>";
+            html += "</button>";
+            html += "</h2>";
             html += "</div>";
-            html += "</td>";
-            if (CANT > 0)
-            {
-                html += "<td style='background:white;text-align:center;'>" + evaluar + "</td>";
-            }
-            html += "<td class='tdID_DETALLE' style='display:none;'>" + ID + "</td>";
-            html += "<td class='tdP_G' style='display:none;'>1</td>";
-            html += "</tr>";
             return html;
         }
         private string GrupoDetalleRegistroSegHTML(string EVIDENCIA, string PLAZOS, string INDICADOR, int VALOR, int FILA, int ID_PROYECTO, List<RendimientoDetalleSubModel> DETALLE_EVIDENCIA)
         {
-            string html = "";
-            //string remove = EvaluarFila(FILA);
-            //var td_id = GetId();
             var E = "S_EV_" + FILA;
             var P = "S_P_" + FILA;
             var I = "S_I_" + FILA;
             var V = "S_V_" + FILA;
-            html += "<tr>";
-            html += "<td class='tdID_PROYECTO_S' style='display:none;'>" + ID_PROYECTO + "</td>";
-            //html += "<td>" + remove + "</td>";
-            html += "<td>";
-            html += "<div class='form-group'>";
-            html += "<label>Indicador / Producto<span class=\"text-primary m-l-sm\"></span></label>";
-            html += "<textarea id='" + I + "' name='" + I + "' maxlength='4000' rows=\"4\" cols=\"50\" class='form-control tdINDICADOR' disabled style='background:white'>" + INDICADOR + "</textarea>";
+            string evaluar = EvaluarFila(ID_PROYECTO);
+            string html = "";
+            html += "<div id="+ID_PROYECTO+" class=\"collapse\" aria-labelledby=\"headingOne\" data-parent=\"#accordionExample\">";
+            html += "<div class=\"card-body\">";
+            html += "<div class=\"col-md-12\" style='text-align:end;'>";
+            html += evaluar;
             html += "</div>";
-            html += "</td>";
-
-            html += "<td>";
-            html += "<div class='form-group'>";
-            html += "<label>Valor Meta<span class=\"text-primary m-l-sm\"></span></label>";
-            html += "<input id='" + V + "' name='" + V + "' type ='text' maxlength='2'  value='" + VALOR + "' class='form-control tdVALOR' disabled style='background:white'/>";
+            html += "</br>";
+            html += "</br>";
+            html += "<div class=\"col-md-4\">";
+            html += "<div class=\"form-group\" style='text-align:center'>";
+            html += "<span class=\"fw-b fz-sm text-danger\">Indicador / Producto</span>";
+            html += "<p style='white-space:normal;text-align:justify'>  <small> <em>" + INDICADOR + "  </em></small></p>";
+            //html += "<textarea id='" + I + "' name='" + I + "' maxlength='4000' rows=\"4\" cols=\"50\" class='form-control tdINDICADOR' disabled style='background:white'>" + INDICADOR + "</textarea>";
             html += "</div>";
-            html += "</td>";
+            html += "</div>";
+            html += "<div class=\"col-md-2\">";
+            html += "<div class=\"form-group\" style='text-align:center'>";
+            html += "<span class=\"fw-b fz-sm text-danger\">Valor Meta</span>";
+            html += "<p style='white-space:normal;text-align:center'>  <small> <em>" + VALOR + "  </em></small></p>";
+           // html += "<input id='" + V + "' name='" + V + "' type ='text' maxlength='2'  value='" + VALOR + "' class='form-control tdVALOR' disabled style='background:white'/>";
+            html += "</div>";
+            html += "</div>";
 
-            html += "<td>";
-            html += "<div class='form-group'>";
-            html += "<label>Evidencia<span class=\"text-primary m-l-sm\"></span></label>";
+            html += "<div class=\"col-md-4\">";
+            html += "<div class=\"form-group\" style='text-align:center'>";
+            html += "<span class=\"fw-b fz-sm text-danger\">Evidencia</span>";
             foreach (var item in DETALLE_EVIDENCIA)
             {
-                html += "<textarea rows=\"4\" cols=\"50\" maxlength='4000' class='form-control tdEVIDENCIA' idpk_detalle_=" + FILA + "   idpk_detallesub=" + item.ID_DETALLE_SUB + "  disabled style='background:white'>" + item.EVIDENCIA + "</textarea>";
+               // html += "<textarea rows=\"4\" cols=\"50\" maxlength='4000' class='form-control tdEVIDENCIA' idpk_detalle_=" + FILA + "   idpk_detallesub=" + item.ID_DETALLE_SUB + "  disabled style='background:white'>" + item.EVIDENCIA + "</textarea>";
+                html += "<p style='white-space:normal;text-align:justify'>  <small> <em>" + item.EVIDENCIA + "  </em></small></p>";
                 html += "" +
                     "</br>";
             }
-            //  html += "<textarea id='" + E + "' name='" + E + "'  rows=\"4\" cols=\"50\" maxlength='4000' class='form-control tdEVIDENCIA' required>" + EVIDENCIA + "</textarea>";
             html += "</div>";
-            html += "</td>";
-
-            html += "<td>";
-            html += "<div class='form-group'>";
-            html += "<label>Plazos<span class=\"text-primary m-l-sm\"></span></label>";
-            if (PLAZOS == "")
-            {
-                html += "<input id='" + P + "' name='" + P + "' type ='text' maxlength='10'  value='" + PLAZOS + "' class='form-control tdPLAZOS' data-provide=\"datepicker\" data-date-today-highlight=\"true\" data-date-format=\"dd/mm/yyyy\" data-date-language=\"es\" data-date-autoclose=\"true\" disabled style='background:white'/>";
-
-            }
-            else
-            {
-                html += "<input id='" + P + "' name='" + P + "' type ='text' maxlength='10'  value='" + Convert.ToDateTime(PLAZOS).ToString("dd/MM/yyyy") + "' class='form-control tdPLAZOS' data-provide=\"datepicker\" data-date-today-highlight=\"true\" data-date-format=\"dd/mm/yyyy\" data-date-language=\"es\" data-date-autoclose=\"true\" disabled style='background:white'/>";
-            }
             html += "</div>";
-            html += "</td>";
-            html += "<td class='tdID_SUB_DETALLE' style='display:none;'>1</td>";
-            html += "<td class='tdDetPrioridad' style='display:none;'>";
-            html += FILA;
-            html += "</td>";
-
-            html += "</tr>";
+            html += "<div class=\"col-md-2\">";
+            html += "<div class=\"form-group\" style='text-align:center'>";
+            html += "<span class=\"fw-b fz-sm text-danger\">Plazos</span>";
+            html += "<p style='white-space:normal;text-align:center'>  <small> <em>" + Convert.ToDateTime(PLAZOS).ToString("dd/MM/yyyy") + "  </em></small></p>";
+          //  html += "<p>" + Convert.ToDateTime(PLAZOS).ToString("dd/MM/yyyy") + "</p>";
+            //html += "<input id='" + P + "' name='" + P + "' type ='text' maxlength='10'  value='" + Convert.ToDateTime(PLAZOS).ToString("dd/MM/yyyy") + "' class='form-control tdPLAZOS' data-provide=\"datepicker\" data-date-today-highlight=\"true\" data-date-format=\"dd/mm/yyyy\" data-date-language=\"es\" data-date-autoclose=\"true\" disabled style='background:white'/>";
+            html += "</div>";
+            html += "</div>";
+            html += "</div>";
+            html += "</div>";
+            html += "</div>";
             return html;
         }
         private string EvaluarFila(int FILA)
         {
             string html = "";
-            html = "<a href ='javascript:void(0);' title='Registro de seguimiento' ><i class='icon icon-pencil-square-o icon-2x mantenimiento_seguimiento' idpk_p=" + FILA + "></i></a>";
+
+            html+= "<a class='btn btn-sm btn-labeled arrow-left arrow-default mantenimiento_seguimiento' href='#' idpk_p=" + FILA +">";
+            html += "Agregar Comentario";
+            html += "<span class='btn-label btn-label-right'>";
+            html += "<span class=\"icon icon icon-commenting icon-lg icon-fw\"></span>";
+            html += "</span>";
+            html += "</a>";
             return html;
         }
        // public async Task<BaseResponse> GuardarSeguimiento(IFormFile FILE_ARCHIVO, int ID_SEGUIMIENTO, int ID_PROYECTO, string DETALLE_NOTA, int ID_TIPO_NIVEL)

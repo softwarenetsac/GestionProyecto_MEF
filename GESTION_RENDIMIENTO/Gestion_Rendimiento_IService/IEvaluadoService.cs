@@ -12,5 +12,7 @@ namespace Gestion_Rendimiento_IService
     {
         IEnumerable<EvaluadoModel> GetAll(EvaluadoModel modelo);
         IEnumerable<EvaluadoModel> GetAll_Evaluador(EvaluadoModel modelo);
+        IEnumerable<EvaluadoModel> GetAll_Seguimiento(EvaluadoModel modelo);
+        
     }
 }

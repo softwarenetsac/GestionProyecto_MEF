@@ -25,20 +25,35 @@
                 </div>
                 <div class="card-body p-b-sm m-b-sm">
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-2">
                             <div class="form-group">
-                                <label for="ddl_Organo_consulta">Órgano</label>
-                                <select class="form-control" id="ID_AREA_CONSULTA" name="ID_AREA_CONSULTA">
-                                    <option value="0">---Todos-----</option>
+                                <label for="ddl_Organo_consulta">Año</label>
+                                <select class="form-control" id="ddlAnio_Consulta" name="ddlAnio_Consulta">
+                                    @{
+                                        foreach (var item in Model.List_Anio)
+                                        {
+                                            <option value=@item.Value>@item.Text</option>
+                                        }
+                                    }
                                 </select>
-
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-5">
                             <div class="form-group">
-                                <label for="txtRuc_Consulta">Unidad Orgánica</label>
+                                <label for="ddl_Organo_consulta">Oficina</label>
                                 <select class="form-control" id="ID_OFICINA_CONSULTA" name="ID_OFICINA_CONSULTA">
-                                    <option value="" selected="selected">---Todos-----</option>
+                                    <option value="0">---Todos-----</option>
+                                    @{
+
+                                        if (Model.Oficinas != null)
+                                        {
+                                            foreach (var item in Model.Oficinas)
+                                            {
+                                                <option value=@item.ID_OFICINA>@item.NOMBRE_OFICINA</option>
+                                            }
+                                        }
+
+                                    }
                                 </select>
                             </div>
                         </div>
@@ -52,10 +67,6 @@
                             <i class="icon icon-file-excel-o icon-lg m-r-sm"></i>
                             Exportar
                         </button>
-              @*          <button class="btn btn-danger" type="button" id="btnBotonFirmar" name="btnBotonFirmar">
-                            <i class="icon icon-spinner icon-lg m-r-sm"></i>
-                            Firmar
-                        </button>*@
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -84,64 +95,12 @@
         <div class="modal-dialog modal-xl">
             <div class="modal-content">
                 <div class="modal-header bg-primary" style="cursor:pointer;">
-                    <h4 class="modal-title">Planificación</h4>
+                    <h4 class="modal-title">SEGUIMIENTO</h4>
                 </div>
                 <div class="modal-body">
                     <form id="frmModel" name="frmModel" data-toggle="validator" method="post" enctype="multipart/form-data">
                         <input type="hidden" id="hdnIdPersonal" name="hdnIdPersonal" value="0" />
                         <input type="hidden" id="hdnAnio" name="hdnAnio" value="0" />
-
-
-                        <div class="accordion" id="accordionExample">
-                            <div class="card">
-                                <div class="card-header" id="headingOne">
-                                    <h2 class="mb-0">
-                                        <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                            Collapsible Group Item #1
-                                        </button>
-                                    </h2>
-                                </div>
-
-                                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-                                    <div class="card-body">
-                                        Some placeholder content for the first accordion panel. This panel is shown by default, thanks to the <code>.show</code> class.
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card">
-                                <div class="card-header" id="headingTwo">
-                                    <h2 class="mb-0">
-                                        <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                            Collapsible Group Item #2
-                                        </button>
-                                    </h2>
-                                </div>
-                                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-                                    <div class="card-body">
-                                        Some placeholder content for the second accordion panel. This panel is hidden by default.
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card">
-                                <div class="card-header" id="headingThree">
-                                    <h2 class="mb-0">
-                                        <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                            Collapsible Group Item #3
-                                        </button>
-                                    </h2>
-                                </div>
-                                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-                                    <div class="card-body">
-                                        And lastly, the placeholder content for the third and final accordion panel. This panel is hidden by default.
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-
-
-
-
                         <div class="row">
                             <div class="col-md-12 col-sm-12">
                                 <div class="card">
@@ -160,11 +119,6 @@
                                                         <thead>
                                                             <tr style='background-color:#FCE4D6;'>
                                                                 <th colspan='5'>PRIORIDADES ANUALES DE GESTIÓN DEL ÓRGANO O UNIDAD ORGÁNICA</th>
-                                                                <th style="text-align:center;display:none"></th>
-                                                                <th style="text-align:center;display:none"></th>
-                                                                <th style="text-align:center;display:none"></th>
-                                                                <th style="text-align:center;display:none"></th>
-                                                                <th style="text-align:center">SEGUIMIENTO</th>
                                                             </tr>
                                                         </thead>
                                                         <tbody id="gridBody"></tbody>
@@ -223,18 +177,19 @@
                                     </select>
                                 </div>
                             </div>
+                            <div class="col-md-8">
+                                <div class="form-group">
+                                    <label>Informe<span class="text-primary m-l-sm">(opcional)</span></label>
+                                    <input type='file' id="fileArchivo" name="fileArchivo" />
+                                </div>
+                            </div>
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label>Comentarios<span class="text-primary m-l-sm">(*)</span></label>
                                     <textarea rows="3" cols="50" id="TXT_DES_SEGUIMIENTO" name="TXT_DES_SEGUIMIENTO" maxlength='4000' class='form-control' required></textarea>
                                 </div>
                             </div>
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label>Informe<span class="text-primary m-l-sm"></span></label>
-                                    <input type='file' id="fileArchivo" name="fileArchivo" />
-                                </div>
-                            </div>
+                      
                         </div>
 
 
