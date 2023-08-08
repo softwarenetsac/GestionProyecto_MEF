@@ -1287,10 +1287,10 @@ namespace Gestion_Rendimiento_Frontend.Controllers
             {
                 modelo.ID_PERSONAL = UsuarioActual.ID_PERSONAL;
                 string report_rdlc = "";
-                var data = "";// new List<ReporteRendimientoModel>();
+                var data =  new List<ReporteRendimientoModel>();
 
                 report_rdlc = "GestionRendimiento.rdlc";
-                data = null;// _RendimientoService.GetReporteRendimiento(modelo.ID_PERSONAL, modelo.ANIO);
+                data =  _RendimientoService.GetReporteRendimiento(modelo.ID_PERSONAL, modelo.ANIO);
 
 
                 Dictionary<string, string> parameters = new Dictionary<string, string>();
@@ -1308,17 +1308,17 @@ namespace Gestion_Rendimiento_Frontend.Controllers
                 if (data != null)
                 {
                     var itemData = data.FirstOrDefault();
-                    /* nombre_evaluado = itemData.NOMBRE_EVALUADO;
-                     nombre_evaluador = itemData.NOMBRE_EVALUADOR;
-                     nombre_cargo_evaluado = itemData.NOMBRE_CARGO_EVALUADO;
-                     nombre_cargo_evaluador = itemData.NOMBRE_CARGO_EVALUADOR;
-                     nombre_segmento_evaluado = itemData.NOMBRE_SEGMENTO_EVALUADO;
-                     nombre_segmento_evaluador = itemData.NOMBRE_SEGMENTO_EVALUADOR;
-                     nombre_organo_evaluado = itemData.NOMBRE_ORGANO_EVALUADO;
-                     nombre_organo_evaluador = itemData.NOMBRE_ORGANO_EVALUADOR;
-                     dni_evaluado = itemData.DNI_EVALUADO;
-                     fecha_registro = itemData.FECHA_REGISTRO;
-                     nombre_entidad = itemData.NOMBRE_ENTIDAD;*/
+                    nombre_evaluado = itemData.NOMBRE_EVALUADO;
+                    nombre_evaluador = itemData.NOMBRE_EVALUADOR;
+                    nombre_cargo_evaluado = itemData.NOMBRE_CARGO_EVALUADO;
+                    nombre_cargo_evaluador = itemData.NOMBRE_CARGO_EVALUADOR;
+                    nombre_segmento_evaluado = itemData.NOMBRE_SEGMENTO_EVALUADO;
+                    nombre_segmento_evaluador = itemData.NOMBRE_SEGMENTO_EVALUADOR;
+                    nombre_organo_evaluado = itemData.NOMBRE_ORGANO_EVALUADO;
+                    nombre_organo_evaluador = itemData.NOMBRE_ORGANO_EVALUADOR;
+                    dni_evaluado = itemData.DNI_EVALUADO;
+                    fecha_registro = itemData.FECHA_REGISTRO;
+                    nombre_entidad = itemData.NOMBRE_ENTIDAD;
                 }
 
                 parameters.Add("P_FECHA_REGISTRO", fecha_registro);

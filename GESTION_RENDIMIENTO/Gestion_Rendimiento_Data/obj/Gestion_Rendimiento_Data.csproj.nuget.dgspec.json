@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\1.APLICACIONES\\16.Gestion_Proyecto\\1.Aplicación\\GestionProyecto_MEF\\GESTION_RENDIMIENTO\\Gestion_Rendimiento_Data\\Gestion_Rendimiento_Data.csproj": {}
+    "D:\\Proyectos Web\\PERCY\\GestionProyecto_MEF_V5\\GestionProyecto_MEF\\GESTION_RENDIMIENTO\\Gestion_Rendimiento_Data\\Gestion_Rendimiento_Data.csproj": {}
   },
   "projects": {
-    "D:\\1.APLICACIONES\\16.Gestion_Proyecto\\1.Aplicación\\GestionProyecto_MEF\\GESTION_RENDIMIENTO\\Gestion_Rendimiento_Common\\Gestion_Rendimiento_Common.csproj": {
+    "D:\\Proyectos Web\\PERCY\\GestionProyecto_MEF_V5\\GestionProyecto_MEF\\GESTION_RENDIMIENTO\\Gestion_Rendimiento_Common\\Gestion_Rendimiento_Common.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\1.APLICACIONES\\16.Gestion_Proyecto\\1.Aplicación\\GestionProyecto_MEF\\GESTION_RENDIMIENTO\\Gestion_Rendimiento_Common\\Gestion_Rendimiento_Common.csproj",
+        "projectUniqueName": "D:\\Proyectos Web\\PERCY\\GestionProyecto_MEF_V5\\GestionProyecto_MEF\\GESTION_RENDIMIENTO\\Gestion_Rendimiento_Common\\Gestion_Rendimiento_Common.csproj",
         "projectName": "Gestion_Rendimiento_Common",
-        "projectPath": "D:\\1.APLICACIONES\\16.Gestion_Proyecto\\1.Aplicación\\GestionProyecto_MEF\\GESTION_RENDIMIENTO\\Gestion_Rendimiento_Common\\Gestion_Rendimiento_Common.csproj",
-        "packagesPath": "C:\\Users\\Miguel\\.nuget\\packages\\",
-        "outputPath": "D:\\1.APLICACIONES\\16.Gestion_Proyecto\\1.Aplicación\\GestionProyecto_MEF\\GESTION_RENDIMIENTO\\Gestion_Rendimiento_Common\\obj\\",
+        "projectPath": "D:\\Proyectos Web\\PERCY\\GestionProyecto_MEF_V5\\GestionProyecto_MEF\\GESTION_RENDIMIENTO\\Gestion_Rendimiento_Common\\Gestion_Rendimiento_Common.csproj",
+        "packagesPath": "C:\\Users\\LENOVO\\.nuget\\packages\\",
+        "outputPath": "D:\\Proyectos Web\\PERCY\\GestionProyecto_MEF_V5\\GestionProyecto_MEF\\GESTION_RENDIMIENTO\\Gestion_Rendimiento_Common\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Miguel\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\LENOVO\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -55,8 +51,7 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -65,25 +60,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\1.APLICACIONES\\16.Gestion_Proyecto\\1.Aplicación\\GestionProyecto_MEF\\GESTION_RENDIMIENTO\\Gestion_Rendimiento_Data\\Gestion_Rendimiento_Data.csproj": {
+    "D:\\Proyectos Web\\PERCY\\GestionProyecto_MEF_V5\\GestionProyecto_MEF\\GESTION_RENDIMIENTO\\Gestion_Rendimiento_Data\\Gestion_Rendimiento_Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\1.APLICACIONES\\16.Gestion_Proyecto\\1.Aplicación\\GestionProyecto_MEF\\GESTION_RENDIMIENTO\\Gestion_Rendimiento_Data\\Gestion_Rendimiento_Data.csproj",
+        "projectUniqueName": "D:\\Proyectos Web\\PERCY\\GestionProyecto_MEF_V5\\GestionProyecto_MEF\\GESTION_RENDIMIENTO\\Gestion_Rendimiento_Data\\Gestion_Rendimiento_Data.csproj",
         "projectName": "Gestion_Rendimiento_Data",
-        "projectPath": "D:\\1.APLICACIONES\\16.Gestion_Proyecto\\1.Aplicación\\GestionProyecto_MEF\\GESTION_RENDIMIENTO\\Gestion_Rendimiento_Data\\Gestion_Rendimiento_Data.csproj",
-        "packagesPath": "C:\\Users\\Miguel\\.nuget\\packages\\",
-        "outputPath": "D:\\1.APLICACIONES\\16.Gestion_Proyecto\\1.Aplicación\\GestionProyecto_MEF\\GESTION_RENDIMIENTO\\Gestion_Rendimiento_Data\\obj\\",
+        "projectPath": "D:\\Proyectos Web\\PERCY\\GestionProyecto_MEF_V5\\GestionProyecto_MEF\\GESTION_RENDIMIENTO\\Gestion_Rendimiento_Data\\Gestion_Rendimiento_Data.csproj",
+        "packagesPath": "C:\\Users\\LENOVO\\.nuget\\packages\\",
+        "outputPath": "D:\\Proyectos Web\\PERCY\\GestionProyecto_MEF_V5\\GestionProyecto_MEF\\GESTION_RENDIMIENTO\\Gestion_Rendimiento_Data\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Miguel\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\LENOVO\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -97,11 +88,11 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "D:\\1.APLICACIONES\\16.Gestion_Proyecto\\1.Aplicación\\GestionProyecto_MEF\\GESTION_RENDIMIENTO\\Gestion_Rendimiento_Common\\Gestion_Rendimiento_Common.csproj": {
-                "projectPath": "D:\\1.APLICACIONES\\16.Gestion_Proyecto\\1.Aplicación\\GestionProyecto_MEF\\GESTION_RENDIMIENTO\\Gestion_Rendimiento_Common\\Gestion_Rendimiento_Common.csproj"
+              "D:\\Proyectos Web\\PERCY\\GestionProyecto_MEF_V5\\GestionProyecto_MEF\\GESTION_RENDIMIENTO\\Gestion_Rendimiento_Common\\Gestion_Rendimiento_Common.csproj": {
+                "projectPath": "D:\\Proyectos Web\\PERCY\\GestionProyecto_MEF_V5\\GestionProyecto_MEF\\GESTION_RENDIMIENTO\\Gestion_Rendimiento_Common\\Gestion_Rendimiento_Common.csproj"
               },
-              "D:\\1.APLICACIONES\\16.Gestion_Proyecto\\1.Aplicación\\GestionProyecto_MEF\\GESTION_RENDIMIENTO\\Gestion_Rendimiento_Entity\\Gestion_Rendimiento_Entity.csproj": {
-                "projectPath": "D:\\1.APLICACIONES\\16.Gestion_Proyecto\\1.Aplicación\\GestionProyecto_MEF\\GESTION_RENDIMIENTO\\Gestion_Rendimiento_Entity\\Gestion_Rendimiento_Entity.csproj"
+              "D:\\Proyectos Web\\PERCY\\GestionProyecto_MEF_V5\\GestionProyecto_MEF\\GESTION_RENDIMIENTO\\Gestion_Rendimiento_Entity\\Gestion_Rendimiento_Entity.csproj": {
+                "projectPath": "D:\\Proyectos Web\\PERCY\\GestionProyecto_MEF_V5\\GestionProyecto_MEF\\GESTION_RENDIMIENTO\\Gestion_Rendimiento_Entity\\Gestion_Rendimiento_Entity.csproj"
               }
             }
           }
@@ -131,8 +122,7 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -141,25 +131,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\1.APLICACIONES\\16.Gestion_Proyecto\\1.Aplicación\\GestionProyecto_MEF\\GESTION_RENDIMIENTO\\Gestion_Rendimiento_Entity\\Gestion_Rendimiento_Entity.csproj": {
+    "D:\\Proyectos Web\\PERCY\\GestionProyecto_MEF_V5\\GestionProyecto_MEF\\GESTION_RENDIMIENTO\\Gestion_Rendimiento_Entity\\Gestion_Rendimiento_Entity.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\1.APLICACIONES\\16.Gestion_Proyecto\\1.Aplicación\\GestionProyecto_MEF\\GESTION_RENDIMIENTO\\Gestion_Rendimiento_Entity\\Gestion_Rendimiento_Entity.csproj",
+        "projectUniqueName": "D:\\Proyectos Web\\PERCY\\GestionProyecto_MEF_V5\\GestionProyecto_MEF\\GESTION_RENDIMIENTO\\Gestion_Rendimiento_Entity\\Gestion_Rendimiento_Entity.csproj",
         "projectName": "Gestion_Rendimiento_Entity",
-        "projectPath": "D:\\1.APLICACIONES\\16.Gestion_Proyecto\\1.Aplicación\\GestionProyecto_MEF\\GESTION_RENDIMIENTO\\Gestion_Rendimiento_Entity\\Gestion_Rendimiento_Entity.csproj",
-        "packagesPath": "C:\\Users\\Miguel\\.nuget\\packages\\",
-        "outputPath": "D:\\1.APLICACIONES\\16.Gestion_Proyecto\\1.Aplicación\\GestionProyecto_MEF\\GESTION_RENDIMIENTO\\Gestion_Rendimiento_Entity\\obj\\",
+        "projectPath": "D:\\Proyectos Web\\PERCY\\GestionProyecto_MEF_V5\\GestionProyecto_MEF\\GESTION_RENDIMIENTO\\Gestion_Rendimiento_Entity\\Gestion_Rendimiento_Entity.csproj",
+        "packagesPath": "C:\\Users\\LENOVO\\.nuget\\packages\\",
+        "outputPath": "D:\\Proyectos Web\\PERCY\\GestionProyecto_MEF_V5\\GestionProyecto_MEF\\GESTION_RENDIMIENTO\\Gestion_Rendimiento_Entity\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Miguel\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\LENOVO\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -173,8 +159,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "D:\\1.APLICACIONES\\16.Gestion_Proyecto\\1.Aplicación\\GestionProyecto_MEF\\GESTION_RENDIMIENTO\\Gestion_Rendimiento_Common\\Gestion_Rendimiento_Common.csproj": {
-                "projectPath": "D:\\1.APLICACIONES\\16.Gestion_Proyecto\\1.Aplicación\\GestionProyecto_MEF\\GESTION_RENDIMIENTO\\Gestion_Rendimiento_Common\\Gestion_Rendimiento_Common.csproj"
+              "D:\\Proyectos Web\\PERCY\\GestionProyecto_MEF_V5\\GestionProyecto_MEF\\GESTION_RENDIMIENTO\\Gestion_Rendimiento_Common\\Gestion_Rendimiento_Common.csproj": {
+                "projectPath": "D:\\Proyectos Web\\PERCY\\GestionProyecto_MEF_V5\\GestionProyecto_MEF\\GESTION_RENDIMIENTO\\Gestion_Rendimiento_Common\\Gestion_Rendimiento_Common.csproj"
               }
             }
           }
@@ -194,8 +180,7 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -204,7 +189,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
         }
       }
     }

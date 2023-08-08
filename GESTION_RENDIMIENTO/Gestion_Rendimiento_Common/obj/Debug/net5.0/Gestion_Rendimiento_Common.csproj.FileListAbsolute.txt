@@ -10,3 +10,15 @@ D:\1.APLICACIONES\16.Gestion_Proyecto\1.Aplicación\GestionProyecto_MEF\GESTION_
 D:\1.APLICACIONES\16.Gestion_Proyecto\1.Aplicación\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Common\obj\Debug\net5.0\refint\Gestion_Rendimiento_Common.dll
 D:\1.APLICACIONES\16.Gestion_Proyecto\1.Aplicación\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Common\obj\Debug\net5.0\Gestion_Rendimiento_Common.pdb
 D:\1.APLICACIONES\16.Gestion_Proyecto\1.Aplicación\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Common\obj\Debug\net5.0\ref\Gestion_Rendimiento_Common.dll
+D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Common\bin\Debug\net5.0\Gestion_Rendimiento_Common.deps.json
+D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Common\bin\Debug\net5.0\Gestion_Rendimiento_Common.dll
+D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Common\bin\Debug\net5.0\Gestion_Rendimiento_Common.pdb
+D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Common\obj\Debug\net5.0\Gestion_Rendimiento_Common.csproj.AssemblyReference.cache
+D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Common\obj\Debug\net5.0\Gestion_Rendimiento_Common.GeneratedMSBuildEditorConfig.editorconfig
+D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Common\obj\Debug\net5.0\Gestion_Rendimiento_Common.AssemblyInfoInputs.cache
+D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Common\obj\Debug\net5.0\Gestion_Rendimiento_Common.AssemblyInfo.cs
+D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Common\obj\Debug\net5.0\Gestion_Rendimiento_Common.csproj.CoreCompileInputs.cache
+D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Common\obj\Debug\net5.0\Gestion_Rendimiento_Common.dll
+D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Common\obj\Debug\net5.0\refint\Gestion_Rendimiento_Common.dll
+D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Common\obj\Debug\net5.0\Gestion_Rendimiento_Common.pdb
+D:\Proyectos Web\PERCY\GestionProyecto_MEF_V5\GestionProyecto_MEF\GESTION_RENDIMIENTO\Gestion_Rendimiento_Common\obj\Debug\net5.0\ref\Gestion_Rendimiento_Common.dll
