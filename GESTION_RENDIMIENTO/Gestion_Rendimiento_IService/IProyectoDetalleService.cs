@@ -12,6 +12,7 @@ namespace Gestion_Rendimiento_IService
         Proyecto_Detalle Insertar(Proyecto_Detalle item);
         Proyecto_Detalle Actualizar(Proyecto_Detalle item);
         IEnumerable<Proyecto_Detalle> GetProyectoXId(int id);
+        BaseResponse DeleteDetalle(Proyecto_Detalle item);
         // 
     }
 }

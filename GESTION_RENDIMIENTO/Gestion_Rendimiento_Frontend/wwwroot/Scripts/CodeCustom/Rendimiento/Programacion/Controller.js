@@ -18,9 +18,10 @@
                 $(this).closest('tr').remove();
             });
             base.Control.GridRendimiento().on('click', '.findone_mantenimiento', function (e) {
+                debugger;
                 var id = $(e.target).attr("idpk_M");
                 if (typeof id !== 'undefined' && id > 0)
-                    base.Function.AbrirModalRendimiento(id, this);
+                    base.Function.AbrirModalRendimiento(parseInt(id), this);
             });
             base.Control.GridBody().on('click', '.AddEvidencia', function (e) {
                 var elemento = this;
@@ -93,7 +94,7 @@
                                         dataRequest.push({
                                             DESCRIPCION: DESCRIPCION,
                                             ID_EVALUADOR: ID_EVALUADOR,
-                                            ID_PROYECTO: base.Control.hdnIdProyecto().val(),
+                                            ID_PROYECTO: parseInt(base.Control.hdnIdProyecto().val()),
                                         });
                                     }
 
@@ -126,15 +127,20 @@
                                         debugger;
                                         var ID_ = elemento.getAttribute("idpk_detalle_");
                                         var ID_SUB = elemento.getAttribute("idpk_detallesub");
-                                        
-                                        var objdata = {
-                                            ID_DETALLE_PROYECTO: ID_,
-                                            ID_DETALLE_SUB: parseInt(ID_SUB),
-                                            EVIDENCIA: $(this).val(),
-                                        };
-                                        dataRequestEvidencia.push(objdata);
+                                        if (parseInt(ID_)!=0) {
+                                            var objdata = {
+                                                ID_DETALLE_PROYECTO: parseInt(ID_),
+                                                ID_DETALLE_SUB: parseInt(ID_SUB),
+                                                EVIDENCIA: $(this).val(),
+                                            };
+                                            dataRequestEvidencia.push(objdata);
+                                        }
+                                  
                                     }
                                 );
+                                console.log(dataRequest);
+                                console.log(dataRequestD);
+                                console.log(dataRequestEvidencia);
                                 base.Ajax.AjaxGuardar.data = {
                                     ItemsProyecto: dataRequest,
                                     ItemsPrioridad: dataRequestD,
@@ -201,6 +207,7 @@
         };
         base.Function = {
             AbrirModalRendimiento: function (id, parent) {
+
                 base.Control.DllProgramacionr().val('');
                 base.Control.DllProgramacionr().trigger("change");
                 base.Control.hdnIdProyecto().val(0);
@@ -213,7 +220,7 @@
                         base.Control.DllProgramacionr().trigger("change");
                     }
                     base.Control.hdnIdProyecto().val(id);
-                    base.Function.AgregarRegistroPrioridad(id);
+                    base.Function.AgregarRegistroPrioridad();
                     $('.btn_agr').hide();
                     
                 } else {
@@ -276,9 +283,10 @@
                         var elemento = this;
                         debugger;
                         var ID_ = elemento.getAttribute("idpk_detalle_");
+                        var ID_DETALLE_SUB = elemento.getAttribute("idpk_detallesub");
                         var objdata = {
-                            ID_DETALLE_PROYECTO: ID_,// == 0 ? ID_ : parseInt(ID_DETALLE_PROYECTO),
-                            ID_DETALLE_SUB: parseInt(0),
+                            ID_DETALLE_PROYECTO: parseInt(ID_)  ,// == 0 ? ID_ : parseInt(ID_DETALLE_PROYECTO),
+                            ID_DETALLE_SUB: ID_DETALLE_SUB > 0 ? parseInt(ID_DETALLE_SUB):0,
                             EVIDENCIA: $(this).val(),
                         };
                         dataRequest.push(objdata);
@@ -300,7 +308,7 @@
                 $("#gridBody").html(row);
 
             },
-            AgregarRegistroPrioridad: function (id) {
+            AgregarRegistroPrioridad: function () {
                 var url = SoftwareNet.Web.Operacion.Programacion.Actions.NuevaFila;
                 var itemPrioridad = base.Function.GetData();
                 var itemPrioridadDet = base.Function.GetDataDet(0);

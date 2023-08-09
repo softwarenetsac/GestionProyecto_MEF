@@ -223,7 +223,7 @@ namespace Gestion_Rendimiento_Frontend.Controllers
                         {
                             foreach (var item in detalle)
                             {
-                                var detalle_evidencia = listaEvidenciaD.Where(x => x.ID_DETALLE_PROYECTO == item.ID_DETALLE).ToList();
+                                var detalle_evidencia = listaEvidenciaD.Where(x => x.ID_DETALLE_PROYECTO == item.ID_DETALLE).OrderBy(X => X.ID_DETALLE_SUB).ToList();
                                 html += GrupoDetalleRegistroHTML(item.EVIDENCIA, item.PLAZOS, item.INDICADOR, item.VALOR, item.ID_DETALLE, item.ID_PROYECTO, detalle_evidencia);
                             }
                         }
@@ -283,7 +283,7 @@ namespace Gestion_Rendimiento_Frontend.Controllers
             html += "<td>";
             html += "<div class='form-group'>";
             html += "<label>Valor Meta<span class=\"text-primary m-l-sm\">(*)</span></label>";
-            html += "<input id='" + V + "' name='" + V + "' type ='text' maxlength='2'  value='" + VALOR + "' class='form-control tdVALOR' required/>";
+            html += "<input id='" + V + "' name='" + V + "' type ='number' maxlength='2'  value='" + VALOR + "' class='form-control tdVALOR' required/>";
             html += "</div>";
             html += "</td>";
 
@@ -379,8 +379,23 @@ namespace Gestion_Rendimiento_Frontend.Controllers
                 {
                     var valor = _proyectoService.Actualizar(entidad);
                     id = valor.ID_PROYECTO;
+                    var list = _proyectodetalleService.GetProyectoXId(id);
+                    foreach (var i in list)
+                    {
+                        var x = _proyectodetalleService.Actualizar(new Proyecto_Detalle {
+                            ID_PROYECTO = i.ID_PROYECTO,
+                            ID_DETALLE_PROYECTO = i.ID_DETALLE_PROYECTO,
+                            INDICADOR_PRODUCTO = i.INDICADOR_PRODUCTO,
+                            VALOR = i.VALOR,
+                            PLAZO = i.PLAZO,
+                            EVIDENCIA = "",
+                            USUARIO_MODIFICACION = usuario_login,
+                            FECHA_MODIFICACION = DateTime.Now,
+                            IP_MODIFICACION = IP,
+                            FLG_ESTADO = "0",
+                        });
+                    }
                 }
-
                 if (id > 0)
                 {
                     respuesta.Success = true;
@@ -403,6 +418,9 @@ namespace Gestion_Rendimiento_Frontend.Controllers
                         USUARIO_CREACION = usuario_login,
                         FECHA_CREACION = DateTime.Now,
                         IP_CREACION = IP,
+                        USUARIO_MODIFICACION = usuario_login,
+                        FECHA_MODIFICACION = DateTime.Now,
+                        IP_MODIFICACION = IP,
                         FLG_ESTADO = "1",
 
                     };
@@ -428,49 +446,50 @@ namespace Gestion_Rendimiento_Frontend.Controllers
                     {
                         var valor = _proyectodetalleService.Actualizar(entidad);
                         id = entidad.ID_DETALLE_PROYECTO;
-                        foreach (var item_sub in items.ItemsDetalleEvidencia)
-                        {
-                            if (item_sub.ID_DETALLE_SUB == 0)
-                            {
-                                var ent_sub = new Proyecto_Detalle_Sub
-                                {
-                                    ID_DETALLE_SUB = 0,
-                                    ID_DETALLE_PROYECTO = id,
-                                    EVIDENCIA = item_sub.EVIDENCIA,
-                                    USUARIO_CREACION = usuario_login,
-                                    FECHA_CREACION = DateTime.Now,
-                                    IP_CREACION = IP,
-                                    FLG_ESTADO = "1",
-
-                                };
-                                var valor_sub = _proyectodetallesubService.Insertar(ent_sub);
-                                id = valor_sub.ID_DETALLE_PROYECTO;
-                            }
-                            else
-                            {
-                                var ent_sub = new Proyecto_Detalle_Sub
-                                {
-                                    ID_DETALLE_SUB = item_sub.ID_DETALLE_SUB,
-                                    ID_DETALLE_PROYECTO = id,
-                                    EVIDENCIA = item_sub.EVIDENCIA,
-                                    USUARIO_CREACION = usuario_login,
-                                    FECHA_CREACION = DateTime.Now,
-                                    IP_CREACION = IP,
-                                    FLG_ESTADO = "1",
-
-                                };
-                                var valor_sub = _proyectodetallesubService.Actualizar(ent_sub);
-                                id = valor_sub.ID_DETALLE_PROYECTO;
-                            }
-                        }
-                    }
-
-                    if (id > 0)
-                    {
-                        respuesta.Success = true;
-                        respuesta.Message = "Se ha procesado correctamente";
+                   
                     }
                 }
+                foreach (var item_sub in items.ItemsDetalleEvidencia)
+                {
+                    if (item_sub.ID_DETALLE_SUB == 0)
+                    {
+                        var ent_sub = new Proyecto_Detalle_Sub
+                        {
+                            ID_DETALLE_SUB = 0,
+                            ID_DETALLE_PROYECTO = item_sub.ID_DETALLE_PROYECTO,
+                            EVIDENCIA = item_sub.EVIDENCIA,
+                            USUARIO_CREACION = usuario_login,
+                            FECHA_CREACION = DateTime.Now,
+                            IP_CREACION = IP,
+                            FLG_ESTADO = "1",
+
+                        };
+                        var valor_sub = _proyectodetallesubService.Insertar(ent_sub);
+                        id = valor_sub.ID_DETALLE_PROYECTO;
+                    }
+                    else
+                    {
+                        var ent_sub = new Proyecto_Detalle_Sub
+                        {
+                            ID_DETALLE_SUB = item_sub.ID_DETALLE_SUB,
+                            ID_DETALLE_PROYECTO = item_sub.ID_DETALLE_PROYECTO,
+                            EVIDENCIA = item_sub.EVIDENCIA,
+                            USUARIO_CREACION = usuario_login,
+                            FECHA_CREACION = DateTime.Now,
+                            IP_CREACION = IP,
+                            FLG_ESTADO = "1",
+
+                        };
+                        var valor_sub = _proyectodetallesubService.Actualizar(ent_sub);
+                        id = valor_sub.ID_DETALLE_PROYECTO;
+                    }
+                }
+                if (id > 0)
+                {
+                    respuesta.Success = true;
+                    respuesta.Message = "Se ha procesado correctamente";
+                }
+
             }
             return respuesta;
         }
