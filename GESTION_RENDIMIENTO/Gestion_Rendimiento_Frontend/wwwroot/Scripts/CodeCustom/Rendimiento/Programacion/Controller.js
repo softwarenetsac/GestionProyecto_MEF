@@ -23,6 +23,18 @@
                 if (typeof id !== 'undefined' && id > 0)
                     base.Function.AbrirModalRendimiento(parseInt(id), this);
             });
+            base.Control.GridRendimiento().on('click', '.findone_verprioridad', function (e) {
+                debugger;
+                var id = $(e.target).attr("idpk_M");
+                if (typeof id !== 'undefined' && id > 0)
+                    base.Function.AbrirModalRendimientoVer(parseInt(id), this);
+            });
+            base.Control.GridRendimiento().on('click', '.delete_proyecto', function (e) {
+                debugger;
+                var id = $(e.target).attr("idpki_M");
+                if (typeof id !== 'undefined' && id > 0)
+                    base.Function.EliminarProyecto(parseInt(id), this);
+            });
             base.Control.GridBody().on('click', '.AddEvidencia', function (e) {
                 var elemento = this;
                 debugger;
@@ -37,6 +49,19 @@
             base.Function.CrearGrillaRendimiento();
             base.Function.BuscarGrilla();
             base.Control.BotonExportarPDF().click(base.Event.BotonExportarPDFClick);
+            base.Control.BotonEnviarORH().click(base.Event.BotonGuardarActualizarEstadoClick);
+            base.Control.GridRendimiento().on('click', '#chkAllSelection', function (e) {
+                // debugger;
+
+                $('#gridRendimiento tbody input[type="checkbox"]').prop('checked', this.checked);
+                $('#gridRendimiento tbody tr').removeClass("odd selected check");
+                if (this.checked) {
+                    $('#gridRendimiento tbody tr input[type="checkbox"').parent().parent().parent().addClass('odd selected check');
+
+                } else {
+                    $('#gridRendimiento tbody tr').addClass("odd");
+                }
+            });
         };
 
         base.Parameters = {
@@ -57,7 +82,8 @@
             hdnIdProyecto: function () { return $("#hdnIdProyecto"); },
             DllAnioConsulta: function () { return $("#ddlAnio_Consulta"); },
             BotonExportarPDF: function () { return $("#btnExportarPDF"); },
-        
+            BotonEnviarORH: function () { return $('#btnEnvioOrh'); },
+            
         };
 
         base.Event = {
@@ -154,6 +180,40 @@
 
                 }
             },
+            BotonGuardarActualizarEstadoClick: function () {
+                var indexes = 0;
+                $('.chkProyecto:checked').each(
+                    function () {
+                        indexes = 1;
+                    }
+                );
+                if (indexes > 0) {
+                    base.Control.Mensaje.Confirmation({
+                        message: "¿Esta seguro que desea enviar para su revisión los registros seleccionados.?",
+                    }).ConfirmationAcept({
+                        callback: function (opt) {
+                            if (opt) {
+                                var dataRequest = new Array();
+                                $('.chkProyecto:checked').each(
+                                    function () {
+                                        var objdata = {
+                                            ID_PROYECTO: parseInt($(this).val()),
+                                            ID_ESTADO: parseInt(4),
+                                        };
+                                        dataRequest.push(objdata);
+                                    }
+                                );
+                                base.Ajax.AjaxActualizarEstado.data = {
+                                    ItemsProyecto: dataRequest,
+                                }
+                                base.Ajax.AjaxActualizarEstado.submit();
+                            }
+                        }
+                    });
+                } else {
+                    base.Control.Mensaje.Warning({ message: "Seleccione como mínimo un registro para enviar a la Oficina de Recursos Humanos." }).WarningClose();
+                }
+            },
             AjaxGuardarSuccess: function (data) {
                 if (data.Success) {
                     base.Control.Mensaje.Information({ message: SoftwareNet.DJ.Web.Shared.Mensaje.Resources.EtiquetaGuardoExito })
@@ -163,6 +223,37 @@
                                 if (opt) {
                                     base.Function.BuscarGrilla();
                                     base.Control.ModalAgregarRendimiento().modal("hide");
+                                    base.Control.ModalAgregarRendimiento().html("");
+                                }
+                            }
+                        });
+                }
+                else {
+                    base.Control.Mensaje.Warning({ message: data.Message }).WarningClose();
+                }
+            },
+            AjaxEliminarSuccess: function (data) {
+                if (data.Success) {
+                    base.Control.Mensaje.Information({ message: "El registro se eliminó correctamente." })
+                        .InformationClose({
+                            callback: function (opt) {
+                                if (opt) {
+                                    base.Function.BuscarGrilla();
+                                }
+                            }
+                        });
+                }
+                else {
+                    base.Control.Mensaje.Warning({ message: data.Message }).WarningClose();
+                }
+            },
+            AjaxActualizarEstadoSuccess: function (data) {
+                if (data.Success) {
+                    base.Control.Mensaje.Information({ message: "Los registros seleccionados se enviaron correctamente." })
+                        .InformationClose({
+                            callback: function (opt) {
+                                if (opt) {
+                                    base.Function.BuscarGrilla();
                                 }
                             }
                         });
@@ -204,6 +295,16 @@
                 autoSubmit: false,
                 onSuccess: base.Event.AjaxBuscarSuccess
             }),
+            AjaxEliminar: new SoftwareNet.DJ.Web.Components.Ajax({
+                action: SoftwareNet.Web.Operacion.Programacion.Actions.Eliminar,
+                autoSubmit: false,
+                onSuccess: base.Event.AjaxEliminarSuccess
+            }),
+            AjaxActualizarEstado: new SoftwareNet.DJ.Web.Components.Ajax({
+                action: SoftwareNet.Web.Operacion.Programacion.Actions.ActualizarEstado,
+                autoSubmit: false,
+                onSuccess: base.Event.AjaxActualizarEstadoSuccess
+            }),
         };
         base.Function = {
             AbrirModalRendimiento: function (id, parent) {
@@ -227,6 +328,35 @@
                     $('.btn_agr').show();
                     base.Function.AgregarRegistroPrioridadM(0);
                 }
+                base.Control.ModalAgregarRendimiento().modal('show');
+            },
+            AbrirModalRendimientoVer: function (id, parent) {
+
+                base.Control.DllProgramacionr().val('');
+                base.Control.DllProgramacionr().trigger("change");
+                base.Control.hdnIdProyecto().val(0);
+                if (id > 0) {
+                    var padre = $(parent).parent().parent();
+                    var indice = base.Parameters.TableRendimiento.row(padre).index();
+                    var data = base.Parameters.TableRendimiento.row(indice).data();
+                    if (data != null) {
+                        base.Control.DllProgramacionr().val(data.ID_EVALUADOR);
+                        base.Control.DllProgramacionr().trigger("change");
+                    }
+                    base.Control.hdnIdProyecto().val(id);
+                    base.Function.AgregarRegistroPrioridad();
+                    $('.btn_agr').hide();
+                    $('.AddRegDet').hide();
+                    $('.AddEvidencia').hide();
+                    $('#btnGuardar').hide();
+                    $('.deletered').hide();
+                    $("input").prop('disabled', true);
+                    $("textarea").prop('disabled', true);    
+                }
+                //else {
+                //    $('.btn_agr').show();
+                //    base.Function.AgregarRegistroPrioridadM(0);
+                //}
                 base.Control.ModalAgregarRendimiento().modal('show');
             },
             GetData: function () {
@@ -364,21 +494,26 @@
             },
             CrearGrillaRendimiento: function () {
                 General.configurarGrilla();
+                var chk = "Sel.";
+                chk += "</br>";
+                chk += '<label class="custom-control custom-control-primary custom-checkbox">';
+                chk += '<input class="custom-control-input" type="checkbox" name="chkAllSelection" id=chkAllSelection >';
+                chk += '<span class="custom-control-indicator" style="border-color: #d9230f;"></span>';
+                chk += '</label>';
                 base.Parameters.TableRendimiento = base.Control.GridRendimiento().DataTable({
                     ordering: false,
                     select: true,
                     columns: [
+                        { "data": "", "title": chk, "class": "text-center", 'orderable': false },
                         { "data": "", "title": "Editar", "class": "text-center" },
                         { "data": "", "title": "Anular", "class": "text-center" },
                         { "data": "ID_PROYECTO", "visible": false },
                         { "data": "ANIO", "title": "Año", "class": "text-center" },
                         { "data": "DESCRIPCION", "title": "Prioridades Anuales", "width": "20%" },
-                 
                         { "data": "NOMBRE_EVALUADO", "title": "Evaluado" },
                         { "data": "NOMBRE_EVALUADOR", "title": "Evaluador" },
                         { "data": "PLAZO", "title": "Plazo", "class": "text-center", "visible": false },
                         { "data": "NOMBRE_ESTADO", "title": "Estado", "class": "text-center" },
-
                         { "data": "ID_OFICINA", "visible": false },
                         { "data": "ID_PERSONAL", "visible": false },
                         { "data": "ID_ESTADO", "visible": false },
@@ -390,10 +525,15 @@
                             'targets': 0,
                             'searchable': false,
                             'orderable': false,
-                            'className': 'dt-body-center',
-                            "render": function (data, type, row, meta) {
+                            'render': function (data, type, row, meta) {
                                 var html = "";
-                                html = '<a href="javascript:void(0);" ><i class="icon icon-edit icon-lg m-c-sm findone_mantenimiento" secuencial="' + row.INDICE + '" idpk_M="' + row.ID_PROYECTO + '"></i></a>';
+                                if (row.ID_ESTADO == "1") {
+                                    html += '<label class="custom-control custom-control-primary custom-checkbox">';
+                                    html += '<input class="custom-control-input chkProyecto" type="checkbox"  name=chk_' + row.ID_PROYECTO + ' id=chk_' + row.ID_PROYECTO + ' value=' + row.ID_PROYECTO + '  >';
+                                    html += '<span class="custom-control-indicator" style="border-color: #d9230f;font-size:20px;"></span>';
+                                    html += '</label>';
+                                }
+                       
                                 return html;
                             }
                         },
@@ -402,9 +542,29 @@
                             'searchable': false,
                             'orderable': false,
                             'className': 'dt-body-center',
+                            "render": function (data, type, row, meta) {
+                                var html = "";
+                                switch (row.ID_ESTADO) {
+                                    case "1":
+                                        html = '<a href="javascript:void(0);" title="Editar Prioridad" ><i class="icon icon-edit icon-lg m-c-sm findone_mantenimiento" secuencial="' + row.INDICE + '" idpk_M="' + row.ID_PROYECTO + '"></i></a>';
+                                        break;
+                                    case "4":
+                                        html = '<a href="javascript:void(0);" title="Ver Prioridad"><i class="icon icon-search-plus icon-lg m-c-sm findone_verprioridad" secuencial="' + row.INDICE + '" idpk_M="' + row.ID_PROYECTO + '"></i></a>';
+                                        break;
+                                }
+                                return html;
+                            }
+                        },
+                        {
+                            'targets': 2,
+                            'searchable': false,
+                            'orderable': false,
+                            'className': 'dt-body-center',
                             'render': function (data, type, row, meta) {
                                 var html = "";
-                                html = '<a href="javascript:void(0);" ><i class="icon icon-remove icon-lg m-c-sm delete_mantenimiento" idpk="' + row.ID_PROYECTO + '" idpki="' + meta.ID_PROYECTO + '"></i></a>';
+                                if (row.ID_ESTADO=="1") {
+                                    html = '<a href="javascript:void(0);" title="Anular Prioridad" ><i class="icon icon-remove icon-lg m-c-sm delete_proyecto" secuencial="' + row.INDICE + '" idpki_M="' + row.ID_PROYECTO + '"></i></a>';
+                                }
                                 return html;
                             }
                         },
@@ -416,6 +576,21 @@
                     ANIO: base.Control.DllAnioConsulta().val(),
                 }
                 base.Ajax.AjaxBuscar.submit();
+            },
+            EliminarProyecto: function (ID_PROYECTO, parent) {
+                base.Control.Mensaje.Confirmation({
+                    message: "¿Estás seguro de elimiar el registro?",
+                }).ConfirmationAcept({
+                    callback: function (opt) {
+                        if (opt) {
+                    
+                            base.Ajax.AjaxEliminar.data = {
+                                ID_PROYECTO: ID_PROYECTO,
+                            }
+                            base.Ajax.AjaxEliminar.submit();
+                        }
+                    }
+                });
             },
             loading: null,
             ShowLoading: function () {

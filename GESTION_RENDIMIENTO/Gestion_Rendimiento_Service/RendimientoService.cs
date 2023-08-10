@@ -84,7 +84,7 @@ NOMBRE_CARGO = t.NOMBRE_CARGO,
 NOMBRE_EVALUADOR = t.NOMBRE_EVALUADOR,
 NOMBRE_ESTADO = t.NOMBRE_ESTADO,
     NOMBRE_OFICINA = t.NOMBRE_OFICINA
-}).ToList().Where(x => x.ID_PERSONAL == request.ID_PERSONAL).ToList();
+}).ToList().Where(x => x.ID_PERSONAL == request.ID_PERSONAL && x.FLG_ESTADO=="1").ToList();
                 return lista;
             }
             else if (request.TIPO == "ORH")
@@ -106,7 +106,7 @@ NOMBRE_CARGO = t.NOMBRE_CARGO,
 NOMBRE_EVALUADOR = t.NOMBRE_EVALUADOR,
 NOMBRE_ESTADO = t.NOMBRE_ESTADO,
     NOMBRE_OFICINA=t.NOMBRE_OFICINA
-}).ToList().Where(x => x.ID_OFICINA== (request.ID_OFICINA == 0 ? x.ID_OFICINA : request.ID_OFICINA) && x.ANIO== request.ANIO).ToList();
+}).ToList().Where(x => x.ID_OFICINA== (request.ID_OFICINA == 0 ? x.ID_OFICINA : request.ID_OFICINA) && x.ANIO== request.ANIO && x.FLG_ESTADO == "1").ToList();
                 return lista;
             }
             else
@@ -128,7 +128,7 @@ NOMBRE_CARGO = t.NOMBRE_CARGO,
 NOMBRE_EVALUADOR = t.NOMBRE_EVALUADOR,
 NOMBRE_ESTADO = t.NOMBRE_ESTADO,
     NOMBRE_OFICINA = t.NOMBRE_OFICINA
-}).ToList();
+}).ToList().Where(x=> x.FLG_ESTADO == "1");
                 return lista;
             }
   
@@ -157,7 +157,6 @@ NOMBRE_ESTADO = t.NOMBRE_ESTADO,
            }).ToList().Where(x => x.ID_PERSONAL == ID_PERSONAL && x.ANIO== ANIO && x.FLG_ESTADO=="1").ToList();
             return lista;
         }
-
         public List<ReporteRendimientoModel> GetReporteRendimiento(string ID_PERSONAL, string ANIO)
         {
             var lista = _context.ReporteRendimiento
@@ -190,7 +189,7 @@ NOMBRE_ESTADO = t.NOMBRE_ESTADO,
                EVIDENCIA = string.IsNullOrEmpty(t.EVIDENCIA) ? "" : t.EVIDENCIA,
                PLAZO = string.IsNullOrEmpty(t.PLAZO) ? "" : t.PLAZO,
                TIPO_FORMULA = string.IsNullOrEmpty(t.TIPO_FORMULA) ? "" : t.TIPO_FORMULA
-           }).ToList().Where(x => x.ID_PERSONAL == ID_PERSONAL && x.ANIO == ANIO).ToList();
+           }).ToList().Where(x => x.ID_PERSONAL == ID_PERSONAL && x.ANIO == ANIO && x.FLG_ESTADO=="1").ToList();
             return lista;
 
         }

@@ -77,5 +77,92 @@ namespace Gestion_Rendimiento_Service
             return _baseResponse;
 
         }
+        public BaseResponse DeleteProyecto(Proyecto item)
+        {
+            _baseResponse = new BaseResponse();
+            _baseResponse.Success = false;
+
+            var transaction = _context.Database.BeginTransaction();
+            transaction.CreateSavepoint("BeforeTransaccion");
+            try
+            {
+                var model = new Proyecto
+                {
+                    ID_PROYECTO = item.ID_PROYECTO,
+                    USUARIO_MODIFICACION = item.USUARIO_MODIFICACION,
+                    FECHA_MODIFICACION = item.FECHA_MODIFICACION,
+                };
+                _context.Attach(model);
+                _context.Entry(model).Property(x => x.ID_PROYECTO).IsModified = false;
+                _context.Entry(model).Property(x => x.FLG_ESTADO).IsModified = true;
+                _context.Entry(model).Property(x => x.USUARIO_MODIFICACION).IsModified = true;
+                _context.Entry(model).Property(x => x.FECHA_MODIFICACION).IsModified = true;
+                var code = _context.SaveChanges();
+
+                if (code < 1)
+                {
+                    throw new Exception("Ocurrió un error al eliminar registro ");
+                }
+                transaction.Commit();
+                _baseResponse.ID = item.ID_PROYECTO;
+                _baseResponse.Code = (int)EstadoProcesoEnum.Success;
+                _baseResponse.Success = true;
+                _baseResponse.Message = "Se ha procesado correctamente";
+            }
+            catch (Exception ex)
+            {
+                transaction.RollbackToSavepoint("BeforeTransaccion");
+                Log.CreateLogger(ex.Message);
+                _baseResponse.Code = (int)EstadoProcesoEnum.Failed;
+                _baseResponse.Success = false;
+                _baseResponse.Message = ex.Message;
+            }
+            return _baseResponse;
+
+        }
+        public BaseResponse ActualizarEstadoProyecto(Proyecto item)
+        {
+            _baseResponse = new BaseResponse();
+            _baseResponse.Success = false;
+
+            var transaction = _context.Database.BeginTransaction();
+            transaction.CreateSavepoint("BeforeTransaccion");
+            try
+            {
+                var model = new Proyecto
+                {
+                    ID_PROYECTO = item.ID_PROYECTO,
+                    ID_ESTADO = item.ID_ESTADO,
+                    USUARIO_MODIFICACION = item.USUARIO_MODIFICACION,
+                    FECHA_MODIFICACION = item.FECHA_MODIFICACION,
+                };
+                _context.Attach(model);
+                _context.Entry(model).Property(x => x.ID_PROYECTO).IsModified = false;
+                _context.Entry(model).Property(x => x.ID_ESTADO).IsModified = true;
+                _context.Entry(model).Property(x => x.USUARIO_MODIFICACION).IsModified = true;
+                _context.Entry(model).Property(x => x.FECHA_MODIFICACION).IsModified = true;
+                var code = _context.SaveChanges();
+
+                if (code < 1)
+                {
+                    throw new Exception("Ocurrió un error al eliminar registro ");
+                }
+                transaction.Commit();
+                _baseResponse.ID = item.ID_PROYECTO;
+                _baseResponse.Code = (int)EstadoProcesoEnum.Success;
+                _baseResponse.Success = true;
+                _baseResponse.Message = "Se ha procesado correctamente";
+            }
+            catch (Exception ex)
+            {
+                transaction.RollbackToSavepoint("BeforeTransaccion");
+                Log.CreateLogger(ex.Message);
+                _baseResponse.Code = (int)EstadoProcesoEnum.Failed;
+                _baseResponse.Success = false;
+                _baseResponse.Message = ex.Message;
+            }
+            return _baseResponse;
+
+        }
     }
 }

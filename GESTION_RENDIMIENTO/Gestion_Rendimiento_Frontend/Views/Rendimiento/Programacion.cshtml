@@ -58,10 +58,10 @@
                         <i class="icon icon-plus-circle icon-lg m-r-sm"></i>
                         Nueva Planificación
                     </button>
-                    @*<button class="btn btn-default m-l-sm" id="btnExportarEXCEl" name="btnExportarEXCEl">
-                        <i class="icon icon-file-excel-o icon-lg m-r-sm"></i>
-                        Exportar en EXCEL
-                    </button>*@
+                    <button class="btn btn-danger m-l-sm" id="btnEnvioOrh" name="btnEnvioOrh">
+                        <i class="icon icon-paper-plane icon-lg m-r-sm"></i>
+                        Solicitar Revisión ORH
+                    </button>
                     <div class="btn-group dropup">
                       <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" type="button">
                         <span class="icon icon-download icon-lg icon-fw"></span>
@@ -223,6 +223,8 @@
         SoftwareNet.Web.Operacion.Programacion.Actions.NuevaFila = '@Url.Action("GenerarHTML", "Rendimiento")';
         SoftwareNet.Web.Operacion.Programacion.Actions.NuevaFilaDetalle = '@Url.Action("GenerarHTMLDET", "Rendimiento")';
         SoftwareNet.Web.Operacion.Programacion.Actions.Registrar = '@Url.Action("GuardarProyecto", "Rendimiento")';
+        SoftwareNet.Web.Operacion.Programacion.Actions.Eliminar = '@Url.Action("DeleteProyecto", "Rendimiento")';
+        SoftwareNet.Web.Operacion.Programacion.Actions.ActualizarEstado = '@Url.Action("ActualizarEstadoProyecto", "Rendimiento")';
         SoftwareNet.Web.Operacion.Programacion.Actions.Buscar = '@Url.Action("GetAll_Proyecto", "Rendimiento")';
         SoftwareNet.Web.Operacion.Programacion.Actions.ExportarPDF = '@Url.Action("ImprimirRendimientoPDF", "Rendimiento")';
     </script>

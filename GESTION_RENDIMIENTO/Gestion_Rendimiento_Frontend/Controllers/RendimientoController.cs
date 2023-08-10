@@ -341,7 +341,7 @@ namespace Gestion_Rendimiento_Frontend.Controllers
             string html = "";
             if (editable == "1")
             {
-                html = "<a value=" + FILA + " href ='javascript:void(0);' ><i class='icon icon-remove icon-2x delete_mantenimiento'></i></a>";
+                html = "<a value=" + FILA + " href ='javascript:void(0);' class='deletered'><i class='icon icon-remove icon-2x delete_mantenimiento'></i></a>";
             }
             return html;
 
@@ -536,6 +536,64 @@ namespace Gestion_Rendimiento_Frontend.Controllers
         {
             var lista = _RendimientoService.GetAll(request).ToList();
             return lista;
+        }
+        public BaseResponse DeleteProyecto([FromBody] RendimientoModel items)
+        {
+            BaseResponse respuesta = new BaseResponse();
+            var usuario_conectado = _personaService.Detalle(UsuarioActual.ID_PERSONAL);
+            string usuario_login = UsuarioActual == null ? "" : UsuarioActual.UsuarioLogin;
+            // string correos = "";
+            try
+            {
+                var entidad = new Proyecto
+                {
+                    USUARIO_MODIFICACION = usuario_login,
+                    FECHA_MODIFICACION = DateTime.Now,
+                    FLG_ESTADO = "0",
+                    ID_PROYECTO = items.ID_PROYECTO,
+                };
+                var valor = _proyectoService.DeleteProyecto(entidad);
+                respuesta.Success = true;
+                respuesta.Message = "El registro se elimino correctamente";
+            }
+            catch (Exception)
+            {
+                respuesta.Success = true;
+                respuesta.Message = "El registro se elimino correctamente";
+                throw;
+            }
+            return respuesta;
+        }
+        public BaseResponse ActualizarEstadoProyecto([FromBody] RendimientoModel items)
+        {
+            BaseResponse respuesta = new BaseResponse();
+            var usuario_conectado = _personaService.Detalle(UsuarioActual.ID_PERSONAL);
+            string usuario_login = UsuarioActual == null ? "" : UsuarioActual.UsuarioLogin;
+            // string correos = "";
+            try
+            {
+                foreach (var item in items.ItemsProyecto)
+                {
+                    var entidad = new Proyecto
+                    {
+                        USUARIO_MODIFICACION = usuario_login,
+                        FECHA_MODIFICACION = DateTime.Now,
+                        ID_ESTADO = item.ID_ESTADO,
+                        ID_PROYECTO = item.ID_PROYECTO,
+                    };
+                    var valor = _proyectoService.ActualizarEstadoProyecto(entidad);
+                }
+     
+                respuesta.Success = true;
+                respuesta.Message = "El registro se elimino correctamente";
+            }
+            catch (Exception)
+            {
+                respuesta.Success = true;
+                respuesta.Message = "El registro se elimino correctamente";
+                throw;
+            }
+            return respuesta;
         }
         #region SEGUIMIENTO
         public IActionResult Seguimiento()
@@ -888,8 +946,6 @@ namespace Gestion_Rendimiento_Frontend.Controllers
             }
             return respuesta;
         }
-
-
         private async Task<RespuestaAPI> GuardarArchivoLaserFiche(IFormFile FILE_ARCHIVO, int ID_PROYECTO, string etapa)
         {
             var resppuesta = new RespuestaAPI
@@ -975,7 +1031,6 @@ namespace Gestion_Rendimiento_Frontend.Controllers
             }
 
         }
-
         private async Task<RespuestaAPI> GetArchivo(long id_archivo) {
             RespuestaAPI respuesta = new RespuestaAPI();
             try
@@ -999,8 +1054,6 @@ namespace Gestion_Rendimiento_Frontend.Controllers
 
             return respuesta;
         }
-
-
         #region     EVALUACION
         public IActionResult Evaluacion()
         {

@@ -13,5 +13,7 @@ namespace Gestion_Rendimiento_IService
         Proyecto Actualizar(Proyecto item);
         string Proyecto_Min_Ano();
         BaseResponse ActualizarProyecto(Proyecto request);
+        BaseResponse DeleteProyecto(Proyecto request);
+        BaseResponse ActualizarEstadoProyecto(Proyecto request);
     }
 }
